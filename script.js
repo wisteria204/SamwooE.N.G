@@ -85,3 +85,10 @@ document.addEventListener('click', (e) => {
 document.getElementById('home-logo').addEventListener('click', () => {
   showSection('main');
 });
+
+// 페이지 로드 시 처음 보여줄 섹션
+//showSection('main');
+
+document.addEventListener('DOMContentLoaded', () => {
+  showSection('main');
+});
