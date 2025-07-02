@@ -79,3 +79,9 @@ document.addEventListener('click', (e) => {
     fixedDropdown = null;
   }
 });
+
+
+// 로고 클릭 시 메인 섹션으로 이동
+document.getElementById('home-logo').addEventListener('click', () => {
+  showSection('main');
+});
