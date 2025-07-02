@@ -1,0 +1,16 @@
+body {
+    font-family: 'Pretendard', sans-serif;
+  }
+  
+  .hidden-section {
+    display: none;
+  }
+  
+  .section {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+  }
+  
