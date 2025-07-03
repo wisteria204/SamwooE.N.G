@@ -106,3 +106,8 @@ button:focus {
   background-color: #3C6AA6;
   color: white;
 }
+
+.dropdown-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

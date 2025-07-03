@@ -69,13 +69,14 @@ function showSection(id) {
     }
   }
 
-  // PC 버전: 모든 드롭다운 메뉴 닫기
-  const pcDropdowns = document.querySelectorAll('.group > div');
+  // PC 버전: 모든 드롭다운 메뉴 강제로 닫기
+  const pcDropdowns = document.querySelectorAll('.group > div.absolute');
   pcDropdowns.forEach(dropdown => {
-    if (dropdown.classList.contains('absolute')) {
-      dropdown.classList.remove('opacity-100', 'visible');
-      dropdown.classList.add('opacity-0', 'invisible');
-    }
+    dropdown.classList.add('dropdown-hidden');
+    // 잠시 후 클래스 제거하여 hover 기능 복원
+    setTimeout(() => {
+      dropdown.classList.remove('dropdown-hidden');
+    }, 500);
   });
 
   // 드롭다운 닫기 (기존 코드)
