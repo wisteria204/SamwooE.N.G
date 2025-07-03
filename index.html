@@ -15,7 +15,7 @@
   <header class="bg-black bg-opacity-70 fixed w-full top-0 z-50">
     <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
   <a id="home-logo" class="flex items-center space-x-2 text-2xl font-bold cursor-pointer">
-    <img src="images/logo.png" alt="삼우E.N.G 로고" class="h-8 w-8 object-contain" />
+    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-9 w-9 object-contain" />
     <span>삼우E.N.G</span>
   </a>
 
@@ -129,21 +129,54 @@
       <h1 class="text-4xl font-bold mb-4">보도자료</h1>
       <p>언론에 보도된 삼우E.N.G의 활동을 소개합니다.</p>
     </section>
-    <section id="gallery" class="section hidden-section bg-[url('https://source.unsplash.com/1600x900/?gallery')]">
-      <h1 class="text-4xl font-bold mb-4">갤러리</h1>
-      <p>삼우E.N.G의 주요 행사 및 현장 사진입니다.</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <a href="images/1_2.png" data-lightbox="samu-gallery" data-title="행사 사진 1">
-          <img src="images/1_2.png" class="w-full rounded shadow" />
-        </a>
-        <a href="images/3R6A4269.JPG" data-lightbox="samu-gallery" data-title="행사 사진 2">
-          <img src="images/3R6A4269.JPG" class="w-full rounded shadow" />
-        </a>
-        <a href="images/삼우이엔지 로고.png" data-lightbox="samu-gallery" data-title="행사 사진 3">
-          <img src="images/삼우이엔지 로고.png" class="w-full rounded shadow" />
-        </a>
-      </div>      
+    <section id="gallery" class="section hidden-section bg-gray-900 p-8">
+      <h1 class="text-4xl font-bold mb-6 text-center text-white">갤러리</h1>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div>
+          <img
+            src="images/1_2.png"
+            alt="사진1"
+            class="gallery-img cursor-pointer rounded-lg shadow-md hover:scale-105 transition-transform duration-300 w-full h-auto"
+            data-full="images/1_2.png"
+          />
+          <p class="text-center text-sm text-gray-300 mt-1">첫 번째 사진 설명</p>
+        </div>
+        <div>
+          <img
+            src="images/3R6A4269.JPG"
+            alt="사진2"
+            class="gallery-img cursor-pointer rounded-lg shadow-md hover:scale-105 transition-transform duration-300 w-full h-auto"
+            data-full="images/3R6A4269.JPG"
+          />
+          <p class="text-center text-sm text-gray-300 mt-1">두 번째 사진 설명</p>
+        </div>
+        <!-- 추가 사진들 반복 -->
+      </div>
     </section>
+
+    <!-- 모달 팝업 -->
+    <div
+      id="modal"
+      class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="relative bg-black rounded shadow-lg max-w-3xl max-h-[80vh] p-4"
+      >
+        <button
+          id="modal-close"
+          class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <img
+          id="modal-img"
+          src=""
+          alt="확대 이미지"
+          class="max-w-full max-h-[80vh] rounded"
+        />
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->

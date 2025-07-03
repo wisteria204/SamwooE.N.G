@@ -92,3 +92,34 @@ document.getElementById('home-logo').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   showSection('main');
 });
+
+// 모달 관련 변수
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalCloseBtn = document.getElementById('modal-close');
+const galleryImages = document.querySelectorAll('.gallery-img');
+
+// 갤러리 이미지 클릭 시 모달 열기
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    modalImg.src = img.dataset.full; // data-full 속성에서 큰 이미지 경로 사용
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // 배경 스크롤 막기
+  });
+});
+
+// X버튼 클릭 시 모달 닫기
+modalCloseBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  modalImg.src = ''; // 이미지 src 비우기 (선택)
+});
+
+// 모달 배경(빈 공간) 클릭 시 닫기
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    modalImg.src = '';
+  }
+});
