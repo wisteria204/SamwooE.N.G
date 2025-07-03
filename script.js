@@ -40,7 +40,7 @@ function scheduleCloseDropdown(el) {
   const dropdown = el.querySelector('.dropdown');
   const timer = setTimeout(() => {
     dropdown.classList.add('hidden');
-  }, 500);
+  }, 300);
   closeTimers.set(el, timer);
 }
 
