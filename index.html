@@ -37,34 +37,34 @@
         <span>삼우E.N.G</span>
       </a>
       <ul class="flex flex-wrap items-center space-x-4 sm:space-x-6">
-        <li class="relative group" onmouseenter="hoverDropdown(this)" onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600 text-sm sm:text-base md:text-lg lg:text-xl" onclick="toggleFixedDropdown(this)">회사소개</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-xs sm:text-sm md:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[6rem]">
-            <li><a href="javascript:void(0)" onclick="showSection('intro')">회사소개</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('greeting')">인사말</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('history')">연혁</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('location')">오시는길</a></li>
+        <li class="relative group">
+          <button class="px-4 py-2 text-xl hover:text-blue-600">회사소개</button>
+          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
+            <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-2 hover:bg-gray-100">회사소개</a>
+            <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-2 hover:bg-gray-100">인사말</a>
+            <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-2 hover:bg-gray-100">연혁</a>
+            <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-2 hover:bg-gray-100">오시는 길</a>
+          </div>
+        </li>
+        <li class="relative group">
+          <button class="px-4 py-2 text-xl hover:text-blue-600">사업분야</button>
+          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
+            <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-2 hover:bg-gray-100">제품소개</a>
+            <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-2 hover:bg-gray-100">공정소개</a>
           </ul>
         </li>
-        <li class="relative group" onmouseenter="hoverDropdown(this)" onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600 text-sm sm:text-base md:text-lg lg:text-xl" onclick="toggleFixedDropdown(this)">사업분야</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-xs sm:text-sm md:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[6rem]">
-            <li><a href="javascript:void(0)" onclick="showSection('products')">제품소개</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('process')">공정소개</a></li>
+        <li class="relative group">
+          <button class="px-4 py-2 text-xl hover:text-blue-600">연구개발</button>
+          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
+            <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-2 hover:bg-gray-100">연구개발</a>
+            <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-2 hover:bg-gray-100">특허인증</a>
           </ul>
         </li>
-        <li class="relative group" onmouseenter="hoverDropdown(this)" onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600 text-sm sm:text-base md:text-lg lg:text-xl" onclick="toggleFixedDropdown(this)">연구개발</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-xs sm:text-sm md:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[6rem]">
-            <li><a href="javascript:void(0)" onclick="showSection('rnd')">연구개발</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('patents')">특허인증</a></li>
-          </ul>
-        </li>
-        <li class="relative group" onmouseenter="hoverDropdown(this)" onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600 text-sm sm:text-base md:text-lg lg:text-xl" onclick="toggleFixedDropdown(this)">홍보자료</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-xs sm:text-sm md:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[6rem]">
-            <li><a href="javascript:void(0)" onclick="showSection('news')">보도자료</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('gallery')">갤러리</a></li>
+        <li class="relative group">
+          <button class="px-4 py-2 text-xl hover:text-blue-600">홍보자료</button>
+          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
+            <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-2 hover:bg-gray-100">보도자료</a>
+            <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-2 hover:bg-gray-100">갤러리</a>
           </ul>
         </li>
       </ul>
@@ -79,8 +79,8 @@
              min-h-[80vh] sm:min-h-[90vh] lg:min-h-screen"
       style="background-image: url('images/BG1.jpg');">
       <div class="relative z-10 bg-black bg-opacity-50 p-6 sm:p-8 lg:p-10 rounded-lg max-w-xl text-center">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">삼우E.N.G</h1>
-        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6">정밀 제조 기술의 미래를 선도하는 기업</p>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">삼 우 E.N.G</h1>
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6">제조 기술의 미래를 선도하는 기업</p>
       </div>
     </section>
 
