@@ -14,3 +14,9 @@ body {
     padding: 4rem 2rem;
   }
   
+  .dropdown li a:hover {
+  background-color: #F2F2F2; /* 예: 파란색 배경 */
+  color: #3C6AA6; /* 흰색 글자 */
+  border-radius: 0.2rem; /* Tailwind의 rounded-md */
+  transition: background-color 0.3s ease;
+}

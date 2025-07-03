@@ -9,13 +9,38 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Lightbox2 CSS 추가 -->
     <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
+    <style>
+  /* 텍스트 색상 */
+  .text-color1 { color: #3C4CA6; }
+  .text-color2 { color: #3C5FA6; }
+  .text-color3 { color: #3C6AA6; }
+  .text-color4 { color: #F2F2F2; }
+  .text-color5 { color: #0D0D0D; }
+
+  /* 배경색 */
+  .bg-color1 { background-color: #3C4CA6; }
+  .bg-color2 { background-color: #3C5FA6; }
+  .bg-color3 { background-color: #3C6AA6; }
+  .bg-color4 { background-color: #F2F2F2; }
+  .bg-color5 { background-color: #0D0D0D; }
+
+  /* 배경+글자색 조합 (가독성 보장) */
+  .theme1 { background-color: #3C4CA6; color: #F2F2F2; }
+  .theme2 { background-color: #3C5FA6; color: #F2F2F2; }
+  .theme3 { background-color: #3C6AA6; color: #F2F2F2; }
+  .theme4 { background-color: #F2F2F2; color: #0D0D0D; }
+  .theme5 { background-color: #0D0D0D; color: #F2F2F2; }
+</style>
+
 </head>
-<body class="bg-[#3C5FA6] bg-opacity-10 text-white">
+
+<body class="bg-color4">
   <!-- Navigation -->
-  <header class="bg-[#3C6AA6] bg-opacity-100 fixed w-full top-0 z-50">
+  <header class="theme4 fixed w-full top-0 z-50">
     <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
   <a id="home-logo" class="flex items-center space-x-2 text-2xl font-bold cursor-pointer">
-    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-9 w-9 object-contain" />
+    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-10 object-contain" />
     <span>삼우E.N.G</span>
   </a>
 
@@ -24,8 +49,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-yellow-400" onclick="toggleFixedDropdown(this)">회사소개</button>
-          <ul class="dropdown absolute left-0 hidden bg-gray-800 text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">회사소개</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="#" onclick="showSection('intro')">회사소개</a></li>
@@ -37,8 +62,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-yellow-400" onclick="toggleFixedDropdown(this)">사업분야</button>
-          <ul class="dropdown absolute left-0 hidden bg-gray-800 text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">사업분야</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="#" onclick="showSection('products')">제품소개</a></li>
@@ -48,8 +73,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-yellow-400" onclick="toggleFixedDropdown(this)">연구개발</button>
-          <ul class="dropdown absolute left-0 hidden bg-gray-800 text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">연구개발</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="#" onclick="showSection('rnd')">연구개발</a></li>
@@ -59,8 +84,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-yellow-400" onclick="toggleFixedDropdown(this)">홍보자료</button>
-          <ul class="dropdown absolute left-0 hidden bg-gray-800 text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">홍보자료</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="#" onclick="showSection('news')">보도자료</a></li>
@@ -128,7 +153,7 @@
       <h1 class="text-4xl font-bold mb-4">보도자료</h1>
       <p>언론에 보도된 삼우E.N.G의 활동을 소개합니다.</p>
     </section>
-    <section id="gallery" class="section hidden-section bg-gray-900 p-8">
+    <section id="gallery" class="section hidden-section bg-color4">
       <h1 class="text-4xl font-bold mb-6 text-center text-white">갤러리</h1>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div>
@@ -138,7 +163,7 @@
             class="gallery-img cursor-pointer rounded-lg shadow-md hover:scale-105 transition-transform duration-300 w-full h-auto"
             data-full="images/1_2.png"
           />
-          <p class="text-center text-sm text-gray-300 mt-1">사무실 및 공장 전경</p>
+          <p class="text-center text-sm text-color5">사무실 및 공장 전경</p>
         </div>
         <div>
           <img
@@ -147,7 +172,7 @@
             class="gallery-img cursor-pointer rounded-lg shadow-md hover:scale-105 transition-transform duration-300 w-full h-auto"
             data-full="images/3R6A4269.JPG"
           />
-          <p class="text-center text-sm text-gray-300 mt-1">대표 사진</p>
+          <p class="text-center text-sm text-color5">대표 사진</p>
         </div>
         <!-- 추가 사진들 반복 -->
       </div>

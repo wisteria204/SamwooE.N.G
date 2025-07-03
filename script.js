@@ -10,6 +10,13 @@ function showSection(id) {
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   
+    // URL hash 변경
+    if(history.pushState) {
+      history.pushState(null, null, '#' + id);
+    } else {
+      window.location.hash = id;
+    }
+
     // 클릭 시 고정된 드롭다운도 닫기
     if (fixedDropdown) {
       fixedDropdown.classList.add('hidden');
@@ -40,7 +47,7 @@ function scheduleCloseDropdown(el) {
   const dropdown = el.querySelector('.dropdown');
   const timer = setTimeout(() => {
     dropdown.classList.add('hidden');
-  }, 300);
+  }, 500);
   closeTimers.set(el, timer);
 }
 
@@ -89,8 +96,13 @@ document.getElementById('home-logo').addEventListener('click', () => {
 // 페이지 로드 시 처음 보여줄 섹션
 //showSection('main');
 
-document.addEventListener('DOMContentLoaded', () => {
-  showSection('main');
+  window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.substring(1); // # 제거
+  if(hash) {
+    showSection(hash);
+  } else {
+    showSection('main'); // 기본 메인 화면
+  }
 });
 
 // 모달 관련 변수
