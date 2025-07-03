@@ -17,6 +17,17 @@ function closeMobileMenu() {
   menu.classList.add('hidden');
   menuIcon.classList.remove('hidden');
   closeIcon.classList.add('hidden');
+  
+  // 모든 서브메뉴 닫기 및 화살표 초기화
+  const submenus = ['company', 'business', 'rnd', 'pr'];
+  submenus.forEach(name => {
+    const submenu = document.getElementById(name + '-submenu');
+    const arrow = document.getElementById(name + '-arrow');
+    if (submenu && arrow) {
+      submenu.classList.add('hidden');
+      arrow.classList.remove('rotate-180');
+    }
+  });
 }
 
 function toggleMobileSubmenu(name) {
@@ -57,6 +68,15 @@ function showSection(id) {
       window.location.hash = id;
     }
   }
+
+  // PC 버전: 모든 드롭다운 메뉴 닫기
+  const pcDropdowns = document.querySelectorAll('.group > div');
+  pcDropdowns.forEach(dropdown => {
+    if (dropdown.classList.contains('absolute')) {
+      dropdown.classList.remove('opacity-100', 'visible');
+      dropdown.classList.add('opacity-0', 'invisible');
+    }
+  });
 
   // 드롭다운 닫기 (기존 코드)
   if (fixedDropdown) {
