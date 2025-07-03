@@ -2,37 +2,38 @@ let fixedDropdown = null;
 const closeTimers = new WeakMap();
 
 function showSection(id) {
-    // 모든 섹션 숨기고, 선택한 섹션만 보여줌
-    document.querySelectorAll('main > section').forEach(section => {
-      section.id === id
-        ? section.classList.remove('hidden-section')
-        : section.classList.add('hidden-section');
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  
-    // URL hash 변경
+  // 모든 섹션 숨기고, 선택한 섹션만 보여줌
+  document.querySelectorAll('main > section').forEach(section => {
+    section.id === id
+      ? section.classList.remove('hidden-section')
+      : section.classList.add('hidden-section');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // URL hash가 이미 원하는 id면 변경하지 않음 (불필요한 history 변경 방지)
+  if(window.location.hash.substring(1) !== id) {
     if(history.pushState) {
       history.pushState(null, null, '#' + id);
     } else {
       window.location.hash = id;
     }
-
-    // 클릭 시 고정된 드롭다운도 닫기
-    if (fixedDropdown) {
-      fixedDropdown.classList.add('hidden');
-      fixedDropdown.parentElement.classList.remove('fixed-open');
-      fixedDropdown = null;
-    }
-  
-    // 추가: 현재 클릭한 메뉴의 상위 드롭다운도 닫기
-    const allDropdowns = document.querySelectorAll('.dropdown');
-    allDropdowns.forEach(dropdown => {
-      dropdown.classList.add('hidden');
-      if (dropdown.parentElement.classList.contains('fixed-open')) {
-        dropdown.parentElement.classList.remove('fixed-open');
-      }
-    });
   }
+
+  // 드롭다운 닫기 (기존 코드)
+  if (fixedDropdown) {
+    fixedDropdown.classList.add('hidden');
+    fixedDropdown.parentElement.classList.remove('fixed-open');
+    fixedDropdown = null;
+  }
+  const allDropdowns = document.querySelectorAll('.dropdown');
+  allDropdowns.forEach(dropdown => {
+    dropdown.classList.add('hidden');
+    if (dropdown.parentElement.classList.contains('fixed-open')) {
+      dropdown.parentElement.classList.remove('fixed-open');
+    }
+  });
+}
+
   
 function hoverDropdown(el) {
   if (!el.classList.contains('fixed-open')) {
@@ -96,9 +97,9 @@ document.getElementById('home-logo').addEventListener('click', () => {
 // 페이지 로드 시 처음 보여줄 섹션
 //showSection('main');
 
-  window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash.substring(1); // # 제거
-  if(hash) {
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.substring(1);
+  if(hash && document.getElementById(hash)) {
     showSection(hash);
   } else {
     showSection('main'); // 기본 메인 화면
