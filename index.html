@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>삼우E.N.G</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
   <style>
@@ -24,59 +24,147 @@
     .theme3 { background-color: #3C6AA6; color: #F2F2F2; }
     .theme4 { background-color: #F2F2F2; color: #0D0D0D; }
     .theme5 { background-color: #0D0D0D; color: #F2F2F2; }
+    
+    /* 모바일 드롭다운 스타일 */
+    @media (max-width: 768px) {
+      .group:hover .group-hover\:opacity-100 {
+        opacity: 0;
+      }
+      .group:hover .group-hover\:visible {
+        visibility: hidden;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-color4">
   <!-- Navigation -->
-  <header class="theme4 fixed w-full top-0 z-50">
-    <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-2 px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-      <a id="home-logo" class="flex items-center space-x-3 sm:space-x-4 text-xl sm:text-2xl font-bold cursor-pointer">
-        <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 sm:h-10 w-auto object-contain" />
-        <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-8 sm:h-10 w-auto object-contain" />
-        <span>삼우E.N.G</span>
-      </a>
-      <ul class="flex flex-wrap items-center space-x-4 sm:space-x-6">
-        <li class="relative group">
-          <button class="px-4 py-2 text-xl hover:text-blue-600">회사소개</button>
-          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
-            <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-2 hover:bg-gray-100">회사소개</a>
-            <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-2 hover:bg-gray-100">인사말</a>
-            <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-2 hover:bg-gray-100">연혁</a>
-            <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-2 hover:bg-gray-100">오시는 길</a>
+  <header class="theme4 fixed w-full top-0 z-50 shadow-md">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 데스크톱 네비게이션 -->
+      <div class="hidden md:flex items-center justify-between py-4">
+        <a id="home-logo" class="flex items-center space-x-4 text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity">
+          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
+          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
+          <span>삼우E.N.G</span>
+        </a>
+        <ul class="flex items-center space-x-6">
+          <li class="relative group">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">회사소개</button>
+            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
+              <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">회사소개</a>
+              <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">인사말</a>
+              <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">연혁</a>
+              <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">오시는 길</a>
+            </div>
+          </li>
+          <li class="relative group">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">사업분야</button>
+            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
+              <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">제품소개</a>
+              <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">공정소개</a>
+            </div>
+          </li>
+          <li class="relative group">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">연구개발</button>
+            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
+              <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">연구개발</a>
+              <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">특허인증</a>
+            </div>
+          </li>
+          <li class="relative group">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">홍보자료</button>
+            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
+              <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">보도자료</a>
+              <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">갤러리</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 모바일 네비게이션 -->
+      <div class="md:hidden">
+        <div class="flex items-center justify-between py-3">
+          <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-bold cursor-pointer">
+            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" />
+            <span>삼우E.N.G</span>
+          </a>
+          <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="hidden pb-4">
+          <div class="space-y-2">
+            <div class="mobile-menu-item">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('company')">
+                회사소개
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="company-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="company-submenu" class="hidden pl-8 space-y-1 mt-1">
+                <a href="javascript:void(0)" onclick="showSection('intro'); closeMobileMenu();" class="block py-2 hover:text-blue-600">회사소개</a>
+                <a href="javascript:void(0)" onclick="showSection('greeting'); closeMobileMenu();" class="block py-2 hover:text-blue-600">인사말</a>
+                <a href="javascript:void(0)" onclick="showSection('history'); closeMobileMenu();" class="block py-2 hover:text-blue-600">연혁</a>
+                <a href="javascript:void(0)" onclick="showSection('location'); closeMobileMenu();" class="block py-2 hover:text-blue-600">오시는 길</a>
+              </div>
+            </div>
+            
+            <div class="mobile-menu-item">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('business')">
+                사업분야
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="business-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="business-submenu" class="hidden pl-8 space-y-1 mt-1">
+                <a href="javascript:void(0)" onclick="showSection('products'); closeMobileMenu();" class="block py-2 hover:text-blue-600">제품소개</a>
+                <a href="javascript:void(0)" onclick="showSection('process'); closeMobileMenu();" class="block py-2 hover:text-blue-600">공정소개</a>
+              </div>
+            </div>
+            
+            <div class="mobile-menu-item">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('rnd')">
+                연구개발
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="rnd-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="rnd-submenu" class="hidden pl-8 space-y-1 mt-1">
+                <a href="javascript:void(0)" onclick="showSection('rnd'); closeMobileMenu();" class="block py-2 hover:text-blue-600">연구개발</a>
+                <a href="javascript:void(0)" onclick="showSection('patents'); closeMobileMenu();" class="block py-2 hover:text-blue-600">특허인증</a>
+              </div>
+            </div>
+            
+            <div class="mobile-menu-item">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('pr')">
+                홍보자료
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="pr-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="pr-submenu" class="hidden pl-8 space-y-1 mt-1">
+                <a href="javascript:void(0)" onclick="showSection('news'); closeMobileMenu();" class="block py-2 hover:text-blue-600">보도자료</a>
+                <a href="javascript:void(0)" onclick="showSection('gallery'); closeMobileMenu();" class="block py-2 hover:text-blue-600">갤러리</a>
+              </div>
+            </div>
           </div>
-        </li>
-        <li class="relative group">
-          <button class="px-4 py-2 text-xl hover:text-blue-600">사업분야</button>
-          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
-            <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-2 hover:bg-gray-100">제품소개</a>
-            <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-2 hover:bg-gray-100">공정소개</a>
-          </ul>
-        </li>
-        <li class="relative group">
-          <button class="px-4 py-2 text-xl hover:text-blue-600">연구개발</button>
-          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
-            <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-2 hover:bg-gray-100">연구개발</a>
-            <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-2 hover:bg-gray-100">특허인증</a>
-          </ul>
-        </li>
-        <li class="relative group">
-          <button class="px-4 py-2 text-xl hover:text-blue-600">홍보자료</button>
-          <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-50 min-w-[12rem]">
-            <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-2 hover:bg-gray-100">보도자료</a>
-            <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-2 hover:bg-gray-100">갤러리</a>
-          </ul>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
   <!-- 콘텐츠 -->
-  <main class="pt-14">
+  <main class="pt-16 md:pt-20">
     <section id="main"
       class="flex flex-col justify-center items-center bg-cover bg-center text-white
              px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24
-             min-h-[80vh] sm:min-h-[90vh] lg:min-h-screen"
+             min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]"
       style="background-image: url('images/BG1.jpg');">
       <div class="relative z-10 bg-black bg-opacity-50 p-6 sm:p-8 lg:p-10 rounded-lg max-w-xl text-center">
         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">삼 우 E.N.G</h1>
@@ -85,79 +173,103 @@
     </section>
 
     <section id="intro" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">회사소개</h1>
-      <p class="text-base sm:text-lg">삼우E.N.G는 최고의 기술력으로 제조업을 선도합니다.</p>
-    </section>
-
-    <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">인사말</h1>
-      <p class="text-base sm:text-lg">안녕하십니까, 삼우E.N.G 대표입니다. 저희 회사를 찾아주셔서 감사합니다.</p>
-    </section>
-
-    <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연혁</h1>
-      <p class="text-base sm:text-lg">2000년 설립 이후 끊임없이 성장하고 있는 삼우E.N.G의 발자취를 소개합니다.</p>
-    </section>
-
-    <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">오시는길</h1>
-      <p class="text-base sm:text-lg">경상북도 경주시 외동읍 어령길 110-8</p>
-      <p class="text-base sm:text-lg">위치는 지도를 참고해주세요.</p>
-      <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
-        class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition mt-4">
-        <img src="images/약도.png" alt="네이버 지도 보기" class="w-full max-w-md"/>
-      </a>
-      <p class="text-sm sm:text-base text-gray-500 mt-2">지도를 클릭하시면 네이버 지도로 이동합니다.</p>
-    </section>
-
-    <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">제품소개</h1>
-      <p class="text-base sm:text-lg">삼우E.N.G의 주요 제품을 소개합니다.</p>
-    </section>
-
-    <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">공정소개</h1>
-      <p class="text-base sm:text-lg">최첨단 제조 공정을 소개합니다.</p>
-    </section>
-
-    <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연구개발</h1>
-      <p class="text-base sm:text-lg">지속적인 연구개발로 기술 경쟁력을 확보하고 있습니다.</p>
-    </section>
-
-    <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">특허・인증</h1>
-      <p class="text-base sm:text-lg">보유 특허 및 인증 내역을 소개합니다.</p>
-    </section>
-
-    <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">보도자료</h1>
-      <p class="text-base sm:text-lg">언론에 보도된 삼우E.N.G의 활동을 소개합니다.</p>
-    </section>
-
-    <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">갤러리</h1>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-        <div>
-          <img src="images/1_2.png" alt="사진1"
-            class="gallery-img w-full h-auto max-h-[200px] sm:max-h-[240px] md:max-h-[280px] lg:max-h-[320px] object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-            data-full="images/1_2.png" />
-          <p class="text-center text-xs sm:text-sm text-color5 mt-2">사무실 및 공장 전경</p>
-        </div>
-        <div>
-          <img src="images/3R6A4269.JPG" alt="사진2"
-            class="gallery-img w-full h-auto max-h-[200px] sm:max-h-[240px] md:max-h-[280px] lg:max-h-[320px] object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-            data-full="images/3R6A4269.JPG" />
-          <p class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</p>
-        </div>
-        <!-- 추가 사진 반복 -->
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">회사소개</h1>
+        <p class="text-base sm:text-lg">삼우E.N.G는 최고의 기술력으로 제조업을 선도합니다.</p>
       </div>
     </section>
 
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
-      <div class="relative bg-black rounded shadow-lg max-w-full sm:max-w-2xl max-h-[80vh] p-4">
-        <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500">&times;</button>
-        <img id="modal-img" src="" alt="확대 이미지" class="max-w-full max-h-[80vh] rounded" />
+    <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">인사말</h1>
+        <p class="text-base sm:text-lg">안녕하십니까, 삼우E.N.G 대표입니다. 저희 회사를 찾아주셔서 감사합니다.</p>
+      </div>
+    </section>
+
+    <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연혁</h1>
+        <p class="text-base sm:text-lg">2000년 설립 이후 끊임없이 성장하고 있는 삼우E.N.G의 발자취를 소개합니다.</p>
+      </div>
+    </section>
+
+    <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">오시는길</h1>
+        <p class="text-base sm:text-lg">경상북도 경주시 외동읍 어령길 110-8</p>
+        <p class="text-base sm:text-lg mb-4">위치는 지도를 참고해주세요.</p>
+        <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
+          class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition">
+          <img src="images/약도.png" alt="네이버 지도 보기" class="w-full max-w-md"/>
+        </a>
+        <p class="text-sm sm:text-base text-gray-500 mt-2">지도를 클릭하시면 네이버 지도로 이동합니다.</p>
+      </div>
+    </section>
+
+    <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">제품소개</h1>
+        <p class="text-base sm:text-lg">삼우E.N.G의 주요 제품을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">공정소개</h1>
+        <p class="text-base sm:text-lg">최첨단 제조 공정을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연구개발</h1>
+        <p class="text-base sm:text-lg">지속적인 연구개발로 기술 경쟁력을 확보하고 있습니다.</p>
+      </div>
+    </section>
+
+    <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">특허・인증</h1>
+        <p class="text-base sm:text-lg">보유 특허 및 인증 내역을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">보도자료</h1>
+        <p class="text-base sm:text-lg">언론에 보도된 삼우E.N.G의 활동을 소개합니다.</p>
+      </div>
+    </section>
+
+    <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">갤러리</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div class="group cursor-pointer">
+            <div class="overflow-hidden rounded-lg shadow-md">
+              <img src="images/1_2.png" alt="사진1"
+                class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                data-full="images/1_2.png" />
+            </div>
+            <p class="text-center text-xs sm:text-sm text-color5 mt-2">사무실 및 공장 전경</p>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="overflow-hidden rounded-lg shadow-md">
+              <img src="images/3R6A4269.JPG" alt="사진2"
+                class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                data-full="images/3R6A4269.JPG" />
+            </div>
+            <p class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</p>
+          </div>
+          <!-- 추가 사진 반복 -->
+        </div>
+      </div>
+    </section>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4">
+      <div class="relative bg-black rounded shadow-lg max-w-full sm:max-w-2xl lg:max-w-4xl">
+        <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500 z-10 w-10 h-10 flex items-center justify-center">&times;</button>
+        <img id="modal-img" src="" alt="확대 이미지" class="max-w-full max-h-[90vh] rounded" />
       </div>
     </div>
   </main>
@@ -166,12 +278,12 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-y-4">
       <div>
         <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">Contact</h2>
-        <p class="mb-1">경상북도 경주시 외동읍 어령길 110-8</p>
+        <p class="mb-1">경상북도 경주시 외동읍 어령길 110-8</p>
         <p class="mb-1">TEL : 054)775-3639</p>
         <p class="mb-1">FAX : 054)777-3639</p>
         <p class="mb-1">yoonmunju@hanmail.com</p>
       </div>
-      <div class="text-right">
+      <div class="md:text-right">
         <p>&copy; 2025 삼우E.N.G. All rights reserved.</p>
       </div>
     </div>

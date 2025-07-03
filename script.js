@@ -1,3 +1,42 @@
+// 모바일 메뉴 관련 함수들
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  menu.classList.toggle('hidden');
+  menuIcon.classList.toggle('hidden');
+  closeIcon.classList.toggle('hidden');
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  menu.classList.add('hidden');
+  menuIcon.classList.remove('hidden');
+  closeIcon.classList.add('hidden');
+}
+
+function toggleMobileSubmenu(name) {
+  const submenu = document.getElementById(name + '-submenu');
+  const arrow = document.getElementById(name + '-arrow');
+  
+  submenu.classList.toggle('hidden');
+  arrow.classList.toggle('rotate-180');
+}
+
+// 모바일 메뉴 버튼 이벤트
+document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+// 모바일 로고 클릭 이벤트
+document.getElementById('home-logo-mobile').addEventListener('click', () => {
+  showSection('main');
+  closeMobileMenu();
+});
+
+// 기존 코드
 let fixedDropdown = null;
 const closeTimers = new WeakMap();
 
@@ -34,7 +73,6 @@ function showSection(id) {
   });
 }
 
-  
 function hoverDropdown(el) {
   if (!el.classList.contains('fixed-open')) {
     const dropdown = el.querySelector('.dropdown');
@@ -88,15 +126,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
 // 로고 클릭 시 메인 섹션으로 이동
 document.getElementById('home-logo').addEventListener('click', () => {
   showSection('main');
 });
 
 // 페이지 로드 시 처음 보여줄 섹션
-//showSection('main');
-
 window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.substring(1);
   if(hash && document.getElementById(hash)) {
@@ -134,5 +169,12 @@ modal.addEventListener('click', (e) => {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
     modalImg.src = '';
+  }
+});
+
+// 화면 크기 변경 시 모바일 메뉴 초기화
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    closeMobileMenu();
   }
 });

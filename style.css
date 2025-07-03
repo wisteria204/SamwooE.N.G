@@ -1,27 +1,108 @@
 body {
-    font-family: 'Pretendard', sans-serif;
-  }
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  body, html {
+body, html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
-  
-  .hidden-section {
+
+.hidden-section {
+  display: none !important;
+}
+
+.section {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 2rem;
+}
+
+/* 드롭다운 호버 효과 개선 */
+.dropdown li a:hover {
+  background-color: #F2F2F2;
+  color: #3C6AA6;
+  border-radius: 0.2rem;
+  transition: background-color 0.3s ease;
+}
+
+/* 모바일 메뉴 애니메이션 */
+#mobile-menu {
+  transition: max-height 0.3s ease-out;
+}
+
+/* 모바일 서브메뉴 화살표 회전 애니메이션 */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* 갤러리 이미지 컨테이너 */
+.gallery-img {
+  cursor: pointer;
+}
+
+/* 모달 이미지 최적화 */
+#modal-img {
+  object-fit: contain;
+}
+
+/* 터치 디바이스에서 호버 효과 비활성화 */
+@media (hover: none) {
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 0;
+  }
+  .group:hover .group-hover\:visible {
+    visibility: hidden;
+  }
+}
+
+/* 프린트 시 네비게이션 숨기기 */
+@media print {
+  header {
     display: none !important;
   }
-  
-  .section {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 4rem 2rem;
+  main {
+    padding-top: 0 !important;
   }
-  
-  .dropdown li a:hover {
-  background-color: #F2F2F2; /* 예: 파란색 배경 */
-  color: #3C6AA6; /* 흰색 글자 */
-  border-radius: 0.2rem; /* Tailwind의 rounded-md */
-  transition: background-color 0.3s ease;
+}
+
+/* 접근성 향상을 위한 포커스 스타일 */
+a:focus,
+button:focus {
+  outline: 2px solid #3C6AA6;
+  outline-offset: 2px;
+}
+
+/* 스크롤바 스타일링 (웹킷 브라우저) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 선택 영역 색상 커스터마이징 */
+::selection {
+  background-color: #3C6AA6;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #3C6AA6;
+  color: white;
 }
