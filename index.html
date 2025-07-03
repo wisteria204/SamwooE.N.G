@@ -39,8 +39,8 @@
   <!-- Navigation -->
   <header class="theme4 fixed w-full top-0 z-50">
     <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-  <a id="home-logo" class="flex items-center space-x-2 text-2xl font-bold cursor-pointer">
-    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-10 object-contain" />
+  <a id="home-logo" class="flex items-center space-x-2 text-4xl font-bold cursor-pointer">
+    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-12 w-12 object-contain" />
     <span>삼우E.N.G</span>
   </a>
 
@@ -49,8 +49,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">회사소개</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">회사소개</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('intro')">회사소개</a></li>
@@ -62,8 +62,8 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">사업분야</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">사업분야</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('products')">제품소개</a></li>
@@ -73,19 +73,19 @@
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">연구개발</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">연구개발</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('rnd')">연구개발</a></li>
-            <li><a href="javascript:void(0)" onclick="showSection('patents')">특허・인증</a></li>
+            <li><a href="javascript:void(0)" onclick="showSection('patents')">특허인증</a></li>
           </ul>
         </li>
         <li class="relative group"
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
-          <button class="hover:text-blue-600" onclick="toggleFixedDropdown(this)">홍보자료</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-sm mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">홍보자료</button>
+          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('news')">보도자료</a></li>
@@ -204,13 +204,14 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-[#3C4CA6] text-white text-sm px-6 py-6 mt-10">
+  <footer class="theme1 text-sm px-6 py-6 mt-10">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
       <div>
-        <h2 class="font-bold text-lg">Contact</h2>
-        <p>경상북도 경주시 외동읍 어령길 110-8</p>
-        <p>TEL : 054)775-3639  FAX : 054)777-3639</p>
-        <p>yoonmunju@hanmail.com</p>
+        <h2 class="text-4xl mb-4">Contact</h2>
+        <p class="text-lg mt-1">경상북도 경주시 외동읍 어령길 110-8</p>
+        <p class="text-lg mt-1">TEL : 054)775-3639</p>
+        <p class="text-lg mt-1">FAX : 054)777-3639</p>
+        <p class="text-lg mt-1">yoonmunju@hanmail.com</p>
       </div>
       <div class="mt-4 md:mt-0 text-right">
         <p>&copy; 2025 삼우E.N.G. All rights reserved.</p>
