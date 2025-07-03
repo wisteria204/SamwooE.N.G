@@ -40,8 +40,8 @@
   <header class="theme4 fixed w-full top-0 z-50">
     <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
   <a id="home-logo" class="flex items-center space-x-6 text-2xl font-bold cursor-pointer">
-    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-12 w-12 object-contain mx-2"/>
-    <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-12 w-auto object-contain"/>
+    <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 sm:h-12 w-auto object-contain mx-2"/>
+    <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 sm:h-12 w-auto object-contain"/>
     <span>삼우E.N.G</span>
   </a>
 
@@ -51,7 +51,7 @@
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
           <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">회사소개</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm sm:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[10rem] sm:min-w-[12rem]"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('intro')">회사소개</a></li>
@@ -64,7 +64,7 @@
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
           <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">사업분야</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm sm:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[10rem] sm:min-w-[12rem]"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('products')">제품소개</a></li>
@@ -75,7 +75,7 @@
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
           <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">연구개발</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm sm:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[10rem] sm:min-w-[12rem]"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('rnd')">연구개발</a></li>
@@ -86,7 +86,7 @@
             onmouseenter="hoverDropdown(this)"
             onmouseleave="scheduleCloseDropdown(this)">
           <button class="hover:text-blue-600 text-xl" onclick="toggleFixedDropdown(this)">홍보자료</button>
-          <ul class="theme1 dropdown absolute left-0 hidden text-lg mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-max"
+          <ul class="theme1 dropdown absolute left-0 hidden text-sm sm:text-base mt-2 space-y-2 py-2 px-4 rounded z-50 min-w-[10rem] sm:min-w-[12rem]"
               onmouseenter="cancelCloseDropdown(this.parentElement)"
               onmouseleave="scheduleCloseDropdown(this.parentElement)">
             <li><a href="javascript:void(0)" onclick="showSection('news')">보도자료</a></li>
@@ -99,7 +99,7 @@
 
   <!-- 콘텐츠 영역 -->
   <main>
-    <section id="main" class="h-[90vh] sm:h-screen flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-24" style="background-image: url('images/BG1.jpg');">
+    <section id="main" class="min-h-[80vh] sm:min-h-[90vh] lg:min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-24" style="background-image: url('images/BG1.jpg');">
       <div class="bg-black bg-opacity-50 p-4 sm:p-6 lg:p-8 rounded-lg text-center max-w-xl text-color4">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">삼 우 E.N.G</h1>
         <p class="text-base sm:text-lg lg:text-xl mb-6">정밀 제조 기술의 미래를 선도하는 기업</p>
