@@ -6,7 +6,6 @@
   <title>삼우E.N.G</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
   <style>
     .text-color1 { color: #3C4CA6; }
@@ -25,6 +24,19 @@
     .theme4 { background-color: #F2F2F2; color: #0D0D0D; }
     .theme5 { background-color: #0D0D0D; color: #F2F2F2; }
     
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    .hidden-section {
+      display: none !important;
+    }
+    
     /* PC 드롭다운 강제 숨김 클래스 */
     .dropdown-hidden {
       opacity: 0 !important;
@@ -40,6 +52,11 @@
         visibility: hidden;
       }
     }
+    
+    /* 모바일 메뉴 애니메이션 */
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
   </style>
 </head>
 
@@ -49,11 +66,13 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- 데스크톱 네비게이션 -->
       <div class="hidden md:flex items-center justify-between py-4">
-        <a id="home-logo" class="flex items-center space-x-4 text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity">
+        <!-- 로고 + 회사명 (왼쪽) -->
+        <a id="home-logo" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity">
           <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
-          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
-          <span>삼우E.N.G</span>
+          <span class="text-2xl font-bold text-color5">삼우E.N.G</span>
         </a>
+        
+        <!-- 메뉴 (중앙) -->
         <ul class="flex items-center space-x-6">
           <li class="relative group">
             <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">회사소개</button>
@@ -86,6 +105,11 @@
             </div>
           </li>
         </ul>
+        
+        <!-- 로고 (오른쪽) -->
+        <a id="home-logo-right" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
+        </a>
       </div>
 
       <!-- 모바일 네비게이션 -->
@@ -271,7 +295,6 @@
             </div>
             <p class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</p>
           </div>
-          <!-- 추가 사진 반복 -->
         </div>
       </div>
     </section>
@@ -299,7 +322,213 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+  <script>
+    // 모바일 메뉴 관련 함수들
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      
+      menu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      
+      menu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      
+      // 모든 서브메뉴 닫기 및 화살표 초기화
+      const submenus = ['company', 'business', 'rnd', 'pr'];
+      submenus.forEach(name => {
+        const submenu = document.getElementById(name + '-submenu');
+        const arrow = document.getElementById(name + '-arrow');
+        if (submenu && arrow) {
+          submenu.classList.add('hidden');
+          arrow.classList.remove('rotate-180');
+        }
+      });
+    }
+
+    function toggleMobileSubmenu(name) {
+      const submenu = document.getElementById(name + '-submenu');
+      const arrow = document.getElementById(name + '-arrow');
+      
+      submenu.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+    }
+
+    // 모바일 메뉴 버튼 이벤트
+    document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+    // 모바일 로고 클릭 이벤트
+    document.getElementById('home-logo-mobile').addEventListener('click', () => {
+      showSection('main');
+      closeMobileMenu();
+    });
+
+    // 기존 코드
+    let fixedDropdown = null;
+    const closeTimers = new WeakMap();
+
+    function showSection(id) {
+      // 모든 섹션 숨기고, 선택한 섹션만 보여줌
+      document.querySelectorAll('main > section').forEach(section => {
+        section.id === id
+          ? section.classList.remove('hidden-section')
+          : section.classList.add('hidden-section');
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // URL hash가 이미 원하는 id면 변경하지 않음 (불필요한 history 변경 방지)
+      if(window.location.hash.substring(1) !== id) {
+        if(history.pushState) {
+          history.pushState(null, null, '#' + id);
+        } else {
+          window.location.hash = id;
+        }
+      }
+
+      // PC 버전: 모든 드롭다운 메뉴 강제로 닫기
+      const pcDropdowns = document.querySelectorAll('.group > div.absolute');
+      pcDropdowns.forEach(dropdown => {
+        dropdown.classList.add('dropdown-hidden');
+        // 잠시 후 클래스 제거하여 hover 기능 복원
+        setTimeout(() => {
+          dropdown.classList.remove('dropdown-hidden');
+        }, 500);
+      });
+
+      // 드롭다운 닫기 (기존 코드)
+      if (fixedDropdown) {
+        fixedDropdown.classList.add('hidden');
+        fixedDropdown.parentElement.classList.remove('fixed-open');
+        fixedDropdown = null;
+      }
+      const allDropdowns = document.querySelectorAll('.dropdown');
+      allDropdowns.forEach(dropdown => {
+        dropdown.classList.add('hidden');
+        if (dropdown.parentElement.classList.contains('fixed-open')) {
+          dropdown.parentElement.classList.remove('fixed-open');
+        }
+      });
+    }
+
+    function hoverDropdown(el) {
+      if (!el.classList.contains('fixed-open')) {
+        const dropdown = el.querySelector('.dropdown');
+        dropdown.classList.remove('hidden');
+      }
+      cancelCloseDropdown(el);
+    }
+
+    function scheduleCloseDropdown(el) {
+      if (el.classList.contains('fixed-open')) return;
+      const dropdown = el.querySelector('.dropdown');
+      const timer = setTimeout(() => {
+        dropdown.classList.add('hidden');
+      }, 800);
+      closeTimers.set(el, timer);
+    }
+
+    function cancelCloseDropdown(el) {
+      const timer = closeTimers.get(el);
+      if (timer) {
+        clearTimeout(timer);
+        closeTimers.delete(el);
+      }
+    }
+
+    function toggleFixedDropdown(button) {
+      const parent = button.parentElement;
+      const dropdown = parent.querySelector('.dropdown');
+
+      if (parent.classList.contains('fixed-open')) {
+        dropdown.classList.add('hidden');
+        parent.classList.remove('fixed-open');
+        fixedDropdown = null;
+      } else {
+        if (fixedDropdown) {
+          fixedDropdown.classList.add('hidden');
+          fixedDropdown.parentElement.classList.remove('fixed-open');
+        }
+        dropdown.classList.remove('hidden');
+        parent.classList.add('fixed-open');
+        fixedDropdown = dropdown;
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const isInside = e.target.closest('li.group');
+      if (!isInside && fixedDropdown) {
+        fixedDropdown.classList.add('hidden');
+        fixedDropdown.parentElement.classList.remove('fixed-open');
+        fixedDropdown = null;
+      }
+    });
+
+    // 로고 클릭 시 메인 섹션으로 이동 (왼쪽)
+    document.getElementById('home-logo').addEventListener('click', () => {
+      showSection('main');
+    });
+
+    // 로고 클릭 시 메인 섹션으로 이동 (오른쪽)
+    document.getElementById('home-logo-right').addEventListener('click', () => {
+      showSection('main');
+    });
+
+    // 페이지 로드 시 처음 보여줄 섹션
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.substring(1);
+      if(hash && document.getElementById(hash)) {
+        showSection(hash);
+      } else {
+        showSection('main'); // 기본 메인 화면
+      }
+    });
+
+    // 모달 관련 변수
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCloseBtn = document.getElementById('modal-close');
+    const galleryImages = document.querySelectorAll('.gallery-img');
+
+    // 갤러리 이미지 클릭 시 모달 열기
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.dataset.full; // data-full 속성에서 큰 이미지 경로 사용
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // 배경 스크롤 막기
+      });
+    });
+
+    // X버튼 클릭 시 모달 닫기
+    modalCloseBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      modalImg.src = ''; // 이미지 src 비우기 (선택)
+    });
+
+    // 모달 배경(빈 공간) 클릭 시 닫기
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        modalImg.src = '';
+      }
+    });
+
+    // 화면 크기 변경 시 모바일 메뉴 초기화
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+    });
+  </script>
 </body>
 </html>
