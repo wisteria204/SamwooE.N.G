@@ -57,6 +57,84 @@
     .rotate-180 {
       transform: rotate(180deg);
     }
+
+    /* 슬라이더 스타일 */
+    .slide-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .slide-content {
+      text-align: center;
+      color: white !important;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .slide-content h1 {
+      color: white !important;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .slide-content p {
+      color: white !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .slide {
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      min-height: calc(100vh - 4rem);
+    }
+
+    @media (min-width: 768px) {
+      .slide {
+        min-height: calc(100vh - 5rem);
+      }
+    }
+
+    .indicator {
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .indicator.active {
+      opacity: 1 !important;
+    }
+
+    .indicator:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -191,14 +269,95 @@
 
   <!-- 콘텐츠 -->
   <main class="pt-16 md:pt-20">
-    <section id="main"
-      class="flex flex-col justify-center items-center bg-cover bg-center text-white
-             px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24
-             min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]"
-      style="background-image: url('images/BG1.jpg');">
-      <div class="relative z-10 bg-black bg-opacity-50 p-6 sm:p-8 lg:p-10 rounded-lg max-w-xl text-center">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">삼 우 E.N.G</h1>
-        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6">제조 기술의 미래를 선도하는 기업</p>
+    <section id="main" class="relative">
+      <!-- 이미지 슬라이더 -->
+      <div class="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden">
+        <!-- 슬라이드 이미지들 -->
+        <div class="slide-container">
+          <div class="slide active" style="background-image: url('images/2_1.jpg'); background-size: cover; background-position: center;">
+            <div class="slide-overlay">
+              <div class="slide-content">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">삼 우 E.N.G</h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">제조 기술의 미래를 선도하는 기업</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide" style="background-image: url('images/3.jpg'); background-size: cover; background-position: center;">
+            <div class="slide-overlay">
+              <div class="slide-content">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">혁신적인 기술력</h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">최첨단 제조 공정으로 품질을 보장합니다</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide" style="background-image: url('images/BG1.jpg'); background-size: cover; background-position: center;">
+            <div class="slide-overlay">
+              <div class="slide-content">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">신뢰할 수 있는 파트너</h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">고객과 함께 성장하는 기업</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 인디케이터 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+          <button class="indicator active w-3 h-3 rounded-full bg-white opacity-50" data-slide="0"></button>
+          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="1"></button>
+          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="2"></button>
+        </div>
+      </div>
+
+      <!-- 하단 배너 섹션 -->
+      <div class="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 오시는 길 배너 -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('location')">
+              <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
+                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
+                  <h3 class="text-2xl font-bold mb-2">오시는 길</h3>
+                  <p class="text-lg opacity-90 mb-4">경상북도 경주시 외동읍 어령길 110-8</p>
+                  <div class="flex items-center text-sm opacity-80">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    위치 안내 및 교통편 확인
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 font-semibold">
+                  자세히 보기
+                </button>
+              </div>
+            </div>
+
+            <!-- 갤러리 배너 -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('gallery')">
+              <div class="relative h-48 bg-gradient-to-r from-green-500 to-green-600">
+                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
+                  <h3 class="text-2xl font-bold mb-2">갤러리</h3>
+                  <p class="text-lg opacity-90 mb-4">회사 시설 및 제품 사진을 확인하세요</p>
+                  <div class="flex items-center text-sm opacity-80">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    사무실, 공장, 제품 이미지
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <button class="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition-colors duration-200 font-semibold">
+                  자세히 보기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -490,7 +649,59 @@
       } else {
         showSection('main'); // 기본 메인 화면
       }
+      
+      // 슬라이더 초기화
+      initSlider();
     });
+
+    // 슬라이더 관련 변수와 함수
+    let currentSlide = 0;
+    let slideInterval;
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+
+    function initSlider() {
+      // 인디케이터 클릭 이벤트
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      // 자동 슬라이드 시작
+      startAutoSlide();
+    }
+
+    function goToSlide(slideIndex) {
+      // 현재 활성 슬라이드와 인디케이터 비활성화
+      slides[currentSlide].classList.remove('active');
+      indicators[currentSlide].classList.remove('active');
+
+      // 새 슬라이드와 인디케이터 활성화
+      currentSlide = slideIndex;
+      slides[currentSlide].classList.add('active');
+      indicators[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentSlide + 1) % slides.length;
+      goToSlide(nextIndex);
+    }
+
+    function startAutoSlide() {
+      slideInterval = setInterval(nextSlide, 4000); // 4초마다 자동 전환
+    }
+
+    function stopAutoSlide() {
+      clearInterval(slideInterval);
+    }
+
+    // 슬라이더에 마우스 호버 시 자동 슬라이드 일시정지
+    const sliderContainer = document.querySelector('.slide-container');
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+      sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
 
     // 모달 관련 변수
     const modal = document.getElementById('modal');
