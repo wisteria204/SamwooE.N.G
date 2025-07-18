@@ -3,10 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>삼우E.N.G</title>
+  
+  <!-- SEO 메타 태그 -->
+  <title>삼우E.N.G - 제조 기술의 미래를 선도하는 엔지니어링 기업</title>
+  <meta name="description" content="삼우E.N.G는 경주시에 위치한 제조 엔지니어링 전문 기업입니다. 혁신적인 기술력과 품질경영시스템 인증을 바탕으로 고객과 함께 성장합니다.">
+  <meta name="keywords" content="삼우이엔지, 삼우ENG, 제조업, 엔지니어링, 경주 제조업체, 뿌리기업, 벤처기업">
+  <meta name="author" content="삼우E.N.G">
+  
+  <!-- Open Graph 메타 태그 (소셜 미디어 공유용) -->
+  <meta property="og:title" content="삼우E.N.G - 제조 기술의 미래를 선도하는 기업">
+  <meta property="og:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samwooeng.com">
+  <meta property="og:image" content="https://samwooeng.com/images/삼우이엔지 로고.png">
+  <meta property="og:locale" content="ko_KR">
+  
+  <!-- 트위터 카드 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="삼우E.N.G - 제조 기술의 미래를 선도하는 기업">
+  <meta name="twitter:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
+  <meta name="twitter:image" content="https://samwooeng.com/images/삼우이엔지 로고.png">
+  
+  <!-- 추가 SEO 최적화 -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://samwooeng.com">
+  <meta name="geo.region" content="KR-47">
+  <meta name="geo.placename" content="경주시">
+  <meta name="geo.position" content="35.7175;129.3000">
+  <meta name="ICBM" content="35.7175, 129.3000">
+  
+  <!-- 구조화된 데이터 (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "삼우E.N.G",
+    "url": "https://samwooeng.com",
+    "logo": "https://samwooeng.com/images/삼우이엔지 로고.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+82-54-775-3639",
+      "contactType": "customer service",
+      "areaServed": "KR",
+      "availableLanguage": "Korean"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "어령길 110-8",
+      "addressLocality": "외동읍",
+      "addressRegion": "경주시",
+      "postalCode": "38216",
+      "addressCountry": "KR"
+    }
+  }
+  </script>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  
   <style>
     .text-color1 { color: #3C4CA6; }
     .text-color2 { color: #3C5FA6; }
@@ -135,70 +194,132 @@
     .indicator:hover {
       opacity: 0.8;
     }
+    
+    /* Lazy loading 이미지 스타일 */
+    img[data-src] {
+      filter: blur(5px);
+      transition: filter 0.3s;
+    }
+    
+    img.loaded {
+      filter: blur(0);
+    }
+    
+    /* Skip to content 링크 스타일 */
+    .skip-to-content {
+      position: absolute;
+      left: -9999px;
+      z-index: 100;
+      padding: 1rem;
+      background: #3C4CA6;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .skip-to-content:focus {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 1rem;
+    }
   </style>
 </head>
 
 <body class="bg-color4">
+  <!-- Skip to content 링크 (접근성) -->
+  <a href="#main-content" class="skip-to-content">메인 콘텐츠로 건너뛰기</a>
+  
   <!-- Navigation -->
-  <header class="theme4 fixed w-full top-0 z-50 shadow-md">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header class="theme4 fixed w-full top-0 z-50 shadow-md" role="banner">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="메인 네비게이션">
       <!-- 데스크톱 네비게이션 -->
       <div class="hidden md:flex items-center justify-between py-4">
         <!-- 로고 + 회사명 (왼쪽) -->
-        <a id="home-logo" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity">
-          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
+        <a id="home-logo" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
+          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" />
           <span class="text-2xl font-bold text-color5">삼우E.N.G</span>
         </a>
         
         <!-- 메뉴 (중앙) -->
-        <ul class="flex items-center space-x-6">
-          <li class="relative group">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">회사소개</button>
-            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
-              <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">회사소개</a>
-              <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">인사말</a>
-              <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">연혁</a>
-              <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">오시는 길</a>
+        <ul class="flex items-center space-x-6" role="menubar">
+          <li class="relative group" role="none">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                    aria-controls="company-dropdown"
+                    role="menuitem">회사소개</button>
+            <div id="company-dropdown" 
+                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
+                 role="menu"
+                 aria-label="회사소개 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">회사소개</a>
+              <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">인사말</a>
+              <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">연혁</a>
+              <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">오시는 길</a>
             </div>
           </li>
-          <li class="relative group">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">사업분야</button>
-            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
-              <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">제품소개</a>
-              <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">공정소개</a>
+          <li class="relative group" role="none">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="business-dropdown"
+                    role="menuitem">사업분야</button>
+            <div id="business-dropdown"
+                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
+                 role="menu"
+                 aria-label="사업분야 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">제품소개</a>
+              <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">공정소개</a>
             </div>
           </li>
-          <li class="relative group">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">연구개발</button>
-            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
-              <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">연구개발</a>
-              <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">특허인증</a>
+          <li class="relative group" role="none">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="rnd-dropdown"
+                    role="menuitem">연구개발</button>
+            <div id="rnd-dropdown"
+                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
+                 role="menu"
+                 aria-label="연구개발 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">연구개발</a>
+              <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">특허인증</a>
             </div>
           </li>
-          <li class="relative group">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors">홍보자료</button>
-            <div class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden">
-              <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">보도자료</a>
-              <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-3 hover:bg-gray-100 transition-colors">갤러리</a>
+          <li class="relative group" role="none">
+            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="pr-dropdown"
+                    role="menuitem">홍보자료</button>
+            <div id="pr-dropdown"
+                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
+                 role="menu"
+                 aria-label="홍보자료 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">보도자료</a>
+              <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">갤러리</a>
             </div>
           </li>
         </ul>
         
         <!-- 로고 (오른쪽) -->
-        <a id="home-logo-right" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
-          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" />
+        <a id="home-logo-right" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
+          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" />
         </a>
       </div>
 
       <!-- 모바일 네비게이션 -->
       <div class="md:hidden">
         <div class="flex items-center justify-between py-3">
-          <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-bold cursor-pointer">
-            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" />
+          <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-bold cursor-pointer" href="#main" aria-label="삼우E.N.G 홈으로 이동">
+            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" width="32" height="32" />
             <span>삼우E.N.G</span>
           </a>
-          <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="mobile-menu-button" 
+                  class="p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label="메뉴 열기"
+                  aria-expanded="false"
+                  aria-controls="mobile-menu">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
               <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -206,59 +327,71 @@
         </div>
 
         <!-- 모바일 메뉴 -->
-        <div id="mobile-menu" class="hidden pb-4">
+        <div id="mobile-menu" class="hidden pb-4" role="navigation" aria-label="모바일 메뉴">
           <div class="space-y-2">
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('company')">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+                      onclick="toggleMobileSubmenu('company')"
+                      aria-expanded="false"
+                      aria-controls="company-submenu">
                 회사소개
-                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="company-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="company-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="company-submenu" class="hidden pl-8 space-y-1 mt-1">
-                <a href="javascript:void(0)" onclick="showSection('intro'); closeMobileMenu();" class="block py-2 hover:text-blue-600">회사소개</a>
-                <a href="javascript:void(0)" onclick="showSection('greeting'); closeMobileMenu();" class="block py-2 hover:text-blue-600">인사말</a>
-                <a href="javascript:void(0)" onclick="showSection('history'); closeMobileMenu();" class="block py-2 hover:text-blue-600">연혁</a>
-                <a href="javascript:void(0)" onclick="showSection('location'); closeMobileMenu();" class="block py-2 hover:text-blue-600">오시는 길</a>
+              <div id="company-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
+                <a href="javascript:void(0)" onclick="showSection('intro'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">회사소개</a>
+                <a href="javascript:void(0)" onclick="showSection('greeting'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">인사말</a>
+                <a href="javascript:void(0)" onclick="showSection('history'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">연혁</a>
+                <a href="javascript:void(0)" onclick="showSection('location'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">오시는 길</a>
               </div>
             </div>
             
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('business')">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+                      onclick="toggleMobileSubmenu('business')"
+                      aria-expanded="false"
+                      aria-controls="business-submenu">
                 사업분야
-                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="business-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="business-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="business-submenu" class="hidden pl-8 space-y-1 mt-1">
-                <a href="javascript:void(0)" onclick="showSection('products'); closeMobileMenu();" class="block py-2 hover:text-blue-600">제품소개</a>
-                <a href="javascript:void(0)" onclick="showSection('process'); closeMobileMenu();" class="block py-2 hover:text-blue-600">공정소개</a>
+              <div id="business-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
+                <a href="javascript:void(0)" onclick="showSection('products'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">제품소개</a>
+                <a href="javascript:void(0)" onclick="showSection('process'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">공정소개</a>
               </div>
             </div>
             
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('rnd')">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+                      onclick="toggleMobileSubmenu('rnd')"
+                      aria-expanded="false"
+                      aria-controls="rnd-submenu">
                 연구개발
-                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="rnd-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="rnd-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="rnd-submenu" class="hidden pl-8 space-y-1 mt-1">
-                <a href="javascript:void(0)" onclick="showSection('rnd'); closeMobileMenu();" class="block py-2 hover:text-blue-600">연구개발</a>
-                <a href="javascript:void(0)" onclick="showSection('patents'); closeMobileMenu();" class="block py-2 hover:text-blue-600">특허인증</a>
+              <div id="rnd-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
+                <a href="javascript:void(0)" onclick="showSection('rnd'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">연구개발</a>
+                <a href="javascript:void(0)" onclick="showSection('patents'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">특허인증</a>
               </div>
             </div>
             
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" onclick="toggleMobileSubmenu('pr')">
+              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+                      onclick="toggleMobileSubmenu('pr')"
+                      aria-expanded="false"
+                      aria-controls="pr-submenu">
                 홍보자료
-                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="pr-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="inline-block w-4 h-4 ml-1 transition-transform" id="pr-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div id="pr-submenu" class="hidden pl-8 space-y-1 mt-1">
-                <a href="javascript:void(0)" onclick="showSection('news'); closeMobileMenu();" class="block py-2 hover:text-blue-600">보도자료</a>
-                <a href="javascript:void(0)" onclick="showSection('gallery'); closeMobileMenu();" class="block py-2 hover:text-blue-600">갤러리</a>
+              <div id="pr-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
+                <a href="javascript:void(0)" onclick="showSection('news'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">보도자료</a>
+                <a href="javascript:void(0)" onclick="showSection('gallery'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">갤러리</a>
               </div>
             </div>
           </div>
@@ -268,13 +401,13 @@
   </header>
 
   <!-- 콘텐츠 -->
-  <main class="pt-16 md:pt-20">
-    <section id="main" class="relative">
+  <main class="pt-16 md:pt-20" id="main-content" role="main">
+    <section id="main" class="relative" aria-label="메인 배너 섹션">
       <!-- 이미지 슬라이더 -->
-      <div class="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden">
+      <div class="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden" role="region" aria-label="이미지 슬라이더">
         <!-- 슬라이드 이미지들 -->
         <div class="slide-container">
-          <div class="slide active" style="background-image: url('images/2_1.jpg'); background-size: cover; background-position: center;">
+          <div class="slide active" style="background-image: url('images/2_1.jpg'); background-size: cover; background-position: center;" role="img" aria-label="사무실 및 공장 전경">
             <div class="slide-overlay">
               <div class="slide-content">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">삼 우 E.N.G</h1>
@@ -282,18 +415,18 @@
               </div>
             </div>
           </div>
-          <div class="slide" style="background-image: url('images/3.jpg'); background-size: cover; background-position: center;">
+          <div class="slide" style="background-image: url('images/3.jpg'); background-size: cover; background-position: center;" role="img" aria-label="제조 현장">
             <div class="slide-overlay">
               <div class="slide-content">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">혁신적인 기술력</h1>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">혁신적인 기술력</h2>
                 <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">최첨단 제조 공정으로 품질을 보장합니다</p>
               </div>
             </div>
           </div>
-          <div class="slide" style="background-image: url('images/BG1.jpg'); background-size: cover; background-position: center;">
+          <div class="slide" style="background-image: url('images/BG1.jpg'); background-size: cover; background-position: center;" role="img" aria-label="회사 전경">
             <div class="slide-overlay">
               <div class="slide-content">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">신뢰할 수 있는 파트너</h1>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">신뢰할 수 있는 파트너</h2>
                 <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">고객과 함께 성장하는 기업</p>
               </div>
             </div>
@@ -301,10 +434,10 @@
         </div>
 
         <!-- 슬라이드 인디케이터 -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-          <button class="indicator active w-3 h-3 rounded-full bg-white opacity-50" data-slide="0"></button>
-          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="1"></button>
-          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="2"></button>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20" role="tablist" aria-label="슬라이드 선택">
+          <button class="indicator active w-3 h-3 rounded-full bg-white opacity-50" data-slide="0" role="tab" aria-selected="true" aria-label="슬라이드 1"></button>
+          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="1" role="tab" aria-selected="false" aria-label="슬라이드 2"></button>
+          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="2" role="tab" aria-selected="false" aria-label="슬라이드 3"></button>
         </div>
       </div>
 
@@ -313,14 +446,14 @@
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- 오시는 길 배너 -->
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('location')">
+            <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('location')">
               <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
                 <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                 <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
                   <h3 class="text-2xl font-bold mb-2">오시는 길</h3>
                   <p class="text-lg opacity-90 mb-4">경상북도 경주시 외동읍 어령길 110-8</p>
                   <div class="flex items-center text-sm opacity-80">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
@@ -333,17 +466,17 @@
                   자세히 보기
                 </button>
               </div>
-            </div>
+            </article>
 
             <!-- 갤러리 배너 -->
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('gallery')">
+            <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('gallery')">
               <div class="relative h-48 bg-gradient-to-r from-green-500 to-green-600">
                 <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                 <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
                   <h3 class="text-2xl font-bold mb-2">갤러리</h3>
                   <p class="text-lg opacity-90 mb-4">회사 시설 및 제품 사진을 확인하세요</p>
                   <div class="flex items-center text-sm opacity-80">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
                     사무실, 공장, 제품 이미지
@@ -355,7 +488,7 @@
                   자세히 보기
                 </button>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -365,271 +498,287 @@
       class="hidden-section bg-cover bg-center theme5
             px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24
             min-h-[calc(100vh-4rem)] md:min-h-[calc(60vh-5rem)]"
-      style="background-image: url('images/1_2.jpg');">
+      style="background-image: url('images/1_2.jpg');"
+      aria-label="회사소개 섹션">
       <div class="max-w-7xl mx-auto relative z-10 bg-black bg-opacity-50 p-6 sm:p-8 lg:p-10 rounded-lg">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">회사소개</h1>
         <p class="text-base sm:text-lg">삼우E.N.G는 최고의 기술력으로 제조업을 선도합니다.</p>
       </div>
     </section>
 
-    <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="인사말 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">인사말</h1>
         <p class="text-base sm:text-lg">안녕하십니까, 삼우E.N.G 대표입니다. 저희 회사를 찾아주셔서 감사합니다.</p>
       </div>
     </section>
 
-    <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연혁 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연혁</h1>
         <p class="text-base sm:text-lg">2000년 설립 이후 끊임없이 성장하고 있는 삼우E.N.G의 발자취를 소개합니다.</p>
       </div>
     </section>
 
-    <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="오시는 길 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">오시는길</h1>
-        <p class="text-base sm:text-lg">경상북도 경주시 외동읍 어령길 110-8</p>
-        <p class="text-base sm:text-lg mb-4">위치는 지도를 참고해주세요.</p>
+        <address class="text-base sm:text-lg not-italic">
+          <p>경상북도 경주시 외동읍 어령길 110-8</p>
+          <p class="mb-4">위치는 지도를 참고해주세요.</p>
+        </address>
         <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
-          class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition">
-          <img src="images/약도.png" alt="네이버 지도 보기" class="w-full max-w-md"/>
+          class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition"
+          aria-label="네이버 지도에서 삼우E.N.G 위치 확인하기">
+          <img src="images/약도.png" alt="삼우E.N.G 위치 지도" class="w-full max-w-md" loading="lazy"/>
         </a>
         <p class="text-sm sm:text-base text-gray-500 mt-2">지도를 클릭하시면 네이버 지도로 이동합니다.</p>
       </div>
     </section>
 
-    <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="제품소개 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">제품소개</h1>
         <p class="text-base sm:text-lg">삼우E.N.G의 주요 제품을 소개합니다.</p>
       </div>
     </section>
 
-    <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="공정소개 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">공정소개</h1>
         <p class="text-base sm:text-lg">최첨단 제조 공정을 소개합니다.</p>
       </div>
     </section>
 
-    <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연구개발 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연구개발</h1>
         <p class="text-base sm:text-lg">지속적인 연구개발로 기술 경쟁력을 확보하고 있습니다.</p>
       </div>
     </section>
 
-    <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="특허인증 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">특허・인증</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          <div class="group cursor-pointer">
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림1_1.png" alt="특허증 1"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림1_1.png" />
+              <img data-src="images/그림1_1.png" alt="디자인 등록증 - 삼우E.N.G의 디자인 특허"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림1_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">디자인 등록증</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">디자인 등록증</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림2_1.png" alt="특허증 2"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림2_1.png" />
+              <img data-src="images/그림2_1.png" alt="특허증 - 삼우E.N.G의 기술 특허"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림2_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">특허증</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">특허증</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림3_1.png" alt="인증서 1"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림3_1.png" />
+              <img data-src="images/그림3_1.png" alt="기술역량 우수 인증기업 인증서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림3_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수 인증기업</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수 인증기업</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림4_1.png" alt="인증서 2"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림4_1.png" />
+              <img data-src="images/그림4_1.png" alt="친환경 미래 모빌리티 유망기업 인증서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림4_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">친환경 미래 모빌리티 유망기업</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">친환경 미래 모빌리티 유망기업</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림5_1.png" alt="인증서 3"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림5_1.png" />
+              <img data-src="images/그림5_1.png" alt="벤처기업협회 정회원 인증서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림5_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업협회 정회원</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업협회 정회원</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림6_1.png" alt="인증서 4"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림6_1.png" />
+              <img data-src="images/그림6_1.png" alt="ISO 9001 품질경영시스템 인증서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림6_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">품질경영시스템 인증</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">품질경영시스템 인증</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림7_1.png" alt="인증서 5"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림7_1.png" />
+              <img data-src="images/그림7_1.png" alt="벤처기업 확인서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림7_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업 확인</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업 확인</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림8_1.png" alt="인증서 6"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림8_1.png" />
+              <img data-src="images/그림8_1.png" alt="뿌리기업 확인서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림8_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">뿌리기업 확인</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">뿌리기업 확인</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림9_1.png" alt="인증서 7"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림9_1.png" />
+              <img data-src="images/그림9_1.png" alt="기술역량 우수기업 인증서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림9_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수기업 인증</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수기업 인증</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림10_1.png" alt="인증서 8"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림10_1.png" />
+              <img data-src="images/그림10_1.png" alt="소재・부품・장비 전문기업 확인서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림10_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">소재‣부품‣장비 전문기업 확인</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">소재・부품・장비 전문기업 확인</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/그림11_1.png" alt="인증서 9"
-                class="gallery-img w-full h-[calc(100vw*4/3/1)] sm:h-[calc((100vw-3rem)*4/3/2)] md:h-[calc((100vw-6rem)*4/3/3)] lg:h-[calc((100vw-12rem)*4/3/4)] max-h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림11_1.png" />
+              <img data-src="images/그림11_1.png" alt="연구개발 전담부서 인정서"
+                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                data-full="images/그림11_1.png" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">연구개발 전담부서 인정</p>
-          </div>
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">연구개발 전담부서 인정</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="보도자료 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">보도자료</h1>
         <p class="text-base sm:text-lg">언론에 보도된 삼우E.N.G의 활동을 소개합니다.</p>
       </div>
     </section>
 
-    <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="갤러리 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">갤러리</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          <div class="group cursor-pointer">
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/1_2.jpg" alt="사진1"
+              <img data-src="images/1_2.jpg" alt="삼우E.N.G 사무실 및 공장 전경"
                 class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/1_2.jpg" />
+                data-full="images/1_2.jpg" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">사무실 및 공장 전경</p>
-          </div>
-          <div class="group cursor-pointer">
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">사무실 및 공장 전경</figcaption>
+          </figure>
+          <figure class="group cursor-pointer">
             <div class="overflow-hidden rounded-lg shadow-md">
-              <img src="images/3R6A4269.JPG" alt="사진2"
+              <img data-src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 사진"
                 class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/3R6A4269.JPG" />
+                data-full="images/3R6A4269.JPG" loading="lazy" />
             </div>
-            <p class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</p>
-          </div>
+            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4">
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="relative bg-black rounded shadow-lg max-w-full sm:max-w-2xl lg:max-w-4xl">
-        <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500 z-10 w-10 h-10 flex items-center justify-center">&times;</button>
-        <img id="modal-img" src="" alt="확대 이미지" class="max-w-full max-h-[90vh] rounded" />
+        <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500 z-10 w-10 h-10 flex items-center justify-center" aria-label="닫기">&times;</button>
+        <img id="modal-img" src="" alt="" class="max-w-full max-h-[90vh] rounded" />
+        <h2 id="modal-title" class="sr-only">이미지 확대 보기</h2>
       </div>
     </div>
   </main>
 
   <!-- 바로가기 섹션 -->
-  <section class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <section class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" aria-label="빠른 메뉴">
     <div class="max-w-7xl mx-auto">
+      <h2 class="sr-only">빠른 메뉴</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         
         <!-- 회사소개 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
           <h3 class="text-lg font-bold text-blue-600 mb-3 text-center border-b border-blue-100 pb-2">회사소개</h3>
-          <div class="space-y-2">
-            <button onclick="showSection('intro')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
-              회사소개
-            </button>
-            <button onclick="showSection('greeting')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
-              인사말
-            </button>
-            <button onclick="showSection('history')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
-              연혁
-            </button>
-            <button onclick="showSection('location')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
-              오시는 길
-            </button>
-          </div>
+          <nav aria-label="회사소개 바로가기">
+            <div class="space-y-2">
+              <button onclick="showSection('intro')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+                회사소개
+              </button>
+              <button onclick="showSection('greeting')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+                인사말
+              </button>
+              <button onclick="showSection('history')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+                연혁
+              </button>
+              <button onclick="showSection('location')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+                오시는 길
+              </button>
+            </div>
+          </nav>
         </div>
 
         <!-- 사업분야 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
           <h3 class="text-lg font-bold text-green-600 mb-3 text-center border-b border-green-100 pb-2">사업분야</h3>
-          <div class="space-y-2">
-            <button onclick="showSection('products')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
-              제품소개
-            </button>
-            <button onclick="showSection('process')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
-              공정소개
-            </button>
-          </div>
+          <nav aria-label="사업분야 바로가기">
+            <div class="space-y-2">
+              <button onclick="showSection('products')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
+                제품소개
+              </button>
+              <button onclick="showSection('process')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
+                공정소개
+              </button>
+            </div>
+          </nav>
         </div>
 
         <!-- 연구개발 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
           <h3 class="text-lg font-bold text-purple-600 mb-3 text-center border-b border-purple-100 pb-2">연구개발</h3>
-          <div class="space-y-2">
-            <button onclick="showSection('rnd')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
-              연구개발
-            </button>
-            <button onclick="showSection('patents')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
-              특허인증
-            </button>
-          </div>
+          <nav aria-label="연구개발 바로가기">
+            <div class="space-y-2">
+              <button onclick="showSection('rnd')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
+                연구개발
+              </button>
+              <button onclick="showSection('patents')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
+                특허인증
+              </button>
+            </div>
+          </nav>
         </div>
 
         <!-- 홍보자료 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
           <h3 class="text-lg font-bold text-orange-600 mb-3 text-center border-b border-orange-100 pb-2">홍보자료</h3>
-          <div class="space-y-2">
-            <button onclick="showSection('news')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
-              보도자료
-            </button>
-            <button onclick="showSection('gallery')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
-              갤러리
-            </button>
-          </div>
+          <nav aria-label="홍보자료 바로가기">
+            <div class="space-y-2">
+              <button onclick="showSection('news')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
+                보도자료
+              </button>
+              <button onclick="showSection('gallery')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
+                갤러리
+              </button>
+            </div>
+          </nav>
         </div>
 
       </div>
     </div>
   </section>
 
-  <footer class="theme1 text-sm sm:text-base px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+  <footer class="theme1 text-sm sm:text-base px-4 sm:px-6 lg:px-8 py-6 sm:py-8" role="contentinfo">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-y-4">
       <div>
         <h2 class="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Contact</h2>
-        <p class="mb-1">경상북도 경주시 외동읍 어령길 110-8</p>
-        <p class="mb-1">TEL : 054)775-3639</p>
-        <p class="mb-1">FAX : 054)777-3639</p>
-        <p class="mb-1">yoonmunju@hanmail.com</p>
+        <address class="not-italic">
+          <p class="mb-1">경상북도 경주시 외동읍 어령길 110-8</p>
+          <p class="mb-1"><a href="tel:054-775-3639" class="hover:underline">TEL : 054)775-3639</a></p>
+          <p class="mb-1">FAX : 054)777-3639</p>
+          <p class="mb-1"><a href="mailto:yoonmunju@hanmail.com" class="hover:underline">yoonmunju@hanmail.com</a></p>
+        </address>
       </div>
       <div class="md:text-right">
         <p>&copy; 2025 삼우E.N.G. All rights reserved.</p>
@@ -638,34 +787,62 @@
   </footer>
 
   <script>
+    // Lazy Loading 구현
+    document.addEventListener('DOMContentLoaded', function() {
+      const lazyImages = document.querySelectorAll('img[data-src]');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+            img.removeAttribute('data-src');
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      lazyImages.forEach(img => imageObserver.observe(img));
+    });
+
     // 모바일 메뉴 관련 함수들
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const menuIcon = document.querySelector('.menu-icon');
       const closeIcon = document.querySelector('.close-icon');
+      const menuButton = document.getElementById('mobile-menu-button');
       
       menu.classList.toggle('hidden');
       menuIcon.classList.toggle('hidden');
       closeIcon.classList.toggle('hidden');
+      
+      // aria-expanded 업데이트
+      const isExpanded = !menu.classList.contains('hidden');
+      menuButton.setAttribute('aria-expanded', isExpanded);
     }
 
     function closeMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const menuIcon = document.querySelector('.menu-icon');
       const closeIcon = document.querySelector('.close-icon');
+      const menuButton = document.getElementById('mobile-menu-button');
       
       menu.classList.add('hidden');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
       
       // 모든 서브메뉴 닫기 및 화살표 초기화
       const submenus = ['company', 'business', 'rnd', 'pr'];
       submenus.forEach(name => {
         const submenu = document.getElementById(name + '-submenu');
         const arrow = document.getElementById(name + '-arrow');
+        const button = submenu.previousElementSibling;
         if (submenu && arrow) {
           submenu.classList.add('hidden');
           arrow.classList.remove('rotate-180');
+          button.setAttribute('aria-expanded', 'false');
         }
       });
     }
@@ -673,9 +850,14 @@
     function toggleMobileSubmenu(name) {
       const submenu = document.getElementById(name + '-submenu');
       const arrow = document.getElementById(name + '-arrow');
+      const button = submenu.previousElementSibling;
       
       submenu.classList.toggle('hidden');
       arrow.classList.toggle('rotate-180');
+      
+      // aria-expanded 업데이트
+      const isExpanded = !submenu.classList.contains('hidden');
+      button.setAttribute('aria-expanded', isExpanded);
     }
 
     // 모바일 메뉴 버튼 이벤트
@@ -832,11 +1014,13 @@
       // 현재 활성 슬라이드와 인디케이터 비활성화
       slides[currentSlide].classList.remove('active');
       indicators[currentSlide].classList.remove('active');
+      indicators[currentSlide].setAttribute('aria-selected', 'false');
 
       // 새 슬라이드와 인디케이터 활성화
       currentSlide = slideIndex;
       slides[currentSlide].classList.add('active');
       indicators[currentSlide].classList.add('active');
+      indicators[currentSlide].setAttribute('aria-selected', 'true');
     }
 
     function nextSlide() {
@@ -869,8 +1053,12 @@
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
         modalImg.src = img.dataset.full; // data-full 속성에서 큰 이미지 경로 사용
+        modalImg.alt = img.alt; // alt 텍스트도 복사
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // 배경 스크롤 막기
+        
+        // 포커스 트랩 설정
+        modalCloseBtn.focus();
       });
     });
 
@@ -890,10 +1078,35 @@
       }
     });
 
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        modalImg.src = '';
+      }
+    });
+
     // 화면 크기 변경 시 모바일 메뉴 초기화
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         closeMobileMenu();
+      }
+    });
+
+    // 키보드 네비게이션 개선
+    document.addEventListener('keydown', (e) => {
+      // Tab 키로 드롭다운 메뉴 네비게이션
+      if (e.key === 'Tab') {
+        const activeElement = document.activeElement;
+        const dropdownParent = activeElement.closest('.group');
+        if (dropdownParent) {
+          const dropdown = dropdownParent.querySelector('.absolute');
+          if (dropdown && dropdown.classList.contains('opacity-0')) {
+            dropdown.classList.remove('opacity-0', 'invisible');
+            dropdown.classList.add('opacity-100', 'visible');
+          }
+        }
       }
     });
   </script>
