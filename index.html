@@ -494,52 +494,116 @@
       </div>
     </section>
 
-    <section id="intro"
-      class="hidden-section bg-cover bg-center theme5
-            px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24
-            min-h-[calc(100vh-4rem)] md:min-h-[calc(60vh-5rem)]"
-      style="background-image: url('images/1_2.jpg');"
-      aria-label="회사소개 섹션">
-      <div class="max-w-7xl mx-auto relative z-10 bg-black bg-opacity-50 p-6 sm:p-8 lg:p-10 rounded-lg">
+    <section id="intro" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="회사소개 섹션">
+      <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">회사소개</h1>
-        <p class="text-base sm:text-lg">삼우E.N.G는 최고의 기술력으로 제조업을 선도합니다.</p>
+        <p class="text-base sm:text-lg">삼우E.N.G를 소개합니다.</p>
       </div>
     </section>
 
     <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="인사말 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">인사말</h1>
-        <p class="text-base sm:text-lg">안녕하십니까, 삼우E.N.G 대표입니다. 저희 회사를 찾아주셔서 감사합니다.</p>
+        <p class="text-base sm:text-lg">삼우E.N.G의 대표 인사말입니다.</p>
       </div>
     </section>
 
     <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연혁 섹션">
       <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">연혁</h1>
-        <p class="text-base sm:text-lg">2000년 설립 이후 끊임없이 성장하고 있는 삼우E.N.G의 발자취를 소개합니다.</p>
+        <p class="text-base sm:text-lg">삼우E.N.G의 연혁을 소개합니다.</p>
       </div>
     </section>
 
     <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="오시는 길 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">오시는길</h1>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">오시는 길</h1>
         <address class="text-base sm:text-lg not-italic">
           <p>경상북도 경주시 외동읍 어령길 110-8</p>
-          <p class="mb-4">위치는 지도를 참고해주세요.</p>
+          <p>TEL : 054)775-3639</p>
+          <p class="text-sm sm:text-base text-gray-500 mt-2">약도를 클릭하시면 네이버 지도로 이동합니다.</p>
         </address>
         <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
           class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition"
           aria-label="네이버 지도에서 삼우E.N.G 위치 확인하기">
           <img src="images/약도.png" alt="삼우E.N.G 위치 지도" class="w-full max-w-md" loading="lazy"/>
         </a>
-        <p class="text-sm sm:text-base text-gray-500 mt-2">지도를 클릭하시면 네이버 지도로 이동합니다.</p>
+        <p class="text-sm sm:text-base text-gray-500 mt-2">구글맵</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5415775795295!2d129.30213367731923!3d35.6882881725853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35664aa3fdd0b86d%3A0xbef1ba27cfa8d270!2z7IK87JqwRU5H!5e0!3m2!1sko!2skr!4v1752824067509!5m2!1sko!2skr"
+                width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </section>
 
     <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="제품소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">제품소개</h1>
-        <p class="text-base sm:text-lg">삼우E.N.G의 주요 제품을 소개합니다.</p>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">제품소개</h1>
+        <p class="text-base sm:text-lg">삼우E.N.G에서 생산하는 제품을 소개합니다.</p>
+        
+        <!-- 제품 슬라이더 -->
+        <div class="relative max-w-6xl mx-auto">
+          <!-- 슬라이더 컨테이너 -->
+          <div class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
+            <!-- 슬라이더 트랙 -->
+            <div class="product-slider-track flex items-center justify-center h-full relative" style="transform: translateX(0);">
+              <!-- 제품 이미지들 -->
+              <div class="product-slide absolute transition-all duration-500" data-index="0" style="transform: translateX(-200%) scale(0.7); opacity: 0.3; z-index: 1;">
+                <img src="images/product07.png" alt="제품 7" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="1" style="transform: translateX(-100%) scale(0.7); opacity: 0.3; z-index: 2;">
+                <img src="images/product08.png" alt="제품 8" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500 active" data-index="2" style="transform: translateX(0) scale(1); opacity: 1; z-index: 10;">
+                <img src="images/product09.png" alt="제품 9" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="3" style="transform: translateX(100%) scale(0.7); opacity: 0.3; z-index: 2;">
+                <img src="images/product01.png" alt="제품 1" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="4" style="transform: translateX(200%) scale(0.7); opacity: 0.3; z-index: 1;">
+                <img src="images/product02.png" alt="제품 2" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="5" style="transform: translateX(300%) scale(0.7); opacity: 0; z-index: 0;">
+                <img src="images/product03.png" alt="제품 3" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="6" style="transform: translateX(300%) scale(0.7); opacity: 0; z-index: 0;">
+                <img src="images/product04.png" alt="제품 4" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="7" style="transform: translateX(300%) scale(0.7); opacity: 0; z-index: 0;">
+                <img src="images/product05.png" alt="제품 5" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="8" style="transform: translateX(300%) scale(0.7); opacity: 0; z-index: 0;">
+                <img src="images/product06.png" alt="제품 6" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- 좌우 화살표 버튼 -->
+          <button class="product-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="이전 제품">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button class="product-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="다음 제품">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          
+          <!-- 제품 설명 텍스트 -->
+          <div class="mt-8 text-center max-w-3xl mx-auto">
+            <div class="product-descriptions">
+              <p class="product-desc hidden" data-index="0">OVER TYPE</p>
+              <p class="product-desc hidden" data-index="1">SIZ'G&PIERC'G</p>
+              <p class="product-desc block" data-index="2">BURRING TYPE</p>
+              <p class="product-desc hidden" data-index="3">HOLDER, CASE etc</p>
+              <p class="product-desc hidden" data-index="4">HOLE PIPE etc</p>
+              <p class="product-desc hidden" data-index="5">HOLE TUBE ASS'Y</p>
+              <p class="product-desc hidden" data-index="6">CTR RESO ASS'Y</p>
+              <p class="product-desc hidden" data-index="7">PIPE 전시 부품</p>
+              <p class="product-desc hidden" data-index="8">SIZEING TYPE</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1109,6 +1173,100 @@
         }
       }
     });
+
+    // 제품 슬라이더 코드
+    let currentProductIndex = 2; // 시작은 product09 (인덱스 2)
+    const totalProducts = 9;
+    const productSlides = document.querySelectorAll('.product-slide');
+    const productDescriptions = document.querySelectorAll('.product-desc');
+    
+    function updateProductSlider() {
+      productSlides.forEach((slide, index) => {
+        const slideIndex = parseInt(slide.dataset.index);
+        const diff = slideIndex - currentProductIndex;
+        
+        // 위치와 스타일 계산
+        if (diff === 0) {
+          // 중앙 (활성)
+          slide.style.transform = 'translateX(0) scale(1)';
+          slide.style.opacity = '1';
+          slide.style.zIndex = '10';
+          slide.classList.add('active');
+        } else if (diff === -1 || (diff === totalProducts - 1)) {
+          // 왼쪽 첫번째
+          slide.style.transform = 'translateX(-100%) scale(0.7)';
+          slide.style.opacity = '0.3';
+          slide.style.zIndex = '2';
+          slide.classList.remove('active');
+        } else if (diff === -2 || (diff === totalProducts - 2)) {
+          // 왼쪽 두번째
+          slide.style.transform = 'translateX(-200%) scale(0.7)';
+          slide.style.opacity = '0.3';
+          slide.style.zIndex = '1';
+          slide.classList.remove('active');
+        } else if (diff === 1 || (diff === -(totalProducts - 1))) {
+          // 오른쪽 첫번째
+          slide.style.transform = 'translateX(100%) scale(0.7)';
+          slide.style.opacity = '0.3';
+          slide.style.zIndex = '2';
+          slide.classList.remove('active');
+        } else if (diff === 2 || (diff === -(totalProducts - 2))) {
+          // 오른쪽 두번째
+          slide.style.transform = 'translateX(200%) scale(0.7)';
+          slide.style.opacity = '0.3';
+          slide.style.zIndex = '1';
+          slide.classList.remove('active');
+        } else {
+          // 보이지 않는 위치
+          slide.style.transform = 'translateX(300%) scale(0.7)';
+          slide.style.opacity = '0';
+          slide.style.zIndex = '0';
+          slide.classList.remove('active');
+        }
+      });
+      
+      // 설명 텍스트 업데이트
+      productDescriptions.forEach((desc, index) => {
+        if (index === currentProductIndex) {
+          desc.classList.remove('hidden');
+          desc.classList.add('block');
+        } else {
+          desc.classList.add('hidden');
+          desc.classList.remove('block');
+        }
+      });
+    }
+    
+    function nextProduct() {
+      currentProductIndex = (currentProductIndex + 1) % totalProducts;
+      updateProductSlider();
+    }
+    
+    function prevProduct() {
+      currentProductIndex = (currentProductIndex - 1 + totalProducts) % totalProducts;
+      updateProductSlider();
+    }
+    
+    // 버튼 이벤트 리스너
+    const productNextBtn = document.querySelector('.product-next');
+    const productPrevBtn = document.querySelector('.product-prev');
+    
+    if (productNextBtn && productPrevBtn) {
+      productNextBtn.addEventListener('click', nextProduct);
+      productPrevBtn.addEventListener('click', prevProduct);
+      
+      // 키보드 네비게이션 (제품 슬라이더가 보일 때)
+      document.addEventListener('keydown', (e) => {
+        const productsSection = document.getElementById('products');
+        if (!productsSection.classList.contains('hidden-section')) {
+          if (e.key === 'ArrowRight') {
+            nextProduct();
+          } else if (e.key === 'ArrowLeft') {
+            prevProduct();
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
