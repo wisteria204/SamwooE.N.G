@@ -1,57 +1,45 @@
+/* 삼우E.N.G 웹사이트 스타일시트 */
+
+/* 컬러 테마 정의 */
+.text-color1 { color: #3C4CA6; }
+.text-color2 { color: #3C5FA6; }
+.text-color3 { color: #3C6AA6; }
+.text-color4 { color: #F2F2F2; }
+.text-color5 { color: #0D0D0D; }
+.bg-color1 { background-color: #3C4CA6; }
+.bg-color2 { background-color: #3C5FA6; }
+.bg-color3 { background-color: #3C6AA6; }
+.bg-color4 { background-color: #F2F2F2; }
+.bg-color5 { background-color: #0D0D0D; }
+.theme1 { background-color: #3C4CA6; color: #F2F2F2; }
+.theme2 { background-color: #3C5FA6; color: #F2F2F2; }
+.theme3 { background-color: #3C6AA6; color: #F2F2F2; }
+.theme4 { background-color: #F2F2F2; color: #0D0D0D; }
+.theme5 { background-color: #0D0D0D; color: #F2F2F2; }
+
+/* 기본 스타일 */
 body {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body, html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+/* 섹션 숨김 */
 .hidden-section {
   display: none !important;
 }
 
-.section {
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 4rem 2rem;
+/* PC 드롭다운 강제 숨김 클래스 */
+.dropdown-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-/* 드롭다운 호버 효과 개선 */
-.dropdown li a:hover {
-  background-color: #F2F2F2;
-  color: #3C6AA6;
-  border-radius: 0.2rem;
-  transition: background-color 0.3s ease;
-}
-
-/* 모바일 메뉴 애니메이션 */
-#mobile-menu {
-  transition: max-height 0.3s ease-out;
-}
-
-/* 모바일 서브메뉴 화살표 회전 애니메이션 */
-.rotate-180 {
-  transform: rotate(180deg);
-}
-
-/* 갤러리 이미지 컨테이너 */
-.gallery-img {
-  cursor: pointer;
-}
-
-/* 모달 이미지 최적화 */
-#modal-img {
-  object-fit: contain;
-}
-
-/* 터치 디바이스에서 호버 효과 비활성화 */
-@media (hover: none) {
+/* 모바일 드롭다운 스타일 */
+@media (max-width: 768px) {
   .group:hover .group-hover\:opacity-100 {
     opacity: 0;
   }
@@ -60,54 +48,109 @@ body, html {
   }
 }
 
-/* 프린트 시 네비게이션 숨기기 */
-@media print {
-  header {
-    display: none !important;
+/* 모바일 메뉴 애니메이션 */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* 슬라이더 스타일 */
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  min-height: calc(100vh - 4rem);
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.slide-content {
+  text-align: center;
+  color: white !important;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slide-content h1, .slide-content h2 {
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-content p {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  .slide {
+    min-height: calc(100vh - 5rem);
   }
-  main {
-    padding-top: 0 !important;
-  }
 }
 
-/* 접근성 향상을 위한 포커스 스타일 */
-a:focus,
-button:focus {
-  outline: 2px solid #3C6AA6;
-  outline-offset: 2px;
+.indicator {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-/* 스크롤바 스타일링 (웹킷 브라우저) */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.indicator.active {
+  opacity: 1 !important;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.indicator:hover {
+  opacity: 0.8;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+/* Lazy loading 이미지 스타일 */
+img[data-src] {
+  filter: blur(5px);
+  transition: filter 0.3s;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+img.loaded {
+  filter: blur(0);
 }
 
-/* 선택 영역 색상 커스터마이징 */
-::selection {
-  background-color: #3C6AA6;
+/* Skip to content 링크 스타일 */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 100;
+  padding: 1rem;
+  background: #3C4CA6;
   color: white;
+  text-decoration: none;
 }
 
-::-moz-selection {
-  background-color: #3C6AA6;
-  color: white;
-}
-
-.dropdown-hidden {
-  opacity: 0 !important;
-  visibility: hidden !important;
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
 }

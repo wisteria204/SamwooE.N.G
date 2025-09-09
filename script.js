@@ -1,31 +1,77 @@
+// 삼우E.N.G 웹사이트 JavaScript
+
+console.log('Script loaded');
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM Content Loaded');
+  console.log('Slides found:', document.querySelectorAll('.slide').length);
+  console.log('Gallery images found:', document.querySelectorAll('.gallery-img').length);
+});
+
+// 전역 변수
+let fixedDropdown = null;
+const closeTimers = new WeakMap();
+let currentSlide = 0;
+let slideInterval;
+let currentProductIndex = 2; // 시작은 product09 (인덱스 2)
+const totalProducts = 9;
+
+// Lazy Loading 구현
+document.addEventListener('DOMContentLoaded', function() {
+  const lazyImages = document.querySelectorAll('img[data-src]');
+  
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.add('loaded');
+        img.removeAttribute('data-src');
+        observer.unobserve(img);
+      }
+    });
+  });
+  
+  lazyImages.forEach(img => imageObserver.observe(img));
+});
+
 // 모바일 메뉴 관련 함수들
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
+  const menuButton = document.getElementById('mobile-menu-button');
   
   menu.classList.toggle('hidden');
   menuIcon.classList.toggle('hidden');
   closeIcon.classList.toggle('hidden');
+  
+  // aria-expanded 업데이트
+  const isExpanded = !menu.classList.contains('hidden');
+  menuButton.setAttribute('aria-expanded', isExpanded);
 }
 
 function closeMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
+  const menuButton = document.getElementById('mobile-menu-button');
   
   menu.classList.add('hidden');
   menuIcon.classList.remove('hidden');
   closeIcon.classList.add('hidden');
+  menuButton.setAttribute('aria-expanded', 'false');
   
   // 모든 서브메뉴 닫기 및 화살표 초기화
   const submenus = ['company', 'business', 'rnd', 'pr'];
   submenus.forEach(name => {
     const submenu = document.getElementById(name + '-submenu');
     const arrow = document.getElementById(name + '-arrow');
+    const button = submenu.previousElementSibling;
     if (submenu && arrow) {
       submenu.classList.add('hidden');
       arrow.classList.remove('rotate-180');
+      button.setAttribute('aria-expanded', 'false');
     }
   });
 }
@@ -33,24 +79,17 @@ function closeMobileMenu() {
 function toggleMobileSubmenu(name) {
   const submenu = document.getElementById(name + '-submenu');
   const arrow = document.getElementById(name + '-arrow');
+  const button = submenu.previousElementSibling;
   
   submenu.classList.toggle('hidden');
   arrow.classList.toggle('rotate-180');
+  
+  // aria-expanded 업데이트
+  const isExpanded = !submenu.classList.contains('hidden');
+  button.setAttribute('aria-expanded', isExpanded);
 }
 
-// 모바일 메뉴 버튼 이벤트
-document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
-
-// 모바일 로고 클릭 이벤트
-document.getElementById('home-logo-mobile').addEventListener('click', () => {
-  showSection('main');
-  closeMobileMenu();
-});
-
-// 기존 코드
-let fixedDropdown = null;
-const closeTimers = new WeakMap();
-
+// 섹션 표시/숨김 기능
 function showSection(id) {
   // 모든 섹션 숨기고, 선택한 섹션만 보여줌
   document.querySelectorAll('main > section').forEach(section => {
@@ -138,17 +177,139 @@ function toggleFixedDropdown(button) {
   }
 }
 
-document.addEventListener('click', (e) => {
-  const isInside = e.target.closest('li.group');
-  if (!isInside && fixedDropdown) {
-    fixedDropdown.classList.add('hidden');
-    fixedDropdown.parentElement.classList.remove('fixed-open');
-    fixedDropdown = null;
-  }
+// 슬라이더 관련 함수들
+function initSlider() {
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  // 인디케이터 클릭 이벤트
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+
+  // 자동 슬라이드 시작
+  startAutoSlide();
+}
+
+function goToSlide(slideIndex) {
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  // 현재 활성 슬라이드와 인디케이터 비활성화
+  slides[currentSlide].classList.remove('active');
+  indicators[currentSlide].classList.remove('active');
+  indicators[currentSlide].setAttribute('aria-selected', 'false');
+
+  // 새 슬라이드와 인디케이터 활성화
+  currentSlide = slideIndex;
+  slides[currentSlide].classList.add('active');
+  indicators[currentSlide].classList.add('active');
+  indicators[currentSlide].setAttribute('aria-selected', 'true');
+}
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.slide');
+  const nextIndex = (currentSlide + 1) % slides.length;
+  goToSlide(nextIndex);
+}
+
+function startAutoSlide() {
+  slideInterval = setInterval(nextSlide, 4000); // 4초마다 자동 전환
+}
+
+function stopAutoSlide() {
+  clearInterval(slideInterval);
+}
+
+// 제품 슬라이더 함수들
+function updateProductSlider() {
+  const productSlides = document.querySelectorAll('.product-slide');
+  const productDescriptions = document.querySelectorAll('.product-desc');
+  
+  productSlides.forEach((slide, index) => {
+    const slideIndex = parseInt(slide.dataset.index);
+    const diff = slideIndex - currentProductIndex;
+    
+    // 위치와 스타일 계산
+    if (diff === 0) {
+      // 중앙 (활성)
+      slide.style.transform = 'translateX(0) scale(1)';
+      slide.style.opacity = '1';
+      slide.style.zIndex = '10';
+      slide.classList.add('active');
+    } else if (diff === -1 || (diff === totalProducts - 1)) {
+      // 왼쪽 첫번째
+      slide.style.transform = 'translateX(-100%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '2';
+      slide.classList.remove('active');
+    } else if (diff === -2 || (diff === totalProducts - 2)) {
+      // 왼쪽 두번째
+      slide.style.transform = 'translateX(-200%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '1';
+      slide.classList.remove('active');
+    } else if (diff === 1 || (diff === -(totalProducts - 1))) {
+      // 오른쪽 첫번째
+      slide.style.transform = 'translateX(100%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '2';
+      slide.classList.remove('active');
+    } else if (diff === 2 || (diff === -(totalProducts - 2))) {
+      // 오른쪽 두번째
+      slide.style.transform = 'translateX(200%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '1';
+      slide.classList.remove('active');
+    } else {
+      // 보이지 않는 위치
+      slide.style.transform = 'translateX(300%) scale(0.7)';
+      slide.style.opacity = '0';
+      slide.style.zIndex = '0';
+      slide.classList.remove('active');
+    }
+  });
+  
+  // 설명 텍스트 업데이트
+  productDescriptions.forEach((desc, index) => {
+    if (index === currentProductIndex) {
+      desc.classList.remove('hidden');
+      desc.classList.add('block');
+    } else {
+      desc.classList.add('hidden');
+      desc.classList.remove('block');
+    }
+  });
+}
+
+function nextProduct() {
+  currentProductIndex = (currentProductIndex + 1) % totalProducts;
+  updateProductSlider();
+}
+
+function prevProduct() {
+  currentProductIndex = (currentProductIndex - 1 + totalProducts) % totalProducts;
+  updateProductSlider();
+}
+
+// 모바일 메뉴 버튼 이벤트
+document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+// 모바일 로고 클릭 이벤트
+document.getElementById('home-logo-mobile').addEventListener('click', () => {
+  showSection('main');
+  closeMobileMenu();
 });
 
-// 로고 클릭 시 메인 섹션으로 이동
+// 로고 클릭 시 메인 섹션으로 이동 (왼쪽)
 document.getElementById('home-logo').addEventListener('click', () => {
+  showSection('main');
+});
+
+// 로고 클릭 시 메인 섹션으로 이동 (오른쪽)
+document.getElementById('home-logo-right').addEventListener('click', () => {
   showSection('main');
 });
 
@@ -159,6 +320,19 @@ window.addEventListener('DOMContentLoaded', () => {
     showSection(hash);
   } else {
     showSection('main'); // 기본 메인 화면
+  }
+  
+  // 슬라이더 초기화
+  initSlider();
+});
+
+// 드롭다운 외부 클릭 시 닫기
+document.addEventListener('click', (e) => {
+  const isInside = e.target.closest('li.group');
+  if (!isInside && fixedDropdown) {
+    fixedDropdown.classList.add('hidden');
+    fixedDropdown.parentElement.classList.remove('fixed-open');
+    fixedDropdown = null;
   }
 });
 
@@ -172,8 +346,12 @@ const galleryImages = document.querySelectorAll('.gallery-img');
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
     modalImg.src = img.dataset.full; // data-full 속성에서 큰 이미지 경로 사용
+    modalImg.alt = img.alt; // alt 텍스트도 복사
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; // 배경 스크롤 막기
+    
+    // 포커스 트랩 설정
+    modalCloseBtn.focus();
   });
 });
 
@@ -193,9 +371,67 @@ modal.addEventListener('click', (e) => {
   }
 });
 
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    modalImg.src = '';
+  }
+});
+
 // 화면 크기 변경 시 모바일 메뉴 초기화
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 768) {
     closeMobileMenu();
   }
 });
+
+// 키보드 네비게이션 개선
+document.addEventListener('keydown', (e) => {
+  // Tab 키로 드롭다운 메뉴 네비게이션
+  if (e.key === 'Tab') {
+    const activeElement = document.activeElement;
+    const dropdownParent = activeElement.closest('.group');
+    if (dropdownParent) {
+      const dropdown = dropdownParent.querySelector('.absolute');
+      if (dropdown && dropdown.classList.contains('opacity-0')) {
+        dropdown.classList.remove('opacity-0', 'invisible');
+        dropdown.classList.add('opacity-100', 'visible');
+      }
+    }
+  }
+});
+
+// 제품 슬라이더 코드
+const productNextBtn = document.querySelector('.product-next');
+const productPrevBtn = document.querySelector('.product-prev');
+
+if (productNextBtn && productPrevBtn) {
+  productNextBtn.addEventListener('click', nextProduct);
+  productPrevBtn.addEventListener('click', prevProduct);
+  
+  // 키보드 네비게이션 (제품 슬라이더가 보일 때)
+  document.addEventListener('keydown', (e) => {
+    const productsSection = document.getElementById('products');
+    if (!productsSection.classList.contains('hidden-section')) {
+      if (e.key === 'ArrowRight') {
+        nextProduct();
+      } else if (e.key === 'ArrowLeft') {
+        prevProduct();
+      }
+    }
+  });
+}
+
+// 슬라이더에 마우스 호버 시 자동 슬라이드 일시정지
+const sliderContainer = document.querySelector('.slide-container');
+if (sliderContainer) {
+  sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+  sliderContainer.addEventListener('mouseleave', startAutoSlide);
+}
+
+// 전역 함수로 export (HTML에서 onclick 등으로 사용)
+window.showSection = showSection;
+window.toggleMobileSubmenu = toggleMobileSubmenu;
+window.closeMobileMenu = closeMobileMenu;
