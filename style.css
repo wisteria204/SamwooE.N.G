@@ -154,3 +154,17 @@ img.loaded {
   transform: translateX(-50%);
   top: 1rem;
 }
+
+/* 제품 슬라이더 기본 스타일 */
+.product-slide {
+  opacity: 0;
+  transform: translateX(300%) scale(0.7);
+  z-index: 0;
+}
+
+/* 공정 슬라이더 기본 스타일 */
+.process-slide {
+  opacity: 0;
+  transform: translateX(300%) scale(0.7);
+  z-index: 0;
+}

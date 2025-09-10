@@ -13,8 +13,11 @@ let fixedDropdown = null;
 const closeTimers = new WeakMap();
 let currentSlide = 0;
 let slideInterval;
-let currentProductIndex = 2; // 시작은 product09 (인덱스 2)
+let currentProductIndex = 0; // 시작은 product01 (인덱스 0)
 const totalProducts = 9;
+// 공정 슬라이더 관련 변수
+let currentProcessIndex = 0;
+const totalProcesses = 12;
 
 // Lazy Loading 구현
 document.addEventListener('DOMContentLoaded', function() {
@@ -230,34 +233,43 @@ function updateProductSlider() {
   
   productSlides.forEach((slide, index) => {
     const slideIndex = parseInt(slide.dataset.index);
-    const diff = slideIndex - currentProductIndex;
     
-    // 위치와 스타일 계산
-    if (diff === 0) {
-      // 중앙 (활성)
+    // 현재 인덱스를 기준으로 상대적 위치 계산
+    let relativePosition = slideIndex - currentProductIndex;
+    
+    // 순환 구조를 위한 위치 조정
+    if (relativePosition > totalProducts / 2) {
+      relativePosition -= totalProducts;
+    } else if (relativePosition < -totalProducts / 2) {
+      relativePosition += totalProducts;
+    }
+    
+    // 위치별 스타일 적용
+    if (relativePosition === 0) {
+      // 중앙 (현재 활성 이미지)
       slide.style.transform = 'translateX(0) scale(1)';
       slide.style.opacity = '1';
       slide.style.zIndex = '10';
       slide.classList.add('active');
-    } else if (diff === -1 || (diff === totalProducts - 1)) {
-      // 왼쪽 첫번째
+    } else if (relativePosition === -1) {
+      // 왼쪽 (이전 이미지)
       slide.style.transform = 'translateX(-100%) scale(0.7)';
       slide.style.opacity = '0.3';
       slide.style.zIndex = '2';
       slide.classList.remove('active');
-    } else if (diff === -2 || (diff === totalProducts - 2)) {
+    } else if (relativePosition === 1) {
+      // 오른쪽 (다음 이미지)
+      slide.style.transform = 'translateX(100%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '2';
+      slide.classList.remove('active');
+    } else if (relativePosition === -2) {
       // 왼쪽 두번째
       slide.style.transform = 'translateX(-200%) scale(0.7)';
       slide.style.opacity = '0.3';
       slide.style.zIndex = '1';
       slide.classList.remove('active');
-    } else if (diff === 1 || (diff === -(totalProducts - 1))) {
-      // 오른쪽 첫번째
-      slide.style.transform = 'translateX(100%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '2';
-      slide.classList.remove('active');
-    } else if (diff === 2 || (diff === -(totalProducts - 2))) {
+    } else if (relativePosition === 2) {
       // 오른쪽 두번째
       slide.style.transform = 'translateX(200%) scale(0.7)';
       slide.style.opacity = '0.3';
@@ -324,6 +336,9 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // 슬라이더 초기화
   initSlider();
+  // 제품 슬라이더 초기화 추가
+  updateProductSlider();
+  updateProcessSlider();
 });
 
 // 드롭다운 외부 클릭 시 닫기
@@ -403,13 +418,36 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// 공정 슬라이더 버튼 이벤트
+const processNextBtn = document.querySelector('.process-next');
+const processPrevBtn = document.querySelector('.process-prev');
+
+if (processNextBtn && processPrevBtn) {
+  processNextBtn.addEventListener('click', nextProcess);
+  processPrevBtn.addEventListener('click', prevProcess);
+
+  document.addEventListener('keydown', (e) => {
+    // 공정 슬라이더 화살표 키 네비게이션
+    const processSection = document.getElementById('process');
+    if (processSection && !processSection.classList.contains('hidden-section')) {
+      if (e.key === 'ArrowRight') {
+        nextProcess();
+      } else if (e.key === 'ArrowLeft') {
+        prevProcess();
+      }
+    }
+  });
+}
+
+
+
 // 제품 슬라이더 코드
 const productNextBtn = document.querySelector('.product-next');
 const productPrevBtn = document.querySelector('.product-prev');
 
 if (productNextBtn && productPrevBtn) {
-  productNextBtn.addEventListener('click', nextProduct);
-  productPrevBtn.addEventListener('click', prevProduct);
+  productNextBtn.addEventListener('click', nextProduct);  // 오른쪽 버튼 → 다음 제품
+productPrevBtn.addEventListener('click', prevProduct);  // 왼쪽 버튼 → 이전 제품
   
   // 키보드 네비게이션 (제품 슬라이더가 보일 때)
   document.addEventListener('keydown', (e) => {
@@ -429,6 +467,86 @@ const sliderContainer = document.querySelector('.slide-container');
 if (sliderContainer) {
   sliderContainer.addEventListener('mouseenter', stopAutoSlide);
   sliderContainer.addEventListener('mouseleave', startAutoSlide);
+}
+
+// 공정 슬라이더 함수들
+function updateProcessSlider() {
+  const processSlides = document.querySelectorAll('.process-slide');
+  const processDescriptions = document.querySelectorAll('.process-desc');
+  
+  processSlides.forEach((slide, index) => {
+    const slideIndex = parseInt(slide.dataset.index);
+    
+    // 현재 인덱스를 기준으로 상대적 위치 계산
+    let relativePosition = slideIndex - currentProcessIndex;
+    
+    // 순환 구조를 위한 위치 조정
+    if (relativePosition > totalProcesses / 2) {
+      relativePosition -= totalProcesses;
+    } else if (relativePosition < -totalProcesses / 2) {
+      relativePosition += totalProcesses;
+    }
+    
+    // 위치별 스타일 적용
+    if (relativePosition === 0) {
+      // 중앙 (현재 활성 이미지)
+      slide.style.transform = 'translateX(0) scale(1)';
+      slide.style.opacity = '1';
+      slide.style.zIndex = '10';
+      slide.classList.add('active');
+    } else if (relativePosition === -1) {
+      // 왼쪽 (이전 이미지)
+      slide.style.transform = 'translateX(-100%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '2';
+      slide.classList.remove('active');
+    } else if (relativePosition === 1) {
+      // 오른쪽 (다음 이미지)
+      slide.style.transform = 'translateX(100%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '2';
+      slide.classList.remove('active');
+    } else if (relativePosition === -2) {
+      // 왼쪽 두번째
+      slide.style.transform = 'translateX(-200%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '1';
+      slide.classList.remove('active');
+    } else if (relativePosition === 2) {
+      // 오른쪽 두번째
+      slide.style.transform = 'translateX(200%) scale(0.7)';
+      slide.style.opacity = '0.3';
+      slide.style.zIndex = '1';
+      slide.classList.remove('active');
+    } else {
+      // 보이지 않는 위치
+      slide.style.transform = 'translateX(300%) scale(0.7)';
+      slide.style.opacity = '0';
+      slide.style.zIndex = '0';
+      slide.classList.remove('active');
+    }
+  });
+  
+  // 설명 텍스트 업데이트
+  processDescriptions.forEach((desc, index) => {
+    if (index === currentProcessIndex) {
+      desc.classList.remove('hidden');
+      desc.classList.add('block');
+    } else {
+      desc.classList.add('hidden');
+      desc.classList.remove('block');
+    }
+  });
+}
+
+function nextProcess() {
+  currentProcessIndex = (currentProcessIndex + 1) % totalProcesses;
+  updateProcessSlider();
+}
+
+function prevProcess() {
+  currentProcessIndex = (currentProcessIndex - 1 + totalProcesses) % totalProcesses;
+  updateProcessSlider();
 }
 
 // 전역 함수로 export (HTML에서 onclick 등으로 사용)
