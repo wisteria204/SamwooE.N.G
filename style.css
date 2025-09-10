@@ -168,3 +168,73 @@ img.loaded {
   transform: translateX(300%) scale(0.7);
   z-index: 0;
 }
+
+/* 기업정보 테이블 스타일 */
+.company-info-table {
+  width: 100%;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.info-row:hover {
+  background-color: #f9fafb;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+  margin-right: 1rem; /* 라벨과 값 사이 간격 추가 */
+}
+
+.info-value {
+  flex: 1;
+  color: #111827;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 640px) {
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+  }
+  
+  .info-label {
+    flex: none;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .info-value {
+    flex: none;
+    width: 100%;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 태블릿 사이즈 */
+@media (min-width: 641px) and (max-width: 768px) {
+  .info-label {
+    flex: 0 0 100px;
+    font-size: 0.95rem;
+  }
+  
+  .info-value {
+    font-size: 0.95rem;
+  }
+}
