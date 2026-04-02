@@ -320,11 +320,6 @@ document.getElementById('home-logo').addEventListener('click', () => {
   showSection('main');
 });
 
-// 로고 클릭 시 메인 섹션으로 이동 (오른쪽)
-document.getElementById('home-logo-right').addEventListener('click', () => {
-  showSection('main');
-});
-
 // 페이지 로드 시 처음 보여줄 섹션
 window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.substring(1);
