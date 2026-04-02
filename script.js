@@ -96,9 +96,15 @@ function toggleMobileSubmenu(name) {
 function showSection(id) {
   // 모든 섹션 숨기고, 선택한 섹션만 보여줌
   document.querySelectorAll('main > section').forEach(section => {
-    section.id === id
-      ? section.classList.remove('hidden-section')
-      : section.classList.add('hidden-section');
+    if (section.id === 'main') {
+      id === 'main'
+        ? section.classList.remove('hidden-section')
+        : section.classList.add('hidden-section');
+    } else {
+      section.id === id
+        ? section.classList.remove('hidden-section')
+        : section.classList.add('hidden-section');
+    }
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -317,6 +323,11 @@ document.getElementById('home-logo-mobile').addEventListener('click', () => {
 
 // 로고 클릭 시 메인 섹션으로 이동 (왼쪽)
 document.getElementById('home-logo').addEventListener('click', () => {
+  showSection('main');
+});
+
+// 로고 클릭 시 메인 섹션으로 이동 (오른쪽)
+document.getElementById('home-logo-right').addEventListener('click', () => {
   showSection('main');
 });
 
