@@ -1,11 +1,6 @@
 // 삼우E.N.G 웹사이트 JavaScript
 
-console.log('Script loaded');
-
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM Content Loaded');
-  console.log('Slides found:', document.querySelectorAll('.slide').length);
-  console.log('Gallery images found:', document.querySelectorAll('.gallery-img').length);
 });
 
 // 전역 변수
