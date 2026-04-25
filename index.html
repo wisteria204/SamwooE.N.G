@@ -15,14 +15,15 @@
   <meta property="og:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://samwooeng.com">
-  <meta property="og:image" content="https://samwooeng.com/images/삼우이엔지 로고.png">
+  <!-- [Fix #2] og:image / twitter:image 파일명 한글 제거 → logo.png 사용 권장 (실제 파일명은 서버에 맞게 조정) -->
+  <meta property="og:image" content="https://samwooeng.com/images/logo.png">
   <meta property="og:locale" content="ko_KR">
   
   <!-- 트위터 카드 -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="삼우E.N.G - 제조 기술의 미래를 선도하는 기업">
   <meta name="twitter:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
-  <meta name="twitter:image" content="https://samwooeng.com/images/삼우이엔지 로고.png">
+  <meta name="twitter:image" content="https://samwooeng.com/images/logo.png">
   
   <!-- 추가 SEO 최적화 -->
   <meta name="robots" content="index, follow">
@@ -31,6 +32,10 @@
   <meta name="geo.placename" content="경주시">
   <meta name="geo.position" content="35.7175;129.3000">
   <meta name="ICBM" content="35.7175, 129.3000">
+
+  <!-- [Fix #3] Favicon 추가 -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
   
   <!-- 구조화된 데이터 (Schema.org) -->
   <script type="application/ld+json">
@@ -39,7 +44,7 @@
     "@type": "Organization",
     "name": "삼우E.N.G",
     "url": "https://samwooeng.com",
-    "logo": "https://samwooeng.com/images/삼우이엔지 로고.png",
+    "logo": "https://samwooeng.com/images/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+82-54-777-3639",
@@ -82,17 +87,19 @@
       <div class="hidden md:flex items-center justify-between py-4">
         <!-- 로고 + 회사명 (왼쪽) -->
         <a id="home-logo" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" />
+          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" loading="eager" />
           <span class="text-2xl font-bold text-color5">삼우E.N.G</span>
         </a>
         
         <!-- 메뉴 (중앙) -->
         <ul class="flex items-center space-x-6" role="menubar">
           <li class="relative group" role="none">
+            <!-- [Fix #14] aria-expanded를 JS로 동기화하기 위해 data-dropdown 속성 추가 -->
             <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors" 
                     aria-haspopup="true" 
                     aria-expanded="false"
                     aria-controls="company-dropdown"
+                    data-dropdown="company-dropdown"
                     role="menuitem">회사소개</button>
             <div id="company-dropdown" 
                  class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
@@ -109,6 +116,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     aria-controls="business-dropdown"
+                    data-dropdown="business-dropdown"
                     role="menuitem">사업분야</button>
             <div id="business-dropdown"
                  class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
@@ -123,6 +131,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     aria-controls="rnd-dropdown"
+                    data-dropdown="rnd-dropdown"
                     role="menuitem">연구개발</button>
             <div id="rnd-dropdown"
                  class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
@@ -137,6 +146,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     aria-controls="pr-dropdown"
+                    data-dropdown="pr-dropdown"
                     role="menuitem">홍보자료</button>
             <div id="pr-dropdown"
                  class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
@@ -150,7 +160,7 @@
         
         <!-- 로고 (오른쪽) -->
         <a id="home-logo-right" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" />
+          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" loading="eager" />
         </a>
       </div>
 
@@ -158,7 +168,7 @@
       <div class="md:hidden">
         <div class="flex items-center justify-between py-3">
           <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-bold cursor-pointer" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" width="32" height="32" />
+            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" width="32" height="32" loading="eager" />
             <span>삼우E.N.G</span>
           </a>
           <button id="mobile-menu-button" 
@@ -252,10 +262,12 @@
   <main class="pt-16 md:pt-20" id="main-content" role="main">
     <section id="main" class="relative" aria-label="메인 배너 섹션">
       <!-- 이미지 슬라이더 -->
-      <div class="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden" role="region" aria-label="이미지 슬라이더">
+      <!-- [Fix #11] min-height를 CSS 변수 기반으로 관리 (style.css의 --nav-height 참조) -->
+      <div class="relative slider-hero-height overflow-hidden" role="region" aria-label="이미지 슬라이더">
         <!-- 슬라이드 이미지들 -->
         <div class="slide-container">
-          <div class="slide active" style="background-image: url('images/2_1.jpg'); background-size: cover; background-position: center;" role="img" aria-label="사무실 및 공장 전경">
+          <!-- [Fix #2] 첫 번째 슬라이드: loading="eager" (즉시 로드) -->
+          <div class="slide active" style="background-image: url('images/2_1.jpg');" role="img" aria-label="사무실 및 공장 전경">
             <div class="slide-overlay">
               <div class="slide-content">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">삼 우 E.N.G</h1>
@@ -263,7 +275,8 @@
               </div>
             </div>
           </div>
-          <div class="slide" style="background-image: url('images/3.jpg'); background-size: cover; background-position: center;" role="img" aria-label="제조 현장">
+          <!-- [Fix #2] 두 번째 이후 슬라이드: data-bg로 lazy 처리 -->
+          <div class="slide" data-bg="images/3.jpg" role="img" aria-label="제조 현장">
             <div class="slide-overlay">
               <div class="slide-content">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">혁신적인 기술력</h2>
@@ -271,7 +284,7 @@
               </div>
             </div>
           </div>
-          <div class="slide" style="background-image: url('images/BG1.jpg'); background-size: cover; background-position: center;" role="img" aria-label="회사 전경">
+          <div class="slide" data-bg="images/BG1.jpg" role="img" aria-label="회사 전경">
             <div class="slide-overlay">
               <div class="slide-content">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">신뢰할 수 있는 파트너</h2>
@@ -294,8 +307,9 @@
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- 오시는 길 배너 -->
+            <!-- [Fix #9] 배너 컬러를 사이트 메인 컬러(#3C4CA6)로 통일 -->
             <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('location')">
-              <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-600">
+              <div class="relative h-48" style="background: linear-gradient(to right, #3C4CA6, #3C6AA6);">
                 <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                 <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
                   <h3 class="text-2xl font-bold mb-2">오시는 길</h3>
@@ -310,7 +324,7 @@
                 </div>
               </div>
               <div class="p-6">
-                <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 font-semibold">
+                <button class="w-full text-white py-3 px-4 rounded-md font-semibold transition-colors duration-200" style="background-color: #3C4CA6;" onmouseover="this.style.backgroundColor='#2e3a8a'" onmouseout="this.style.backgroundColor='#3C4CA6'">
                   자세히 보기
                 </button>
               </div>
@@ -318,7 +332,7 @@
 
             <!-- 갤러리 배너 -->
             <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('gallery')">
-              <div class="relative h-48 bg-gradient-to-r from-green-500 to-green-600">
+              <div class="relative h-48" style="background: linear-gradient(to right, #3C5FA6, #3C6AA6);">
                 <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                 <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
                   <h3 class="text-2xl font-bold mb-2">갤러리</h3>
@@ -332,7 +346,7 @@
                 </div>
               </div>
               <div class="p-6">
-                <button class="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition-colors duration-200 font-semibold">
+                <button class="w-full text-white py-3 px-4 rounded-md font-semibold transition-colors duration-200" style="background-color: #3C5FA6;" onmouseover="this.style.backgroundColor='#2e4a8a'" onmouseout="this.style.backgroundColor='#3C5FA6'">
                   자세히 보기
                 </button>
               </div>
@@ -344,13 +358,13 @@
 
     <section id="intro" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="회사소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">회사소개</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">회사소개</h2>
         <p class="text-base sm:text-lg mb-8">삼우E.N.G를 소개합니다.</p>
         <p class="text-sm sm:text-base text-gray-700 mt-2 mb-12">삼우E.N.G는 2018년 설립되어 현재까지 끊임없는 기술 개발과 품질 제일주의를 생명으로 최고의 제품을 생산하기 위해 노력 중입니다.</p>
         
         <!-- 기업정보 테이블 -->
         <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-8 text-center border-b-2 border-gray-200 pb-4">기업정보</h2>
+          <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-8 text-center border-b-2 border-gray-200 pb-4">기업정보</h3>
           
           <div class="company-info-table">
             <div class="info-row">
@@ -399,13 +413,13 @@
 
     <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="인사말 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">인사말</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">인사말</h2>
         <p class="text-base sm:text-lg">삼우E.N.G의 대표 인사말입니다.</p>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mt-10">
           <!-- 대표 사진 -->
           <div class="flex justify-center">
             <img src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 윤문주" 
-                class="w-64 h-auto rounded-lg shadow-lg object-cover" />
+                class="w-64 h-auto rounded-lg shadow-lg object-cover" loading="lazy" />
           </div>
 
           <!-- 인사말 본문 -->
@@ -438,7 +452,7 @@
 
             <!-- 사인 이미지 -->
             <div class="mt-6">
-              <img src="images/대표사인.png" alt="대표이사 서명" class="w-40 h-auto" />
+              <img src="images/대표사인.png" alt="대표이사 서명" class="w-40 h-auto" loading="lazy" />
             </div>
           </div>
         </div>
@@ -447,14 +461,14 @@
 
     <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연혁 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연혁</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연혁</h2>
         <p class="text-base sm:text-lg">삼우E.N.G의 연혁을 소개합니다.</p>
       </div>
     </section>
 
     <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="오시는 길 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">오시는 길</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">오시는 길</h2>
         <address class="text-base sm:text-lg not-italic">
           <p>경상북도 경주시 외동읍어령길 110-8</p>
           <p>TEL : 054)777-3639</p>
@@ -477,7 +491,7 @@
 
     <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="제품소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">제품소개</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">제품소개</h2>
         <p class="text-base sm:text-lg">삼우E.N.G에서 생산하는 제품을 소개합니다.</p>
         
         <!-- 제품 슬라이더 -->
@@ -518,12 +532,12 @@
           </div>
           
           <!-- 좌우 화살표 버튼 -->
-          <button class="product-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="이전 제품">
+          <button class="product-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="이전 제품">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
           </button>
-          <button class="product-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="다음 제품">
+          <button class="product-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="다음 제품">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
@@ -549,7 +563,7 @@
 
     <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="공정소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">공정소개</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">공정소개</h2>
         <p class="text-base sm:text-lg">삼우E.N.G의 제조 공정을 소개합니다.</p>
         
         <!-- 공정 슬라이더 -->
@@ -599,12 +613,12 @@
           </div>
           
           <!-- 좌우 화살표 버튼 -->
-          <button class="process-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="이전 공정">
+          <button class="process-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="이전 공정">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
           </button>
-          <button class="process-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-20" aria-label="다음 공정">
+          <button class="process-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="다음 공정">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
@@ -633,14 +647,14 @@
 
     <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연구개발 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연구개발</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연구개발</h2>
         <p class="text-base sm:text-lg">삼우E.N.G의 연구개발을 소개합니다.</p>
       </div>
     </section>
 
     <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="특허인증 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">특허・인증</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">특허・인증</h2>
         <p class="text-base sm:text-lg mb-8">삼우E.N.G의 특허 및 인증서를 소개합니다.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           <figure class="group cursor-pointer">
@@ -737,14 +751,14 @@
 
     <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="보도자료 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">보도자료</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">보도자료</h2>
         <p class="text-base sm:text-lg">삼우E.N.G의 보도자료를 소개합니다.</p>
       </div>
     </section>
 
     <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="갤러리 섹션">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">갤러리</h1>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">갤러리</h2>
         <p class="text-base sm:text-lg mb-8">삼우E.N.G의 갤러리입니다.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           <figure class="group cursor-pointer">
@@ -777,6 +791,7 @@
   </main>
 
   <!-- 바로가기 섹션 -->
+  <!-- [Fix #9] 빠른 메뉴 카드 헤더 컬러를 사이트 메인 컬러 계열로 통일 -->
   <section class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" aria-label="빠른 메뉴">
     <div class="max-w-7xl mx-auto">
       <h2 class="sr-only">빠른 메뉴</h2>
@@ -784,19 +799,19 @@
         
         <!-- 회사소개 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold text-blue-600 mb-3 text-center border-b border-blue-100 pb-2">회사소개</h3>
+          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C4CA6; border-color: #dde3f5;">회사소개</h3>
           <nav aria-label="회사소개 바로가기">
             <div class="space-y-2">
-              <button onclick="showSection('intro')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <button onclick="showSection('intro')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 회사소개
               </button>
-              <button onclick="showSection('greeting')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <button onclick="showSection('greeting')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 인사말
               </button>
-              <button onclick="showSection('history')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <button onclick="showSection('history')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 연혁
               </button>
-              <button onclick="showSection('location')" class="w-full text-left py-2 px-3 rounded hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm">
+              <button onclick="showSection('location')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 오시는 길
               </button>
             </div>
@@ -805,13 +820,13 @@
 
         <!-- 사업분야 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold text-green-600 mb-3 text-center border-b border-green-100 pb-2">사업분야</h3>
+          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C5FA6; border-color: #dde3f5;">사업분야</h3>
           <nav aria-label="사업분야 바로가기">
             <div class="space-y-2">
-              <button onclick="showSection('products')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
+              <button onclick="showSection('products')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C5FA6]">
                 제품소개
               </button>
-              <button onclick="showSection('process')" class="w-full text-left py-2 px-3 rounded hover:bg-green-50 hover:text-green-600 transition-colors text-sm">
+              <button onclick="showSection('process')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C5FA6]">
                 공정소개
               </button>
             </div>
@@ -820,13 +835,13 @@
 
         <!-- 연구개발 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold text-purple-600 mb-3 text-center border-b border-purple-100 pb-2">연구개발</h3>
+          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C6AA6; border-color: #dde3f5;">연구개발</h3>
           <nav aria-label="연구개발 바로가기">
             <div class="space-y-2">
-              <button onclick="showSection('rnd')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
+              <button onclick="showSection('rnd')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C6AA6]">
                 연구개발
               </button>
-              <button onclick="showSection('patents')" class="w-full text-left py-2 px-3 rounded hover:bg-purple-50 hover:text-purple-600 transition-colors text-sm">
+              <button onclick="showSection('patents')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C6AA6]">
                 특허인증
               </button>
             </div>
@@ -835,13 +850,13 @@
 
         <!-- 홍보자료 그룹 -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold text-orange-600 mb-3 text-center border-b border-orange-100 pb-2">홍보자료</h3>
+          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C4CA6; border-color: #dde3f5;">홍보자료</h3>
           <nav aria-label="홍보자료 바로가기">
             <div class="space-y-2">
-              <button onclick="showSection('news')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
+              <button onclick="showSection('news')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 보도자료
               </button>
-              <button onclick="showSection('gallery')" class="w-full text-left py-2 px-3 rounded hover:bg-orange-50 hover:text-orange-600 transition-colors text-sm">
+              <button onclick="showSection('gallery')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
                 갤러리
               </button>
             </div>
@@ -864,7 +879,8 @@
         </address>
       </div>
       <div class="md:text-right">
-        <p>&copy; 2025 삼우E.N.G. All rights reserved.</p>
+        <!-- [Fix #17은 미포함 항목이지만 JS로 처리 - script.js에서 동적 삽입] -->
+        <p id="footer-copyright">&copy; 2025 삼우E.N.G. All rights reserved.</p>
       </div>
     </div>
   </footer>
