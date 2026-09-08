@@ -3,28 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+
   <!-- SEO 메타 태그 -->
   <title>삼우E.N.G - 제조 기술의 미래를 선도하는 엔지니어링 기업</title>
-  <meta name="description" content="삼우E.N.G는 경주시에 위치한 제조 엔지니어링 전문 기업입니다. 혁신적인 기술력과 품질경영시스템 인증을 바탕으로 고객과 함께 성장합니다.">
-  <meta name="keywords" content="삼우이엔지, 삼우ENG, 제조업, 엔지니어링, 경주 제조업체, 뿌리기업, 벤처기업">
+  <meta name="description" content="삼우E.N.G는 경주시에 위치한 자동차 부품 정밀가공 전문 기업입니다. 파이프 절단·성형·가공 전 공정을 자체 관리하며 품질경영시스템 인증을 바탕으로 고객과 함께 성장합니다.">
+  <meta name="keywords" content="삼우이엔지, 삼우ENG, 제조업, 파이프 가공, 자동차부품, 경주 제조업체, 뿌리기업, 벤처기업">
   <meta name="author" content="삼우E.N.G">
-  
+
   <!-- Open Graph 메타 태그 (소셜 미디어 공유용) -->
   <meta property="og:title" content="삼우E.N.G - 제조 기술의 미래를 선도하는 기업">
-  <meta property="og:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
+  <meta property="og:description" content="자동차 부품 파이프 정밀가공 전문기업, 삼우E.N.G">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://samwooeng.com">
-  <!-- [Fix #2] og:image / twitter:image 파일명 한글 제거 → logo.png 사용 권장 (실제 파일명은 서버에 맞게 조정) -->
-  <meta property="og:image" content="https://samwooeng.com/images/logo.png">
+  <meta property="og:image" content="https://samwooeng.com/images/로고_파랑_2025.png">
   <meta property="og:locale" content="ko_KR">
-  
+
   <!-- 트위터 카드 -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="삼우E.N.G - 제조 기술의 미래를 선도하는 기업">
-  <meta name="twitter:description" content="최첨단 제조 공정과 기술력으로 품질을 보장하는 삼우E.N.G">
-  <meta name="twitter:image" content="https://samwooeng.com/images/logo.png">
-  
+  <meta name="twitter:description" content="자동차 부품 파이프 정밀가공 전문기업, 삼우E.N.G">
+  <meta name="twitter:image" content="https://samwooeng.com/images/로고_파랑_2025.png">
+
   <!-- 추가 SEO 최적화 -->
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://samwooeng.com">
@@ -33,10 +32,9 @@
   <meta name="geo.position" content="35.7175;129.3000">
   <meta name="ICBM" content="35.7175, 129.3000">
 
-  <!-- [Fix #3] Favicon 추가 -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="apple-touch-icon" href="images/logo.png">
-  
+  <link rel="icon" type="image/png" href="images/로고_파랑_2025.png">
+  <link rel="apple-touch-icon" href="images/로고_파랑_2025.png">
+
   <!-- 구조화된 데이터 (Schema.org) -->
   <script type="application/ld+json">
   {
@@ -44,7 +42,7 @@
     "@type": "Organization",
     "name": "삼우E.N.G",
     "url": "https://samwooeng.com",
-    "logo": "https://samwooeng.com/images/logo.png",
+    "logo": "https://samwooeng.com/images/로고_파랑_2025.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+82-54-777-3639",
@@ -62,117 +60,83 @@
     }
   }
   </script>
-  
+
   <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./style.css" type="text/css">
 
 </head>
 
-<body class="bg-color4">
+<body class="bg-white">
   <!-- Skip to content 링크 (접근성) -->
   <a href="#main-content" class="skip-to-content">메인 콘텐츠로 건너뛰기</a>
-  
+
   <!-- Navigation -->
-  <header class="theme4 fixed w-full top-0 z-50 shadow-md" role="banner">
+  <header id="site-header" class="site-header fixed w-full top-0 z-50" role="banner">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="메인 네비게이션">
       <!-- 데스크톱 네비게이션 -->
       <div class="hidden md:flex items-center justify-between py-4">
         <!-- 로고 + 회사명 (왼쪽) -->
-        <a id="home-logo" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-          <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" loading="eager" />
-          <span class="text-2xl font-bold text-color5">삼우E.N.G</span>
+        <a id="home-logo" class="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
+          <img src="images/로고_파랑_2025.png" alt="삼우E.N.G 로고" class="h-9 w-auto object-contain" width="36" height="36" loading="eager" />
+          <span class="text-xl font-extrabold tracking-tight" style="color: var(--c-ink);">삼우E.N.G</span>
         </a>
-        
+
         <!-- 메뉴 (중앙) -->
-        <ul class="flex items-center space-x-6" role="menubar">
+        <ul class="flex items-center space-x-8" role="menubar">
           <li class="relative group" role="none">
-            <!-- [Fix #14] aria-expanded를 JS로 동기화하기 위해 data-dropdown 속성 추가 -->
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors" 
-                    aria-haspopup="true" 
-                    aria-expanded="false"
-                    aria-controls="company-dropdown"
-                    data-dropdown="company-dropdown"
-                    role="menuitem">회사소개</button>
-            <div id="company-dropdown" 
-                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
-                 role="menu"
-                 aria-label="회사소개 하위 메뉴">
-              <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">회사소개</a>
-              <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">인사말</a>
-              <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">연혁</a>
-              <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">오시는 길</a>
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="company-dropdown" data-dropdown="company-dropdown" role="menuitem">회사소개</button>
+            <div id="company-dropdown" class="dropdown-panel absolute left-0 top-full opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden mt-2" role="menu" aria-label="회사소개 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('intro')" class="block px-4 py-3 transition-colors" role="menuitem">회사소개</a>
+              <a href="javascript:void(0)" onclick="showSection('greeting')" class="block px-4 py-3 transition-colors" role="menuitem">인사말</a>
+              <a href="javascript:void(0)" onclick="showSection('history')" class="block px-4 py-3 transition-colors" role="menuitem">연혁</a>
+              <a href="javascript:void(0)" onclick="showSection('location')" class="block px-4 py-3 transition-colors" role="menuitem">오시는 길</a>
             </div>
           </li>
           <li class="relative group" role="none">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    aria-controls="business-dropdown"
-                    data-dropdown="business-dropdown"
-                    role="menuitem">사업분야</button>
-            <div id="business-dropdown"
-                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
-                 role="menu"
-                 aria-label="사업분야 하위 메뉴">
-              <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">제품소개</a>
-              <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">공정소개</a>
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="business-dropdown" data-dropdown="business-dropdown" role="menuitem">사업분야</button>
+            <div id="business-dropdown" class="dropdown-panel absolute left-0 top-full opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden mt-2" role="menu" aria-label="사업분야 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('products')" class="block px-4 py-3 transition-colors" role="menuitem">제품소개</a>
+              <a href="javascript:void(0)" onclick="showSection('process')" class="block px-4 py-3 transition-colors" role="menuitem">공정소개</a>
             </div>
           </li>
           <li class="relative group" role="none">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    aria-controls="rnd-dropdown"
-                    data-dropdown="rnd-dropdown"
-                    role="menuitem">연구개발</button>
-            <div id="rnd-dropdown"
-                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
-                 role="menu"
-                 aria-label="연구개발 하위 메뉴">
-              <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">연구개발</a>
-              <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">특허인증</a>
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="rnd-dropdown" data-dropdown="rnd-dropdown" role="menuitem">연구개발</button>
+            <div id="rnd-dropdown" class="dropdown-panel absolute left-0 top-full opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden mt-2" role="menu" aria-label="연구개발 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('rnd')" class="block px-4 py-3 transition-colors" role="menuitem">연구개발</a>
+              <a href="javascript:void(0)" onclick="showSection('patents')" class="block px-4 py-3 transition-colors" role="menuitem">특허인증</a>
             </div>
           </li>
           <li class="relative group" role="none">
-            <button class="px-4 py-2 text-xl hover:text-blue-600 transition-colors"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    aria-controls="pr-dropdown"
-                    data-dropdown="pr-dropdown"
-                    role="menuitem">홍보자료</button>
-            <div id="pr-dropdown"
-                 class="absolute left-0 top-full bg-white shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden"
-                 role="menu"
-                 aria-label="홍보자료 하위 메뉴">
-              <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">보도자료</a>
-              <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-3 hover:bg-gray-100 transition-colors" role="menuitem">갤러리</a>
+            <button class="nav-link" aria-haspopup="true" aria-expanded="false" aria-controls="pr-dropdown" data-dropdown="pr-dropdown" role="menuitem">홍보자료</button>
+            <div id="pr-dropdown" class="dropdown-panel absolute left-0 top-full opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50 min-w-[12rem] rounded-md overflow-hidden mt-2" role="menu" aria-label="홍보자료 하위 메뉴">
+              <a href="javascript:void(0)" onclick="showSection('news')" class="block px-4 py-3 transition-colors" role="menuitem">보도자료</a>
+              <a href="javascript:void(0)" onclick="showSection('gallery')" class="block px-4 py-3 transition-colors" role="menuitem">갤러리</a>
             </div>
           </li>
         </ul>
-        
-        <!-- 로고 (오른쪽) -->
-        <a id="home-logo-right" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-10 w-auto object-contain" width="40" height="40" loading="eager" />
-        </a>
+
+        <!-- 문의 CTA (오른쪽) -->
+        <button onclick="showSection('location')" class="btn-cta">오시는 길</button>
       </div>
 
       <!-- 모바일 네비게이션 -->
       <div class="md:hidden">
         <div class="flex items-center justify-between py-3">
-          <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-bold cursor-pointer" href="#main" aria-label="삼우E.N.G 홈으로 이동">
-            <img src="images/삼우이엔지 로고.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" width="32" height="32" loading="eager" />
+          <a id="home-logo-mobile" class="flex items-center space-x-2 text-lg font-extrabold cursor-pointer" href="#main" aria-label="삼우E.N.G 홈으로 이동" style="color: var(--c-ink);">
+            <img src="images/로고_파랑_2025.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" width="32" height="32" loading="eager" />
             <span>삼우E.N.G</span>
           </a>
-          <button id="mobile-menu-button" 
-                  class="p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          <button id="mobile-menu-button"
+                  class="p-2 rounded-md hover:bg-gray-100 focus:outline-none"
                   aria-label="메뉴 열기"
                   aria-expanded="false"
                   aria-controls="mobile-menu"
@@ -186,9 +150,9 @@
 
         <!-- 모바일 메뉴 -->
         <div id="mobile-menu" class="hidden pb-4" role="navigation" aria-label="모바일 메뉴">
-          <div class="space-y-2">
+          <div class="space-y-1">
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+              <button class="w-full text-left px-4 py-2 text-base font-bold hover:bg-gray-50 rounded flex items-center justify-between"
                       onclick="toggleMobileSubmenu('company')"
                       aria-expanded="false"
                       aria-controls="company-submenu">
@@ -198,15 +162,15 @@
                 </svg>
               </button>
               <div id="company-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
-                <a href="javascript:void(0)" onclick="showSection('intro'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">회사소개</a>
-                <a href="javascript:void(0)" onclick="showSection('greeting'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">인사말</a>
-                <a href="javascript:void(0)" onclick="showSection('history'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">연혁</a>
-                <a href="javascript:void(0)" onclick="showSection('location'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">오시는 길</a>
+                <a href="javascript:void(0)" onclick="showSection('intro'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">회사소개</a>
+                <a href="javascript:void(0)" onclick="showSection('greeting'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">인사말</a>
+                <a href="javascript:void(0)" onclick="showSection('history'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">연혁</a>
+                <a href="javascript:void(0)" onclick="showSection('location'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">오시는 길</a>
               </div>
             </div>
-            
+
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+              <button class="w-full text-left px-4 py-2 text-base font-bold hover:bg-gray-50 rounded flex items-center justify-between"
                       onclick="toggleMobileSubmenu('business')"
                       aria-expanded="false"
                       aria-controls="business-submenu">
@@ -216,13 +180,13 @@
                 </svg>
               </button>
               <div id="business-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
-                <a href="javascript:void(0)" onclick="showSection('products'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">제품소개</a>
-                <a href="javascript:void(0)" onclick="showSection('process'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">공정소개</a>
+                <a href="javascript:void(0)" onclick="showSection('products'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">제품소개</a>
+                <a href="javascript:void(0)" onclick="showSection('process'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">공정소개</a>
               </div>
             </div>
-            
+
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+              <button class="w-full text-left px-4 py-2 text-base font-bold hover:bg-gray-50 rounded flex items-center justify-between"
                       onclick="toggleMobileSubmenu('rnd')"
                       aria-expanded="false"
                       aria-controls="rnd-submenu">
@@ -232,13 +196,13 @@
                 </svg>
               </button>
               <div id="rnd-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
-                <a href="javascript:void(0)" onclick="showSection('rnd'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">연구개발</a>
-                <a href="javascript:void(0)" onclick="showSection('patents'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">특허인증</a>
+                <a href="javascript:void(0)" onclick="showSection('rnd'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">연구개발</a>
+                <a href="javascript:void(0)" onclick="showSection('patents'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">특허인증</a>
               </div>
             </div>
-            
+
             <div class="mobile-menu-item">
-              <button class="w-full text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded" 
+              <button class="w-full text-left px-4 py-2 text-base font-bold hover:bg-gray-50 rounded flex items-center justify-between"
                       onclick="toggleMobileSubmenu('pr')"
                       aria-expanded="false"
                       aria-controls="pr-submenu">
@@ -248,8 +212,8 @@
                 </svg>
               </button>
               <div id="pr-submenu" class="hidden pl-8 space-y-1 mt-1" role="menu">
-                <a href="javascript:void(0)" onclick="showSection('news'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">보도자료</a>
-                <a href="javascript:void(0)" onclick="showSection('gallery'); closeMobileMenu();" class="block py-2 hover:text-blue-600" role="menuitem">갤러리</a>
+                <a href="javascript:void(0)" onclick="showSection('news'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">보도자료</a>
+                <a href="javascript:void(0)" onclick="showSection('gallery'); closeMobileMenu();" class="block py-2 text-sm text-gray-600" role="menuitem">갤러리</a>
               </div>
             </div>
           </div>
@@ -259,96 +223,104 @@
   </header>
 
   <!-- 콘텐츠 -->
-  <main class="pt-16 md:pt-20" id="main-content" role="main">
+  <main class="pt-16 md:pt-[4.5rem]" id="main-content" role="main">
     <section id="main" class="relative" aria-label="메인 배너 섹션">
       <!-- 이미지 슬라이더 -->
-      <!-- [Fix #11] min-height를 CSS 변수 기반으로 관리 (style.css의 --nav-height 참조) -->
       <div class="relative slider-hero-height overflow-hidden" role="region" aria-label="이미지 슬라이더">
-        <!-- 슬라이드 이미지들 -->
         <div class="slide-container">
-          <!-- [Fix #2] 첫 번째 슬라이드: loading="eager" (즉시 로드) -->
           <div class="slide active" style="background-image: url('images/2_1.jpg');" role="img" aria-label="사무실 및 공장 전경">
             <div class="slide-overlay">
               <div class="slide-content">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">삼 우 E.N.G</h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">제조 기술의 미래를 선도하는 기업</p>
+                <span class="kicker">SAMWOO E.N.G · SINCE 2018</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-5">파이프 하나에도<br>정밀함을 새깁니다</h1>
+                <p class="text-base sm:text-lg md:text-xl mb-2">자동차 부품용 파이프 절단·성형·가공을 전 과정 자체 관리하는 삼우E.N.G</p>
+                <div class="hero-meta">
+                  <div><strong>2018</strong>설립</div>
+                  <div><strong>경상북도 경주시</strong>외동읍 어령길 110-8</div>
+                  <div><strong>자동차 부품 제조</strong>파이프 정밀가공 전문</div>
+                </div>
               </div>
             </div>
           </div>
-          <!-- [Fix #2] 두 번째 이후 슬라이드: data-bg로 lazy 처리 -->
           <div class="slide" data-bg="images/3.jpg" role="img" aria-label="제조 현장">
             <div class="slide-overlay">
               <div class="slide-content">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">혁신적인 기술력</h2>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">최첨단 제조 공정으로 품질을 보장합니다</p>
+                <span class="kicker">TECHNOLOGY</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-5">오차 없는 가공,<br>흔들림 없는 품질</h2>
+                <p class="text-base sm:text-lg md:text-xl">철판의 구매부터 절단, 성형, 가공까지 모든 공정을 꼼꼼하게 관리합니다</p>
               </div>
             </div>
           </div>
           <div class="slide" data-bg="images/BG1.jpg" role="img" aria-label="회사 전경">
             <div class="slide-overlay">
               <div class="slide-content">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color: white !important;">신뢰할 수 있는 파트너</h2>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6" style="color: white !important;">고객과 함께 성장하는 기업</p>
+                <span class="kicker">PARTNERSHIP</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-5">고객과 함께<br>성장하는 파트너</h2>
+                <p class="text-base sm:text-lg md:text-xl">끊임없는 설비 투자와 기술 개발로 더 높은 품질을 약속드립니다</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 슬라이드 인디케이터 -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20" role="tablist" aria-label="슬라이드 선택">
-          <button class="indicator active w-3 h-3 rounded-full bg-white opacity-50" data-slide="0" role="tab" aria-selected="true" aria-label="슬라이드 1"></button>
-          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="1" role="tab" aria-selected="false" aria-label="슬라이드 2"></button>
-          <button class="indicator w-3 h-3 rounded-full bg-white opacity-50" data-slide="2" role="tab" aria-selected="false" aria-label="슬라이드 3"></button>
+        <div class="absolute bottom-8 left-1/2 md:left-8 transform -translate-x-1/2 md:translate-x-0 flex space-x-2 z-20" role="tablist" aria-label="슬라이드 선택">
+          <button class="indicator active w-8 h-1 bg-white opacity-50" data-slide="0" role="tab" aria-selected="true" aria-label="슬라이드 1"></button>
+          <button class="indicator w-8 h-1 bg-white opacity-50" data-slide="1" role="tab" aria-selected="false" aria-label="슬라이드 2"></button>
+          <button class="indicator w-8 h-1 bg-white opacity-50" data-slide="2" role="tab" aria-selected="false" aria-label="슬라이드 3"></button>
+        </div>
+
+        <div class="scroll-cue hidden md:flex">
+          <span>SCROLL</span>
+          <span class="line"></span>
+        </div>
+      </div>
+
+      <!-- 핵심역량 스트립 -->
+      <div class="stat-strip px-4 sm:px-6 lg:px-8 py-10 reveal">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+          <div class="stat-item">
+            <span class="stat-num">2018</span>
+            <p class="stat-label">설립연도<br>7년째 자동차부품 정밀가공</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100<span class="unit">%</span></span>
+            <p class="stat-label">자체 관리 공정<br>절단부터 열처리까지 직접 관리</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">9<span class="unit">라인</span></span>
+            <p class="stat-label">제품 라인업<br>홀더·파이프·튜브 어셈블리</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">11<span class="unit">건</span></span>
+            <p class="stat-label">보유 인증·특허<br>ISO 9001 외</p>
+          </div>
         </div>
       </div>
 
       <!-- 하단 배너 섹션 -->
-      <div class="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div class="bg-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- 오시는 길 배너 -->
-            <!-- [Fix #9] 배너 컬러를 사이트 메인 컬러(#3C4CA6)로 통일 -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('location')">
-              <div class="relative h-48" style="background: linear-gradient(to right, #3C4CA6, #3C6AA6);">
-                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
-                  <h3 class="text-2xl font-bold mb-2">오시는 길</h3>
-                  <p class="text-lg opacity-90 mb-4">경상북도 경주시 외동읍어령길 110-8</p>
-                  <div class="flex items-center text-sm opacity-80">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    위치 안내 및 교통편 확인
-                  </div>
-                </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <article class="quick-card cursor-pointer reveal" onclick="showSection('location')">
+              <div class="quick-card-top">
+                <span class="quick-card-num">01 / LOCATION</span>
+                <h3>오시는 길</h3>
+                <p>경상북도 경주시 외동읍어령길 110-8</p>
               </div>
-              <div class="p-6">
-                <button class="w-full text-white py-3 px-4 rounded-md font-semibold transition-colors duration-200" style="background-color: #3C4CA6;" onmouseover="this.style.backgroundColor='#2e3a8a'" onmouseout="this.style.backgroundColor='#3C4CA6'">
-                  자세히 보기
-                </button>
+              <div class="quick-card-cta">
+                <span>위치 안내 및 교통편 확인</span>
+                <span aria-hidden="true">＋</span>
               </div>
             </article>
 
-            <!-- 갤러리 배너 -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer" onclick="showSection('gallery')">
-              <div class="relative h-48" style="background: linear-gradient(to right, #3C5FA6, #3C6AA6);">
-                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                <div class="relative z-10 p-8 text-white h-full flex flex-col justify-center">
-                  <h3 class="text-2xl font-bold mb-2">갤러리</h3>
-                  <p class="text-lg opacity-90 mb-4">회사 시설 및 제품 사진을 확인하세요</p>
-                  <div class="flex items-center text-sm opacity-80">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    사무실, 공장, 제품 이미지
-                  </div>
-                </div>
+            <article class="quick-card cursor-pointer reveal" onclick="showSection('gallery')">
+              <div class="quick-card-top">
+                <span class="quick-card-num">02 / GALLERY</span>
+                <h3>갤러리</h3>
+                <p>사무실, 공장, 제품 이미지로 삼우E.N.G의 현장을 확인하세요</p>
               </div>
-              <div class="p-6">
-                <button class="w-full text-white py-3 px-4 rounded-md font-semibold transition-colors duration-200" style="background-color: #3C5FA6;" onmouseover="this.style.backgroundColor='#2e4a8a'" onmouseout="this.style.backgroundColor='#3C5FA6'">
-                  자세히 보기
-                </button>
+              <div class="quick-card-cta">
+                <span>사진으로 보기</span>
+                <span aria-hidden="true">＋</span>
               </div>
             </article>
           </div>
@@ -356,432 +328,329 @@
       </div>
     </section>
 
-    <section id="intro" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="회사소개 섹션">
+    <section id="intro" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="회사소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">회사소개</h2>
-        <p class="text-base sm:text-lg mb-8">삼우E.N.G를 소개합니다.</p>
-        <p class="text-sm sm:text-base text-gray-700 mt-2 mb-12">삼우E.N.G는 2018년 설립되어 현재까지 끊임없는 기술 개발과 품질 제일주의를 생명으로 최고의 제품을 생산하기 위해 노력 중입니다.</p>
-        
-        <!-- 기업정보 테이블 -->
-        <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-          <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-8 text-center border-b-2 border-gray-200 pb-4">기업정보</h3>
-          
+        <div class="section-head">
+          <span class="kicker">ABOUT US</span>
+          <h2>회사소개</h2>
+          <p>삼우E.N.G는 2018년 설립되어 현재까지 끊임없는 기술 개발과 품질 제일주의를 생명으로 최고의 제품을 생산하기 위해 노력하고 있습니다.</p>
+        </div>
+
+        <div class="info-panel max-w-4xl p-6 sm:p-10">
+          <h3 class="text-lg font-bold mb-6 pb-4 border-b" style="border-color: var(--c-line);">기업정보</h3>
           <div class="company-info-table">
-            <div class="info-row">
-              <div class="info-label">회사명</div>
-              <div class="info-value">삼우E.N.G</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">대표자</div>
-              <div class="info-value">윤문주</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">설립일</div>
-              <div class="info-value">2018년 12월 01일</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">주요사업</div>
-              <div class="info-value">자동차 부품 제조업</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">회사주소</div>
-              <div class="info-value">경상북도 경주시 외동읍 어령길 110-8 (삼우E.N.G)</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">대표전화</div>
-              <div class="info-value">054)777-3639</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">팩스</div>
-              <div class="info-value">054)775-3639</div>
-            </div>
-            
-            <div class="info-row">
-              <div class="info-label">이메일</div>
-              <div class="info-value">yoonmunju@hanmail.com</div>
-            </div>
+            <div class="info-row"><div class="info-label">회사명</div><div class="info-value">삼우E.N.G</div></div>
+            <div class="info-row"><div class="info-label">대표자</div><div class="info-value">윤문주</div></div>
+            <div class="info-row"><div class="info-label">설립일</div><div class="info-value">2018년 12월 01일</div></div>
+            <div class="info-row"><div class="info-label">주요사업</div><div class="info-value">자동차 부품 제조업</div></div>
+            <div class="info-row"><div class="info-label">회사주소</div><div class="info-value">경상북도 경주시 외동읍 어령길 110-8 (삼우E.N.G)</div></div>
+            <div class="info-row"><div class="info-label">대표전화</div><div class="info-value">054)777-3639</div></div>
+            <div class="info-row"><div class="info-label">팩스</div><div class="info-value">054)775-3639</div></div>
+            <div class="info-row"><div class="info-label">이메일</div><div class="info-value">yoonmunju@hanmail.com</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="greeting" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="인사말 섹션">
+    <section id="greeting" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="인사말 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">인사말</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G의 대표 인사말입니다.</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mt-10">
-          <!-- 대표 사진 -->
-          <div class="flex justify-center">
-            <img src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 윤문주" 
-                class="w-64 h-auto rounded-lg shadow-lg object-cover" loading="lazy" />
+        <div class="section-head">
+          <span class="kicker">CEO MESSAGE</span>
+          <h2>인사말</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-start">
+          <div class="flex justify-center md:justify-start">
+            <div class="ceo-portrait-frame">
+              <img src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 윤문주" class="w-56 md:w-full h-auto object-cover" loading="lazy" />
+            </div>
           </div>
 
-          <!-- 인사말 본문 -->
-          <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-8 leading-relaxed text-gray-700">
-            <p class="font-semibold text-lg mb-4">
-              안녕하십니까,<br>
-              삼우E.N.G 대표이사 <span class="text-blue-700 font-bold">윤문주</span>입니다.
+          <div class="md:col-span-2 ceo-letter">
+            <p class="lede mb-6">
+              안녕하십니까, 삼우E.N.G 대표이사 <strong style="color: var(--c-navy);">윤문주</strong>입니다.
             </p>
             <p class="mb-4">
-              삼우E.N.G 홈페이지를 찾아주신 여러분께 진심으로 감사의 말씀을 드립니다.<br>
+              삼우E.N.G 홈페이지를 찾아주신 여러분께 진심으로 감사의 말씀을 드립니다.
               이곳에서 저희의 땀과 노력이 담긴 발자취와 앞으로 나아갈 비전을 함께 느껴보시길 바랍니다.
             </p>
             <p class="mb-4">
-              저희 삼우E.N.G는 자동차 산업의 중요한 한 축을 담당하는 <strong>파이프 가공 전문 기업</strong>으로, 
-              설립 이래 한결같이 <strong class="text-blue-700">품질 보장</strong>과 <strong class="text-blue-700">정밀 가공</strong>을 
-              최우선 가치로 삼아왔습니다. 철판의 구매부터 절단, 성형, 가공에 이르기까지 모든 과정을 <strong>꼼꼼하게 관리</strong>하며, 
+              저희 삼우E.N.G는 자동차 산업의 중요한 한 축을 담당하는 <strong>파이프 가공 전문 기업</strong>으로,
+              설립 이래 한결같이 <strong>품질 보장</strong>과 <strong>정밀 가공</strong>을
+              최우선 가치로 삼아왔습니다. 철판의 구매부터 절단, 성형, 가공에 이르기까지 모든 과정을 꼼꼼하게 관리하며,
               오차 없는 제품을 공급하기 위해 전 직원이 한마음으로 노력하고 있습니다.
             </p>
             <p class="mb-4">
-              오늘의 삼우E.N.G가 있기까지는 변함없는 신뢰와 성원을 보내주신 고객 여러분, 
+              오늘의 삼우E.N.G가 있기까지는 변함없는 신뢰와 성원을 보내주신 고객 여러분,
               그리고 성실함과 친절함으로 현장을 지켜온 임직원들의 노고가 있었기에 가능했습니다.
-              저희는 그 믿음에 보답하기 위해 끊임없는 설비 투자와 기술 개발을 이어가며, 
+              저희는 그 믿음에 보답하기 위해 끊임없는 설비 투자와 기술 개발을 이어가며,
               더 높은 품질과 서비스로 보답할 것을 약속드립니다.
             </p>
-            <p class="mb-4">
-              앞으로도 삼우E.N.G는 변화하는 시장 속에서 멈추지 않는 도전과 혁신을 통해 한층 더 발전된 모습을 보여드리겠습니다.<br>
-              항상 곁에서 지켜봐 주시고, 변함없는 관심과 격려 부탁드립니다.
+            <p class="mb-8">
+              앞으로도 삼우E.N.G는 변화하는 시장 속에서 멈추지 않는 도전과 혁신을 통해 한층 더 발전된 모습을 보여드리겠습니다.
+              항상 곁에서 지켜봐 주시고, 변함없는 관심과 격려 부탁드립니다. 감사합니다.
             </p>
-            <p class="mt-6 font-semibold">감사합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- 사인 이미지 -->
-            <div class="mt-6">
-              <img src="images/대표사인.png" alt="대표이사 서명" class="w-40 h-auto" loading="lazy" />
+    <section id="history" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="연혁 섹션">
+      <div class="max-w-7xl mx-auto">
+        <div class="section-head">
+          <span class="kicker">HISTORY</span>
+          <h2>연혁</h2>
+          <p>삼우E.N.G가 걸어온 길입니다. 새로운 기록은 순차적으로 업데이트됩니다.</p>
+        </div>
+        <div class="timeline max-w-2xl">
+          <div class="timeline-node">
+            <span class="timeline-year">2018. 12</span>
+            <p class="timeline-desc">삼우E.N.G 설립, 자동차 부품 파이프 가공 사업 시작</p>
+          </div>
+          <div class="timeline-node is-open">
+            <span class="timeline-year">TODAY</span>
+            <p class="timeline-desc">이후의 주요 연혁을 정리하는 중입니다. 확정되는 대로 이 타임라인에 순서대로 채워집니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="오시는 길 섹션">
+      <div class="max-w-7xl mx-auto">
+        <div class="section-head">
+          <span class="kicker">LOCATION</span>
+          <h2>오시는 길</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <div class="lg:col-span-2">
+            <div class="info-panel p-6 sm:p-8">
+              <address class="not-italic space-y-3 text-base">
+                <p style="color: var(--c-ink); font-weight: 600;">경상북도 경주시 외동읍어령길 110-8</p>
+                <p style="color: var(--c-steel);">TEL : 054)777-3639</p>
+                <p style="color: var(--c-steel);">FAX : 054)775-3639</p>
+                <p><a href="mailto:yoonmunju@hanmail.com" class="hover:underline" style="color: var(--c-navy);">yoonmunju@hanmail.com</a></p>
+              </address>
+              <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
+                class="block mt-6 border rounded overflow-hidden hover:opacity-90 transition"
+                style="border-color: var(--c-line);"
+                aria-label="네이버 지도에서 삼우E.N.G 위치 확인하기">
+                <img src="images/약도.png" alt="삼우E.N.G 위치 지도" class="w-full" loading="lazy"/>
+              </a>
+              <p class="text-sm mt-2" style="color: var(--c-steel-light);">약도를 클릭하시면 네이버 지도로 이동합니다.</p>
+            </div>
+          </div>
+          <div class="lg:col-span-3">
+            <div class="info-panel overflow-hidden h-full">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5415775795295!2d129.30213367731923!3d35.6882881725853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35664aa3fdd0b86d%3A0xbef1ba27cfa8d270!2z7IK87JqwRU5H!5e0!3m2!1sko!2skr!4v1752824067509!5m2!1sko!2skr"
+                width="100%" height="100%" style="border:0; min-height: 420px;"
+                allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="history" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연혁 섹션">
+    <section id="products" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="제품소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연혁</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G의 연혁을 소개합니다.</p>
-      </div>
-    </section>
+        <div class="section-head">
+          <span class="kicker">PRODUCTS</span>
+          <h2>제품소개</h2>
+          <p>삼우E.N.G가 생산하는 9개 제품 라인업을 소개합니다.</p>
+        </div>
 
-    <section id="location" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="오시는 길 섹션">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">오시는 길</h2>
-        <address class="text-base sm:text-lg not-italic">
-          <p>경상북도 경주시 외동읍어령길 110-8</p>
-          <p>TEL : 054)777-3639</p>
-          <p>FAX : 054)775-3639</p>
-          <p><a href="mailto:yoonmunju@hanmail.com" class="hover:underline">yoonmunju@hanmail.com</a></p>
-          <p class="text-sm sm:text-base text-gray-500 mt-2">약도를 클릭하시면 네이버 지도로 이동합니다.</p>
-        </address>
-        <a href="https://naver.me/FJILRxdi" target="_blank" rel="noopener noreferrer"
-          class="inline-block border rounded overflow-hidden shadow-lg hover:opacity-90 transition"
-          aria-label="네이버 지도에서 삼우E.N.G 위치 확인하기">
-          <img src="images/약도.png" alt="삼우E.N.G 위치 지도" class="w-full max-w-md" loading="lazy"/>
-        </a>
-        <p class="text-sm sm:text-base text-gray-500 mt-2">구글맵</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5415775795295!2d129.30213367731923!3d35.6882881725853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35664aa3fdd0b86d%3A0xbef1ba27cfa8d270!2z7IK87JqwRU5H!5e0!3m2!1sko!2skr!4v1752824067509!5m2!1sko!2skr"
-                width="100%" height="450" style="border:0;" 
-                allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
-
-    <section id="products" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="제품소개 섹션">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">제품소개</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G에서 생산하는 제품을 소개합니다.</p>
-        
-        <!-- 제품 슬라이더 -->
         <div class="relative max-w-6xl mx-auto">
-          <!-- 슬라이더 컨테이너 -->
-          <div class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
-            <!-- 슬라이더 트랙 -->
+          <div class="showcase-frame relative h-[380px] sm:h-[460px] lg:h-[560px] overflow-hidden">
             <div class="product-slider-track flex items-center justify-center h-full relative" style="transform: translateX(0);">
-              <!-- 제품 이미지들 -->
-              <div class="product-slide absolute transition-all duration-500" data-index="0">
-                <img src="images/product01.png" alt="제품 1" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="1">
-                <img src="images/product02.png" alt="제품 2" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="2">
-                <img src="images/product03.png" alt="제품 3" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="3">
-                <img src="images/product04.png" alt="제품 4" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="4">
-                <img src="images/product05.png" alt="제품 5" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="5">
-                <img src="images/product06.png" alt="제품 6" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="6">
-                <img src="images/product07.png" alt="제품 7" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="7">
-                <img src="images/product08.png" alt="제품 8" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="product-slide absolute transition-all duration-500" data-index="8">
-                <img src="images/product09.png" alt="제품 9" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
+              <div class="product-slide absolute transition-all duration-500" data-index="0"><img src="images/product01.png" alt="제품 1: HOLDER, CASE etc" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="1"><img src="images/product02.png" alt="제품 2: HOLE PIPE etc" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="2"><img src="images/product03.png" alt="제품 3: HOLE TUBE ASS'Y" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="3"><img src="images/product04.png" alt="제품 4: CTR RESO ASS'Y" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="4"><img src="images/product05.png" alt="제품 5: PIPE 전시 부품" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="5"><img src="images/product06.png" alt="제품 6: SIZEING TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="6"><img src="images/product07.png" alt="제품 7: OVER TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="7"><img src="images/product08.png" alt="제품 8: SIZ'G&PIERC'G" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="product-slide absolute transition-all duration-500" data-index="8"><img src="images/product09.png" alt="제품 9: BURRING TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
             </div>
           </div>
-          
-          <!-- 좌우 화살표 버튼 -->
-          <button class="product-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="이전 제품">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
+
+          <button class="product-prev showcase-nav-btn absolute left-2 sm:-left-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="이전 제품">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
-          <button class="product-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="다음 제품">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
+          <button class="product-next showcase-nav-btn absolute right-2 sm:-right-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="다음 제품">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
-          
-          <!-- 제품 설명 텍스트 -->
+
           <div class="mt-8 text-center max-w-3xl mx-auto">
             <div class="product-descriptions">
-              <p class="product-desc block" data-index="0">HOLDER, CASE etc</p>
-              <p class="product-desc hidden" data-index="1">HOLE PIPE etc</p>
-              <p class="product-desc hidden" data-index="2">HOLE TUBE ASS'Y</p>
-              <p class="product-desc hidden" data-index="3">CTR RESO ASS'Y</p>
-              <p class="product-desc hidden" data-index="4">PIPE 전시 부품</p>
-              <p class="product-desc hidden" data-index="5">SIZEING TYPE</p>
-              <p class="product-desc hidden" data-index="6">OVER TYPE</p>
-              <p class="product-desc hidden" data-index="7">SIZ'G&PIERC'G</p>
-              <p class="product-desc hidden" data-index="8">BURRING TYPE</p>
+              <p class="product-desc showcase-caption block" data-index="0">HOLDER, CASE etc</p>
+              <p class="product-desc showcase-caption hidden" data-index="1">HOLE PIPE etc</p>
+              <p class="product-desc showcase-caption hidden" data-index="2">HOLE TUBE ASS'Y</p>
+              <p class="product-desc showcase-caption hidden" data-index="3">CTR RESO ASS'Y</p>
+              <p class="product-desc showcase-caption hidden" data-index="4">PIPE 전시 부품</p>
+              <p class="product-desc showcase-caption hidden" data-index="5">SIZEING TYPE</p>
+              <p class="product-desc showcase-caption hidden" data-index="6">OVER TYPE</p>
+              <p class="product-desc showcase-caption hidden" data-index="7">SIZ'G&PIERC'G</p>
+              <p class="product-desc showcase-caption hidden" data-index="8">BURRING TYPE</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="공정소개 섹션">
+    <section id="process" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="공정소개 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">공정소개</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G의 제조 공정을 소개합니다.</p>
-        
-        <!-- 공정 슬라이더 -->
+        <div class="section-head">
+          <span class="kicker">PROCESS</span>
+          <h2>공정소개</h2>
+          <p>재료 준비부터 열처리까지, 삼우E.N.G의 핵심 제조 공정입니다.</p>
+        </div>
+
         <div class="relative max-w-6xl mx-auto">
-          <!-- 슬라이더 컨테이너 -->
-          <div class="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
-            <!-- 슬라이더 트랙 -->
+          <div class="showcase-frame relative h-[380px] sm:h-[460px] lg:h-[560px] overflow-hidden">
             <div class="process-slider-track flex items-center justify-center h-full relative" style="transform: translateX(0);">
-              <!-- 공정 이미지들 -->
-              <div class="process-slide absolute transition-all duration-500" data-index="0">
-                <img src="images/process01.png" alt="공정 1" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="1">
-                <img src="images/process02.png" alt="공정 2" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="2">
-                <img src="images/process03.png" alt="공정 3" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="3">
-                <img src="images/process04.png" alt="공정 4" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="4">
-                <img src="images/process05.png" alt="공정 5" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="5">
-                <img src="images/process06.png" alt="공정 6" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="6">
-                <img src="images/process07.png" alt="공정 7" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="7">
-                <img src="images/process08.png" alt="공정 8" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="8">
-                <img src="images/process09.png" alt="공정 9" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="9">
-                <img src="images/process10.png" alt="공정 10" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="10">
-                <img src="images/process11.png" alt="공정 11" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
-              <div class="process-slide absolute transition-all duration-500" data-index="11">
-                <img src="images/process12.png" alt="공정 12" class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-contain rounded-lg shadow-xl" />
-              </div>
+              <div class="process-slide absolute transition-all duration-500" data-index="0"><img src="images/process01.png" alt="공정 1: 재료 준비" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="process-slide absolute transition-all duration-500" data-index="1"><img src="images/process02.png" alt="공정 2: 절단 가공" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="process-slide absolute transition-all duration-500" data-index="2"><img src="images/process03.png" alt="공정 3: 성형 가공" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="process-slide absolute transition-all duration-500" data-index="3"><img src="images/process04.png" alt="공정 4: 용접" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="process-slide absolute transition-all duration-500" data-index="4"><img src="images/process05.png" alt="공정 5: 연마" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+              <div class="process-slide absolute transition-all duration-500" data-index="5"><img src="images/process06.png" alt="공정 6: 열처리" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
             </div>
           </div>
-          
-          <!-- 좌우 화살표 버튼 -->
-          <button class="process-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="이전 공정">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
+
+          <button class="process-prev showcase-nav-btn absolute left-2 sm:-left-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="이전 공정">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
-          <button class="process-next absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110 z-20" aria-label="다음 공정">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
+          <button class="process-next showcase-nav-btn absolute right-2 sm:-right-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="다음 공정">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
-          
-          <!-- 공정 설명 텍스트 -->
+
           <div class="mt-8 text-center max-w-3xl mx-auto">
             <div class="process-descriptions">
-              <p class="process-desc block" data-index="0">재료 준비 공정</p>
-              <p class="process-desc hidden" data-index="1">절단 가공 공정</p>
-              <p class="process-desc hidden" data-index="2">성형 가공 공정</p>
-              <p class="process-desc hidden" data-index="3">용접 공정</p>
-              <p class="process-desc hidden" data-index="4">연마 공정</p>
-              <p class="process-desc hidden" data-index="5">열처리 공정</p>
-              <p class="process-desc hidden" data-index="6">도장 전처리 공정</p>
-              <p class="process-desc hidden" data-index="7">도장 공정</p>
-              <p class="process-desc hidden" data-index="8">조립 공정</p>
-              <p class="process-desc hidden" data-index="9">검사 공정</p>
-              <p class="process-desc hidden" data-index="10">포장 공정</p>
-              <p class="process-desc hidden" data-index="11">출하 공정</p>
+              <p class="process-desc showcase-caption block" data-index="0"><span class="showcase-index">01</span> · 재료 준비 공정</p>
+              <p class="process-desc showcase-caption hidden" data-index="1"><span class="showcase-index">02</span> · 절단 가공 공정</p>
+              <p class="process-desc showcase-caption hidden" data-index="2"><span class="showcase-index">03</span> · 성형 가공 공정</p>
+              <p class="process-desc showcase-caption hidden" data-index="3"><span class="showcase-index">04</span> · 용접 공정</p>
+              <p class="process-desc showcase-caption hidden" data-index="4"><span class="showcase-index">05</span> · 연마 공정</p>
+              <p class="process-desc showcase-caption hidden" data-index="5"><span class="showcase-index">06</span> · 열처리 공정</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="rnd" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="연구개발 섹션">
+    <section id="rnd" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="연구개발 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">연구개발</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G의 연구개발을 소개합니다.</p>
+        <div class="section-head">
+          <span class="kicker">R&amp;D</span>
+          <h2>연구개발</h2>
+          <p>삼우E.N.G는 연구개발 전담 조직을 통해 정밀가공 기술을 지속적으로 고도화하고 있습니다. 그 결과물은 디자인 등록증과 특허증으로 확인하실 수 있습니다.</p>
+        </div>
+        <button onclick="showSection('patents')" class="btn-outline">특허·인증 현황 보기</button>
       </div>
     </section>
 
-    <section id="patents" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="특허인증 섹션">
+    <section id="patents" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="특허인증 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">특허・인증</h2>
-        <p class="text-base sm:text-lg mb-8">삼우E.N.G의 특허 및 인증서를 소개합니다.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림1_1.png" alt="디자인 등록증 - 삼우E.N.G의 디자인 특허"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림1_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">디자인 등록증</figcaption>
+        <div class="section-head">
+          <span class="kicker">CERTIFICATIONS</span>
+          <h2>특허・인증</h2>
+          <p>삼우E.N.G가 보유한 특허 및 인증 11건입니다.</p>
+        </div>
+        <div class="badge-row mb-10">
+          <span class="badge">ISO 9001</span>
+          <span class="badge">벤처기업 확인</span>
+          <span class="badge">뿌리기업 확인</span>
+          <span class="badge">소재·부품·장비 전문기업</span>
+          <span class="badge">연구개발 전담부서 인정</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
+          <figure class="cert-card">
+            <img data-src="images/그림1_1.png" alt="디자인 등록증 - 삼우E.N.G의 디자인 특허" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림1_1.png" loading="lazy" />
+            <figcaption>디자인 등록증</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림2_1.png" alt="특허증 - 삼우E.N.G의 기술 특허"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림2_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">특허증</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림2_1.png" alt="특허증 - 삼우E.N.G의 기술 특허" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림2_1.png" loading="lazy" />
+            <figcaption>특허증</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림3_1.png" alt="기술역량 우수 인증기업 인증서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림3_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수 인증기업</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림3_1.png" alt="기술역량 우수 인증기업 인증서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림3_1.png" loading="lazy" />
+            <figcaption>기술역량 우수 인증기업</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림4_1.png" alt="친환경 미래 모빌리티 유망기업 인증서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림4_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">친환경 미래 모빌리티 유망기업</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림4_1.png" alt="친환경 미래 모빌리티 유망기업 인증서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림4_1.png" loading="lazy" />
+            <figcaption>친환경 미래 모빌리티 유망기업</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림5_1.png" alt="벤처기업협회 정회원 인증서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림5_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업협회 정회원</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림5_1.png" alt="벤처기업협회 정회원 인증서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림5_1.png" loading="lazy" />
+            <figcaption>벤처기업협회 정회원</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림6_1.png" alt="ISO 9001 품질경영시스템 인증서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림6_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">품질경영시스템 인증</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림6_1.png" alt="ISO 9001 품질경영시스템 인증서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림6_1.png" loading="lazy" />
+            <figcaption>품질경영시스템 인증</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림7_1.png" alt="벤처기업 확인서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림7_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">벤처기업 확인</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림7_1.png" alt="벤처기업 확인서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림7_1.png" loading="lazy" />
+            <figcaption>벤처기업 확인</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림8_1.png" alt="뿌리기업 확인서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림8_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">뿌리기업 확인</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림8_1.png" alt="뿌리기업 확인서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림8_1.png" loading="lazy" />
+            <figcaption>뿌리기업 확인</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림9_1.png" alt="기술역량 우수기업 인증서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림9_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">기술역량 우수기업 인증</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림9_1.png" alt="기술역량 우수기업 인증서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림9_1.png" loading="lazy" />
+            <figcaption>기술역량 우수기업 인증</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림10_1.png" alt="소재・부품・장비 전문기업 확인서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림10_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">소재・부품・장비 전문기업 확인</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림10_1.png" alt="소재・부품・장비 전문기업 확인서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림10_1.png" loading="lazy" />
+            <figcaption>소재・부품・장비 전문기업 확인</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/그림11_1.png" alt="연구개발 전담부서 인정서"
-                class="gallery-img w-full h-[calc(100vw*1.414/1)] sm:h-[calc((100vw-3rem)*1.414/2)] md:h-[calc((100vw-6rem)*1.414/3)] lg:h-[calc((100vw-12rem)*1.414/4)] max-h-96 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                data-full="images/그림11_1.png" loading="lazy" />
-            </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">연구개발 전담부서 인정</figcaption>
+          <figure class="cert-card">
+            <img data-src="images/그림11_1.png" alt="연구개발 전담부서 인정서" class="gallery-img w-full h-64 object-contain bg-white p-4" data-full="images/그림11_1.png" loading="lazy" />
+            <figcaption>연구개발 전담부서 인정</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="news" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="보도자료 섹션">
+    <section id="news" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="보도자료 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">보도자료</h2>
-        <p class="text-base sm:text-lg">삼우E.N.G의 보도자료를 소개합니다.</p>
+        <div class="section-head">
+          <span class="kicker">NEWS</span>
+          <h2>보도자료</h2>
+        </div>
+        <div class="placeholder-panel max-w-2xl">
+          <span class="kicker">PREPARING</span>
+          <h3>보도자료를 준비 중입니다</h3>
+          <p>등록되는 대로 이곳에서 순서대로 확인하실 수 있습니다.</p>
+        </div>
       </div>
     </section>
 
-    <section id="gallery" class="hidden-section theme4 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16" aria-label="갤러리 섹션">
+    <section id="gallery" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="갤러리 섹션">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">갤러리</h2>
-        <p class="text-base sm:text-lg mb-8">삼우E.N.G의 갤러리입니다.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/1_2.jpg" alt="삼우E.N.G 사무실 및 공장 전경"
-                class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/1_2.jpg" loading="lazy" />
+        <div class="section-head">
+          <span class="kicker">GALLERY</span>
+          <h2>갤러리</h2>
+          <p>삼우E.N.G의 사무실과 공장, 사람들을 소개합니다.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+          <figure class="gallery-card cursor-pointer group">
+            <div class="overflow-hidden">
+              <img data-src="images/1_2.jpg" alt="삼우E.N.G 사무실 및 공장 전경" class="gallery-img w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" data-full="images/1_2.jpg" loading="lazy" />
             </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">사무실 및 공장 전경</figcaption>
+            <figcaption>사무실 및 공장 전경</figcaption>
           </figure>
-          <figure class="group cursor-pointer">
-            <div class="overflow-hidden rounded-lg shadow-md">
-              <img data-src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 사진"
-                class="gallery-img w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-full="images/3R6A4269.JPG" loading="lazy" />
+          <figure class="gallery-card cursor-pointer group">
+            <div class="overflow-hidden">
+              <img data-src="images/3R6A4269.JPG" alt="삼우E.N.G 대표 사진" class="gallery-img w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" data-full="images/3R6A4269.JPG" loading="lazy" />
             </div>
-            <figcaption class="text-center text-xs sm:text-sm text-color5 mt-2">대표 사진</figcaption>
+            <figcaption>대표 사진</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="relative bg-black rounded shadow-lg max-w-full sm:max-w-2xl lg:max-w-4xl">
         <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500 z-10 w-10 h-10 flex items-center justify-center" aria-label="닫기">&times;</button>
         <img id="modal-img" src="" alt="" class="max-w-full max-h-[90vh] rounded" />
@@ -791,96 +660,60 @@
   </main>
 
   <!-- 바로가기 섹션 -->
-  <!-- [Fix #9] 빠른 메뉴 카드 헤더 컬러를 사이트 메인 컬러 계열로 통일 -->
-  <section class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" aria-label="빠른 메뉴">
+  <section class="px-4 sm:px-6 lg:px-8 py-14" style="background: var(--c-paper); border-top: 1px solid var(--c-line);" aria-label="빠른 메뉴">
     <div class="max-w-7xl mx-auto">
       <h2 class="sr-only">빠른 메뉴</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-        
-        <!-- 회사소개 그룹 -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C4CA6; border-color: #dde3f5;">회사소개</h3>
-          <nav aria-label="회사소개 바로가기">
-            <div class="space-y-2">
-              <button onclick="showSection('intro')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                회사소개
-              </button>
-              <button onclick="showSection('greeting')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                인사말
-              </button>
-              <button onclick="showSection('history')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                연혁
-              </button>
-              <button onclick="showSection('location')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                오시는 길
-              </button>
-            </div>
-          </nav>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+        <div class="footer-nav-group">
+          <h3>회사소개</h3>
+          <div class="space-y-2">
+            <button onclick="showSection('intro')" class="block w-full text-left">회사소개</button>
+            <button onclick="showSection('greeting')" class="block w-full text-left">인사말</button>
+            <button onclick="showSection('history')" class="block w-full text-left">연혁</button>
+            <button onclick="showSection('location')" class="block w-full text-left">오시는 길</button>
+          </div>
         </div>
-
-        <!-- 사업분야 그룹 -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C5FA6; border-color: #dde3f5;">사업분야</h3>
-          <nav aria-label="사업분야 바로가기">
-            <div class="space-y-2">
-              <button onclick="showSection('products')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C5FA6]">
-                제품소개
-              </button>
-              <button onclick="showSection('process')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C5FA6]">
-                공정소개
-              </button>
-            </div>
-          </nav>
+        <div class="footer-nav-group">
+          <h3>사업분야</h3>
+          <div class="space-y-2">
+            <button onclick="showSection('products')" class="block w-full text-left">제품소개</button>
+            <button onclick="showSection('process')" class="block w-full text-left">공정소개</button>
+          </div>
         </div>
-
-        <!-- 연구개발 그룹 -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C6AA6; border-color: #dde3f5;">연구개발</h3>
-          <nav aria-label="연구개발 바로가기">
-            <div class="space-y-2">
-              <button onclick="showSection('rnd')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C6AA6]">
-                연구개발
-              </button>
-              <button onclick="showSection('patents')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C6AA6]">
-                특허인증
-              </button>
-            </div>
-          </nav>
+        <div class="footer-nav-group">
+          <h3>연구개발</h3>
+          <div class="space-y-2">
+            <button onclick="showSection('rnd')" class="block w-full text-left">연구개발</button>
+            <button onclick="showSection('patents')" class="block w-full text-left">특허인증</button>
+          </div>
         </div>
-
-        <!-- 홍보자료 그룹 -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-          <h3 class="text-lg font-bold mb-3 text-center border-b pb-2" style="color: #3C4CA6; border-color: #dde3f5;">홍보자료</h3>
-          <nav aria-label="홍보자료 바로가기">
-            <div class="space-y-2">
-              <button onclick="showSection('news')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                보도자료
-              </button>
-              <button onclick="showSection('gallery')" class="w-full text-left py-2 px-3 rounded transition-colors duration-200 text-sm hover:bg-[#f0f2fb] hover:text-[#3C4CA6]">
-                갤러리
-              </button>
-            </div>
-          </nav>
+        <div class="footer-nav-group">
+          <h3>홍보자료</h3>
+          <div class="space-y-2">
+            <button onclick="showSection('news')" class="block w-full text-left">보도자료</button>
+            <button onclick="showSection('gallery')" class="block w-full text-left">갤러리</button>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <footer class="theme1 text-sm sm:text-base px-4 sm:px-6 lg:px-8 py-6 sm:py-8" role="contentinfo">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-y-4">
+  <footer class="site-footer text-sm sm:text-base px-4 sm:px-6 lg:px-8 py-10" role="contentinfo">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-y-6">
       <div>
-        <h2 class="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Contact</h2>
+        <div class="flex items-center gap-2 mb-4">
+          <img src="images/로고_신_배경X.png" alt="삼우E.N.G 로고" class="h-8 w-auto object-contain" />
+          <span class="text-lg font-extrabold text-white">삼우E.N.G</span>
+        </div>
         <address class="not-italic">
           <p class="mb-1">경상북도 경주시 외동읍어령길 110-8</p>
-          <p class="mb-1"><a href="tel:054-777-3639" class="hover:underline">TEL : 054)777-3639</a></p>
+          <p class="mb-1"><a href="tel:054-777-3639">TEL : 054)777-3639</a></p>
           <p class="mb-1">FAX : 054)775-3639</p>
-          <p class="mb-1"><a href="mailto:yoonmunju@hanmail.com" class="hover:underline">yoonmunju@hanmail.com</a></p>
+          <p class="mb-1"><a href="mailto:yoonmunju@hanmail.com">yoonmunju@hanmail.com</a></p>
         </address>
       </div>
       <div class="md:text-right">
-        <!-- [Fix #17은 미포함 항목이지만 JS로 처리 - script.js에서 동적 삽입] -->
-        <p id="footer-copyright">&copy; 2025 삼우E.N.G. All rights reserved.</p>
+        <p id="footer-copyright" class="opacity-70">&copy; 2026 삼우E.N.G. All rights reserved.</p>
       </div>
     </div>
   </footer>

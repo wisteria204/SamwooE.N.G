@@ -1,295 +1,526 @@
-/* 삼우E.N.G 웹사이트 스타일시트 */
-
 /* =====================================================================
-   [Fix #11] CSS 변수로 네비게이션 높이 관리
-   (JS의 updateSliderHeight()가 --nav-height를 동적으로 갱신)
+   삼우E.N.G 웹사이트 스타일시트 — 2026 리디자인
+   정밀가공 제조기업에 맞춘 톤: 딥 네이비 + 스틸 그레이 + 웜 코퍼 포인트
    ===================================================================== */
+
 :root {
-  --nav-height: 4rem; /* 기본값 (JS가 실제 높이로 덮어씀) */
-  --color-primary:   #3C4CA6;
-  --color-secondary: #3C5FA6;
-  --color-accent:    #3C6AA6;
-  --color-light:     #F2F2F2;
-  --color-dark:      #0D0D0D;
+  --nav-height: 4.5rem;
+
+  /* 브랜드 컬러 (로고의 딥 인디고 기반) */
+  --c-ink:        #0E1330;
+  --c-navy:       #1D2B6B;
+  --c-navy-deep:  #10173F;
+  --c-steel:      #5B6478;
+  --c-steel-light:#8A93A6;
+  --c-mist:       #F2F3F6;
+  --c-mist-deep:  #E8E9EF;
+  --c-line:       #DFE1E8;
+  --c-paper:      #FFFFFF;
+  --c-copper:     #D97B29;
+  --c-copper-deep:#B8621C;
+
+  --font-display: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* =====================================================================
-   컬러 테마 정의
-   [Fix #9] 커스텀 클래스와 Tailwind 컬러를 CSS 변수로 일원화
-   ===================================================================== */
-.text-color1 { color: var(--color-primary); }
-.text-color2 { color: var(--color-secondary); }
-.text-color3 { color: var(--color-accent); }
-.text-color4 { color: var(--color-light); }
-.text-color5 { color: var(--color-dark); }
-.bg-color1 { background-color: var(--color-primary); }
-.bg-color2 { background-color: var(--color-secondary); }
-.bg-color3 { background-color: var(--color-accent); }
-.bg-color4 { background-color: var(--color-light); }
-.bg-color5 { background-color: var(--color-dark); }
-.theme1 { background-color: var(--color-primary);   color: var(--color-light); }
-.theme2 { background-color: var(--color-secondary); color: var(--color-light); }
-.theme3 { background-color: var(--color-accent);    color: var(--color-light); }
-.theme4 { background-color: var(--color-light);     color: var(--color-dark); }
-.theme5 { background-color: var(--color-dark);      color: var(--color-light); }
+* { box-sizing: border-box; }
 
-/* =====================================================================
-   기본 스타일
-   ===================================================================== */
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  font-family: var(--font-display);
+  color: var(--c-ink);
+  background: var(--c-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
 /* =====================================================================
-   섹션 숨김
+   섹션 표시/숨김 (JS의 showSection 이 토글)
    ===================================================================== */
-.hidden-section {
-  display: none !important;
-}
+.hidden-section { display: none !important; }
 
-/* =====================================================================
-   PC 드롭다운 강제 숨김 클래스
-   ===================================================================== */
-.dropdown-hidden {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
+.dropdown-hidden { opacity: 0 !important; visibility: hidden !important; }
 
-/* =====================================================================
-   모바일 드롭다운 스타일
-   ===================================================================== */
 @media (max-width: 768px) {
-  .group:hover .group-hover\:opacity-100 {
-    opacity: 0;
-  }
-  .group:hover .group-hover\:visible {
-    visibility: hidden;
-  }
+  .group:hover .group-hover\:opacity-100 { opacity: 0; }
+  .group:hover .group-hover\:visible { visibility: hidden; }
+}
+
+.rotate-180 { transform: rotate(180deg); }
+
+/* =====================================================================
+   타이포그래피 유틸
+   ===================================================================== */
+.font-mono { font-family: var(--font-mono); }
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--c-copper-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.kicker::before {
+  content: '';
+  width: 1.5rem;
+  height: 1px;
+  background: var(--c-copper);
+  display: inline-block;
+}
+
+.section-head { max-width: 46rem; margin-bottom: 2.5rem; }
+.section-head h2 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--c-ink);
+  margin: 0.5rem 0 0.75rem;
+}
+.section-head p {
+  color: var(--c-steel);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 /* =====================================================================
-   모바일 메뉴 애니메이션
+   헤더 / 내비게이션
    ===================================================================== */
-.rotate-180 {
-  transform: rotate(180deg);
+.site-header {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.site-header.is-scrolled {
+  border-bottom-color: var(--c-line);
+  background: rgba(255, 255, 255, 0.92);
 }
 
-/* =====================================================================
-   [Fix #11] 히어로 슬라이더 높이 클래스
-   JS(updateSliderHeight)가 인라인 스타일로 덮어쓰며,
-   이 클래스는 JS 실행 전 초기 폴백 역할을 함
-   ===================================================================== */
-.slider-hero-height {
-  min-height: calc(100vh - var(--nav-height));
-}
-
-/* =====================================================================
-   슬라이더 스타일
-   ===================================================================== */
-.slide-container {
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--c-ink);
   position: relative;
-  width: 100%;
-  height: 100%;
+  padding: 0.5rem 0.25rem;
 }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0.25rem; right: 0.25rem; bottom: 0.15rem;
+  height: 2px;
+  background: var(--c-copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-link:hover::after,
+.group:hover .nav-link::after { transform: scaleX(1); }
+
+.dropdown-panel {
+  background: var(--c-paper);
+  border: 1px solid var(--c-line);
+  box-shadow: 0 16px 40px -12px rgba(16, 23, 63, 0.18);
+}
+.dropdown-panel a { font-size: 0.9rem; color: var(--c-steel); }
+.dropdown-panel a:hover { color: var(--c-navy); background: var(--c-mist); }
+
+.btn-cta {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background: var(--c-navy);
+  padding: 0.65rem 1.35rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-cta:hover { background: var(--c-copper-deep); }
+
+.btn-outline {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--c-ink);
+  border: 1px solid var(--c-line);
+  padding: 0.65rem 1.35rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-outline:hover { border-color: var(--c-navy); color: var(--c-navy); }
+
+/* =====================================================================
+   히어로 슬라이더
+   ===================================================================== */
+.slider-hero-height { min-height: calc(100vh - var(--nav-height)); }
+
+.slide-container { position: relative; width: 100%; height: 100%; }
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.1s ease-in-out;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: calc(100vh - var(--nav-height));
 }
-
-.slide.active {
-  opacity: 1;
-}
+.slide.active { opacity: 1; }
 
 .slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(14,19,48,0.86) 0%, rgba(14,19,48,0.55) 45%, rgba(14,19,48,0.25) 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
   z-index: 10;
 }
 
 .slide-content {
-  text-align: center;
-  color: white !important;
-  padding: 2rem;
-  max-width: 800px;
+  text-align: left;
+  color: #fff;
+  padding: 0 1.5rem 4.5rem;
+  max-width: 64rem;
+  width: 100%;
   margin: 0 auto;
 }
+@media (min-width: 1024px) { .slide-content { padding: 0 2rem 6rem; } }
 
-.slide-content h1,
-.slide-content h2 {
-  color: white !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+.slide-content .kicker { color: var(--c-copper); margin-bottom: 1rem; }
+.slide-content .kicker::before { background: var(--c-copper); }
+
+.slide-content h1, .slide-content h2 {
+  color: #fff !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-shadow: none;
 }
-
 .slide-content p {
-  color: white !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #E8EAF2 !important;
+  text-shadow: none;
+  max-width: 34rem;
 }
 
-.indicator {
-  cursor: pointer;
-  transition: opacity 0.3s ease;
+.hero-meta {
+  border-top: 1px solid rgba(255,255,255,0.22);
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #C7CCDE;
 }
+.hero-meta strong { color: #fff; font-weight: 600; display: block; font-size: 0.95rem; margin-bottom: 0.15rem; font-family: var(--font-display); }
 
-.indicator.active {
-  opacity: 1 !important;
-}
+.indicator { cursor: pointer; transition: opacity 0.3s ease, width 0.3s ease; }
+.indicator.active { opacity: 1 !important; }
+.indicator:hover { opacity: 0.85; }
 
-.indicator:hover {
-  opacity: 0.8;
-}
-
-/* =====================================================================
-   Lazy loading 이미지 스타일
-   ===================================================================== */
-img[data-src] {
-  filter: blur(5px);
-  transition: filter 0.3s;
-}
-
-img.loaded {
-  filter: blur(0);
-}
-
-/* =====================================================================
-   Skip to content 링크 스타일 (접근성)
-   ===================================================================== */
-.skip-to-content {
+.scroll-cue {
   position: absolute;
-  left: -9999px;
-  z-index: 100;
-  padding: 1rem;
-  background: var(--color-primary);
-  color: white;
-  text-decoration: none;
-}
-
-.skip-to-content:focus {
-  left: 50%;
-  transform: translateX(-50%);
-  top: 1rem;
-}
-
-/* =====================================================================
-   제품 슬라이더 기본 스타일
-   ===================================================================== */
-.product-slide {
-  opacity: 0;
-  transform: translateX(300%) scale(0.7);
-  z-index: 0;
-}
-
-/* =====================================================================
-   공정 슬라이더 기본 스타일
-   ===================================================================== */
-.process-slide {
-  opacity: 0;
-  transform: translateX(300%) scale(0.7);
-  z-index: 0;
-}
-
-/* =====================================================================
-   기업정보 테이블 스타일
-   [Fix #10] transition 속성 명시적 추가
-   ===================================================================== */
-.company-info-table {
-  width: 100%;
-}
-
-.info-row {
+  right: 1.5rem;
+  bottom: 1.75rem;
+  z-index: 20;
   display: flex;
   align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #e5e7eb;
-  transition: background-color 0.2s ease;
+  gap: 0.6rem;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
 }
-
-.info-row:hover {
-  background-color: #f9fafb;
+.scroll-cue .line { width: 1px; height: 2.5rem; background: rgba(255,255,255,0.5); position: relative; overflow: hidden; }
+.scroll-cue .line::after {
+  content: '';
+  position: absolute; left: 0; top: -100%; width: 100%; height: 100%;
+  background: #fff;
+  animation: scrollcue 1.8s ease-in-out infinite;
 }
+@keyframes scrollcue { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
 
-.info-row:last-child {
-  border-bottom: none;
+/* =====================================================================
+   핵심역량 스트립
+   ===================================================================== */
+.stat-strip {
+  background: var(--c-navy);
+  color: #fff;
 }
-
-.info-label {
-  flex: 0 0 120px;
+.stat-item { border-left: 1px solid rgba(255,255,255,0.16); padding: 0 0 0 1.5rem; }
+.stat-item:first-child { border-left: none; padding-left: 0; }
+.stat-num {
+  font-family: var(--font-mono);
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
   font-weight: 600;
-  color: #374151;
-  font-size: 1rem;
-  margin-right: 1rem;
+  color: #fff;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
 }
-
-.info-value {
-  flex: 1;
-  color: #111827;
-  font-size: 1rem;
-  line-height: 1.5;
-}
+.stat-num .unit { font-size: 1.1rem; color: var(--c-copper); margin-left: 0.15rem; }
+.stat-label { color: #B7BEDA; font-size: 0.9rem; line-height: 1.5; }
 
 /* =====================================================================
-   [Fix #10] 버튼 hover transition 명시적 보완
-   (Tailwind transition-colors가 없는 요소를 위한 보완)
+   빠른 링크 카드 (오시는 길 / 갤러리)
    ===================================================================== */
-button {
-  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+.quick-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  background: var(--c-paper);
+  transition: border-color 0.25s ease;
 }
+.quick-card:hover { border-color: var(--c-navy); }
+.quick-card .quick-card-top {
+  padding: 2.25rem 2rem 1.5rem;
+}
+.quick-card .quick-card-num {
+  font-family: var(--font-mono);
+  color: var(--c-copper-deep);
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.quick-card h3 { font-size: 1.4rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--c-ink); }
+.quick-card p { color: var(--c-steel); font-size: 0.95rem; }
+.quick-card .quick-card-cta {
+  border-top: 1px solid var(--c-line);
+  padding: 1rem 2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--c-navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.quick-card:hover .quick-card-cta { color: var(--c-copper-deep); }
 
 /* =====================================================================
-   모바일 반응형
+   기업정보 테이블
    ===================================================================== */
+.info-panel {
+  border: 1px solid var(--c-line);
+  background: var(--c-paper);
+}
+.company-info-table { width: 100%; }
+.info-row {
+  display: flex; align-items: baseline;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.info-row:last-child { border-bottom: none; }
+.info-label {
+  flex: 0 0 130px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--c-steel);
+  letter-spacing: 0.02em;
+}
+.info-value { flex: 1; color: var(--c-ink); font-size: 1rem; font-weight: 500; line-height: 1.55; }
+
 @media (max-width: 640px) {
-  .info-row {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.75rem 0;
-  }
-  
-  .info-label {
-    flex: none;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-  }
-  
-  .info-value {
-    flex: none;
-    width: 100%;
-    padding-left: 1rem;
-    font-size: 0.9rem;
-  }
+  .info-row { flex-direction: column; align-items: flex-start; padding: 0.85rem 0; gap: 0.25rem; }
+  .info-label { flex: none; }
+}
+@media (min-width: 641px) and (max-width: 768px) {
+  .info-label { flex: 0 0 108px; }
 }
 
 /* =====================================================================
-   태블릿 사이즈
+   인사말
    ===================================================================== */
-@media (min-width: 641px) and (max-width: 768px) {
-  .info-label {
-    flex: 0 0 100px;
-    font-size: 0.95rem;
-  }
-  
-  .info-value {
-    font-size: 0.95rem;
-  }
+.ceo-portrait-frame {
+  position: relative;
+  padding: 1rem;
 }
+.ceo-portrait-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1px solid var(--c-copper);
+  transform: translate(10px, 10px);
+  z-index: 0;
+}
+.ceo-portrait-frame img { position: relative; z-index: 1; }
+
+.ceo-letter { color: var(--c-steel); line-height: 1.85; }
+.ceo-letter strong { color: var(--c-ink); font-weight: 700; }
+.ceo-letter .lede { font-size: 1.15rem; color: var(--c-ink); font-weight: 600; line-height: 1.6; }
+
+/* =====================================================================
+   연혁 타임라인
+   ===================================================================== */
+.timeline { position: relative; padding-left: 2.25rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 5px; top: 0.4rem; bottom: 0.4rem;
+  width: 1px; background: var(--c-line);
+}
+.timeline-node { position: relative; padding-bottom: 2.5rem; }
+.timeline-node:last-child { padding-bottom: 0; }
+.timeline-node::before {
+  content: '';
+  position: absolute; left: -2.25rem; top: 0.35rem;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--c-navy);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--c-navy);
+}
+.timeline-node.is-open::before {
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--c-line);
+  border: 2px dashed var(--c-mist-deep);
+}
+.timeline-year { font-family: var(--font-mono); font-weight: 600; color: var(--c-navy); font-size: 1.05rem; }
+.timeline-node.is-open .timeline-year { color: var(--c-steel-light); }
+.timeline-desc { color: var(--c-steel); margin-top: 0.35rem; line-height: 1.6; }
+
+/* =====================================================================
+   준비중 플레이스홀더 (보도자료 등)
+   ===================================================================== */
+.placeholder-panel {
+  border: 1px dashed var(--c-line);
+  background: var(--c-mist);
+  padding: 3rem 2rem;
+  text-align: left;
+}
+.placeholder-panel .kicker { color: var(--c-steel-light); }
+.placeholder-panel .kicker::before { background: var(--c-steel-light); }
+.placeholder-panel h3 { font-size: 1.25rem; font-weight: 700; color: var(--c-ink); margin: 0.75rem 0 0.5rem; }
+.placeholder-panel p { color: var(--c-steel); font-size: 0.95rem; }
+
+/* =====================================================================
+   제품 / 공정 슬라이더
+   ===================================================================== */
+.showcase-frame {
+  position: relative;
+  background: var(--c-mist);
+  border: 1px solid var(--c-line);
+}
+.product-slide, .process-slide {
+  opacity: 0;
+  transform: translateX(300%) scale(0.7);
+  z-index: 0;
+}
+.product-slide img, .process-slide img {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 2px;
+  box-shadow: 0 24px 48px -20px rgba(16, 23, 63, 0.25);
+}
+
+.showcase-nav-btn {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  color: var(--c-ink);
+  border-radius: 999px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.showcase-nav-btn:hover { border-color: var(--c-navy); color: var(--c-navy); }
+
+.showcase-caption {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--c-ink);
+}
+.showcase-index { color: var(--c-copper-deep); }
+
+/* =====================================================================
+   특허·인증 배지 & 갤러리
+   ===================================================================== */
+.badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--c-navy);
+  border: 1px solid var(--c-line);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--c-mist);
+}
+
+.cert-card, .gallery-card {
+  border: 1px solid var(--c-line);
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+.cert-card:hover, .gallery-card:hover { border-color: var(--c-navy); }
+.cert-card figcaption, .gallery-card figcaption {
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  color: var(--c-steel);
+  border-top: 1px solid var(--c-line);
+}
+
+img[data-src] { filter: blur(6px); background: var(--c-mist); transition: filter 0.35s ease; }
+img.loaded { filter: blur(0); }
+
+/* =====================================================================
+   빠른 메뉴 (하단)
+   ===================================================================== */
+.footer-nav-group h3 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--c-steel-light);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--c-line);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.footer-nav-group button {
+  color: var(--c-ink);
+  font-size: 0.95rem;
+}
+.footer-nav-group button:hover { color: var(--c-navy); }
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+.site-footer { background: var(--c-ink); color: #C7CCDE; }
+.site-footer a:hover { color: #fff; }
+.site-footer h2 { color: #fff; }
+
+/* =====================================================================
+   스크롤 리빌 (단일 오케스트레이션: 섹션 진입시 한 번)
+   ===================================================================== */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =====================================================================
+   접근성: 포커스 표시
+   ===================================================================== */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--c-copper);
+  outline-offset: 2px;
+}
+
+.skip-to-content {
+  position: absolute; left: -9999px; z-index: 100;
+  padding: 1rem; background: var(--c-navy); color: #fff; text-decoration: none;
+}
+.skip-to-content:focus { left: 50%; transform: translateX(-50%); top: 1rem; }
+
+button { transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease; }

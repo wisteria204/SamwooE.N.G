@@ -8,7 +8,7 @@ let slideInterval;
 let currentProductIndex = 0;
 const totalProducts = 9;
 let currentProcessIndex = 0;
-const totalProcesses = 12;
+const totalProcesses = 6;
 
 // =====================================================================
 // [Fix #4, #5] DOMContentLoaded 리스너를 단 하나로 통합
@@ -59,6 +59,32 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateSliderHeight();
   window.addEventListener('resize', updateSliderHeight);
+
+  // ----- 헤더 스크롤 상태 -----
+  const siteHeader = document.getElementById('site-header');
+  function updateHeaderScrollState() {
+    if (!siteHeader) return;
+    if (window.scrollY > 8) siteHeader.classList.add('is-scrolled');
+    else siteHeader.classList.remove('is-scrolled');
+  }
+  updateHeaderScrollState();
+  window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
+
+  // ----- 스크롤 리빌 (섹션 진입 시 한 번만 표시) -----
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
 
   // ----- 슬라이더 초기화 -----
   initSlider();
