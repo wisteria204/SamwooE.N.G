@@ -862,3 +862,30 @@ a.loc-card:hover small { color: var(--c-copper); }
 /* 오시는 길: 지도 원래 크기(최소 높이 420) */
 .loc-map { min-height: 420px; }
 .loc-map iframe { min-height: 400px; }
+
+/* ---- 인사말 사진: 프레임 밖으로 나가지 않도록 클립 ---- */
+.dk-portrait-clip { position: relative; z-index: 1; overflow: hidden; clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.15s; }
+.dk-portrait.is-in .dk-portrait-clip { clip-path: inset(0 0 0 0); }
+.dk-portrait-box img { clip-path: none !important; transition: none; transform: translate3d(0, var(--fy, 0px), 0) scale(1.1); }
+@media (prefers-reduced-motion: reduce) { .dk-portrait-clip { clip-path: none; } }
+
+/* =====================================================================
+   제품소개 · 공정소개 — 다크 배경 (레이아웃·애니메이션은 그대로)
+   ===================================================================== */
+#products .section-head h2, #process .section-head h2 { color: #fff; }
+#products .section-head p, #process .section-head p { color: #C7CCDE; }
+#products .scroll-counter, #process .scroll-counter { background: rgba(10, 15, 46, 0.82); border-color: rgba(255,255,255,0.2); }
+#products .scroll-counter-current, #process .scroll-counter-current { color: var(--c-copper); }
+#products .scroll-counter-total, #process .scroll-counter-total { color: #9AA3C4; }
+
+#products .product-text h3 { color: #fff; border-top-color: var(--c-copper); }
+#products .product-media, #process .process-media { position: relative; border-color: rgba(255,255,255,0.2); box-shadow: 0 0 0 6px rgba(255,255,255,0.04), 0 18px 50px rgba(0,0,0,0.35); }
+#products .product-item .product-media { outline: 1px solid rgba(217,123,41,0); outline-offset: 8px; transition: outline-color 0.7s; }
+#products .product-item.is-active .product-media { outline-color: rgba(217,123,41,0.75); }
+#process .process-head h3 { color: #fff; }
+#process .process-head p { color: #AEB6D6; }
+#process .process-item.is-active .process-media { box-shadow: 0 0 0 6px rgba(217,123,41,0.18), 0 18px 50px rgba(0,0,0,0.35); }
+#process .process-media { transition: box-shadow 0.7s; }
+@media (max-width: 767px) {
+  #process .process-media::after { background: #0A0F2E; color: #9AA3C4; border-top-color: rgba(255,255,255,0.15); }
+}
