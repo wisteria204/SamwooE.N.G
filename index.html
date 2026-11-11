@@ -622,13 +622,121 @@
     </section>
 
     <section id="rnd" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="연구개발 섹션">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="section-head">
           <span class="kicker">R&amp;D</span>
           <h2>연구개발</h2>
-          <p>삼우E.N.G는 연구개발 전담 조직을 통해 정밀가공 기술을 지속적으로 고도화하고 있습니다. 그 결과물은 디자인 등록증과 특허증으로 확인하실 수 있습니다.</p>
+          <p>연구개발전담부서를 중심으로 정밀가공 공정을 개선하고, 그 결과를 특허로 만들어 갑니다.</p>
         </div>
-        <button onclick="showSection('patents')" class="btn-outline">특허·인증 현황 보기</button>
+
+        <!-- 대표 특허 -->
+        <article class="patent-hero reveal" aria-label="대표 특허">
+          <div class="patent-hero-text">
+            <span class="kicker patent-kicker">PATENT</span>
+            <h3>머플러 밸브용 케이스<br>제조 방법</h3>
+            <p>자동차 머플러의 배기밸브를 이루는 핵심 부품을, 자재 손실은 줄이고 품질은 높이고 공정은 짧게 만드는 제조 기술입니다.</p>
+            <dl class="patent-meta">
+              <div><dt>출원번호</dt><dd>10-2023-0053720</dd></div>
+              <div><dt>특허결정</dt><dd>2024. 05. 02</dd></div>
+              <div><dt>권리범위</dt><dd>제조방법 + 제품</dd></div>
+            </dl>
+          </div>
+          <figure class="patent-hero-fig">
+            <img src="images/patent_fig4.png" alt="특허 도면: 머플러 밸브용 케이스와 밸브게이트" width="1203" height="929" loading="lazy" />
+            <figcaption>특허 도면 · 머플러 밸브용 케이스(C)와 밸브게이트(G)</figcaption>
+          </figure>
+        </article>
+
+        <!-- 문제 - 해법 - 효과 -->
+        <div class="compare-grid">
+          <article class="compare-card reveal">
+            <span class="compare-tag">BEFORE</span>
+            <h4>기존 방식의 한계</h4>
+            <ul>
+              <li>절단 과정에서 버려지는 자재가 많음</li>
+              <li>절개부 끝단의 스프링백으로 품질 저하</li>
+              <li>공정이 길어 공수 증가</li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card--key reveal">
+            <span class="compare-tag">SOLUTION</span>
+            <h4>삼우E.N.G의 해법</h4>
+            <ul>
+              <li>양끝에 귀부(Ear)를 둔 형상으로 금속판 블랭킹</li>
+              <li>배기홀 타공과 절개부 가공을 한 번에</li>
+              <li>귀부로 양단을 고정·용접한 뒤 절단</li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card--after reveal">
+            <span class="compare-tag">RESULT</span>
+            <h4>달라진 점</h4>
+            <ul>
+              <li>자재 로스 감소</li>
+              <li>스프링백이 없어 품질 향상</li>
+              <li>동시 가공으로 공수 감소</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 제조 공정 흐름 -->
+        <div class="patent-block reveal">
+          <div class="patent-block-head">
+            <h4>특허 제조 공정</h4>
+            <span class="flow-note">01~02 단계는 동시에 진행해 작업 시간을 줄입니다</span>
+          </div>
+          <ol class="flow">
+          <li class="flow-step">
+            <span class="flow-num">01</span>
+            <div><strong>블랭킹</strong><span>귀부(Ear)가 달리도록 금속판 절단</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">02</span>
+            <div><strong>배기홀 타공</strong><span>절개부까지 함께 가공</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">03</span>
+            <div><strong>성형</strong><span>판을 말아 파이프 형상으로</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">04</span>
+            <div><strong>귀부 가접</strong><span>맞댄 양단을 임시 고정</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">05</span>
+            <div><strong>본용접</strong><span>양단을 용접해 파이프 제작</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">06</span>
+            <div><strong>비드 제거</strong><span>내·외면 용접 비드 제거</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">07</span>
+            <div><strong>귀부 절단</strong><span>양단을 평평하게 정리</span></div>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">08</span>
+            <div><strong>축관</strong><span>한쪽 직경을 줄여 완성</span></div>
+          </li>
+          <li class="flow-step flow-step--opt">
+            <span class="flow-num">09</span>
+            <div><strong>면취</strong><span>모서리 정리 (선택)</span></div>
+          </li>
+          </ol>
+        </div>
+
+        <!-- 도면 -->
+        <div class="fig-grid">
+          <figure class="fig-card reveal">
+            <img src="images/patent_fig1.png" alt="특허 도면: 가공 전 금속판의 형상" width="1039" height="828" loading="lazy" />
+            <figcaption><strong>가공 전 금속판</strong><span>몸통부(110) · 귀부(120) · 배기홀부(130) · 절개부(140)</span></figcaption>
+          </figure>
+          <figure class="fig-card reveal">
+            <img src="images/patent_fig3.png" alt="특허 도면: 공정별 형상 변화" width="1472" height="1769" loading="lazy" />
+            <figcaption><strong>공정별 형상 변화</strong><span>(a) 블랭킹·타공 → (b) 성형 → (c) 가접·용접 → (d) 비드·귀부 제거 → (e) 축관·면취</span></figcaption>
+          </figure>
+        </div>
+
+        <button onclick="showSection('patents')" class="btn-outline mt-10">특허·인증 현황 보기</button>
       </div>
     </section>
 

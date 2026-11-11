@@ -592,3 +592,90 @@ a:focus-visible, button:focus-visible {
 .skip-to-content:focus { left: 50%; transform: translateX(-50%); top: 1rem; }
 
 button { transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease; }
+
+/* =====================================================================
+   연구개발 · 대표 특허
+   ===================================================================== */
+.patent-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  background: var(--c-navy-deep);
+  color: #fff;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+.patent-kicker { color: var(--c-copper); }
+.patent-hero h3 {
+  font-size: clamp(1.75rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0.75rem 0 1rem;
+  color: #fff;
+}
+.patent-hero-text > p { color: #C7CCDE; line-height: 1.7; max-width: 32rem; }
+.patent-meta {
+  margin: 1.75rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, auto));
+  gap: 1rem 2rem;
+  justify-content: start;
+}
+.patent-meta dt { font-family: var(--font-mono); font-size: 0.72rem; color: #9AA3C4; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.patent-meta dd { margin: 0; font-weight: 700; font-size: 1rem; color: #fff; white-space: nowrap; }
+@media (max-width: 520px) { .patent-meta { grid-template-columns: repeat(2, minmax(0, auto)); gap: 1rem 1.5rem; } }
+
+.patent-hero-fig { margin: 0; background: #fff; align-self: center; }
+.patent-hero-fig img { width: 100%; height: auto; display: block; padding: 1rem; }
+.patent-hero-fig figcaption {
+  font-family: var(--font-mono); font-size: 0.75rem; color: var(--c-steel);
+  padding: 0.7rem 1rem; border-top: 1px solid var(--c-line);
+}
+@media (min-width: 900px) { .patent-hero { grid-template-columns: 6fr 5fr; gap: 3rem; } }
+
+/* 문제 - 해법 - 효과 */
+.compare-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 3.5rem; }
+@media (min-width: 800px) { .compare-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+.compare-card { border: 1px solid var(--c-line); background: #fff; padding: 1.75rem 1.5rem; }
+.compare-card h4 { font-size: 1.2rem; font-weight: 800; margin: 0.6rem 0 1rem; color: var(--c-ink); }
+.compare-card ul { margin: 0; padding: 0; list-style: none; }
+.compare-card li { position: relative; padding-left: 1.1rem; color: var(--c-steel); line-height: 1.55; margin-bottom: 0.6rem; font-size: 0.97rem; }
+.compare-card li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 5px; height: 5px; background: var(--c-steel-light); }
+.compare-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--c-steel-light); }
+.compare-card--key { background: var(--c-navy); border-color: var(--c-navy); }
+.compare-card--key h4 { color: #fff; }
+.compare-card--key li { color: #DDE1F0; }
+.compare-card--key li::before { background: var(--c-copper); }
+.compare-card--key .compare-tag { color: var(--c-copper); }
+.compare-card--after { border-color: var(--c-copper); }
+.compare-card--after .compare-tag { color: var(--c-copper-deep); }
+.compare-card--after li { color: var(--c-ink); font-weight: 600; }
+.compare-card--after li::before { background: var(--c-copper); }
+
+/* 제조 공정 흐름 */
+.patent-block { margin-bottom: 3.5rem; }
+.patent-block-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; padding-bottom: 0.9rem; border-bottom: 2px solid var(--c-ink); }
+.patent-block-head h4 { font-size: 1.35rem; font-weight: 800; margin: 0; color: var(--c-ink); }
+.flow-note { font-size: 0.85rem; color: var(--c-copper-deep); font-weight: 600; }
+
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 640px) { .flow { grid-template-columns: repeat(2, 1fr); column-gap: 1.5rem; } }
+@media (min-width: 1000px) { .flow { grid-template-columns: repeat(3, 1fr); } }
+.flow-step { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 0.25rem; border-bottom: 1px solid var(--c-line); }
+.flow-num { font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; line-height: 1; color: var(--c-copper); min-width: 2.2rem; }
+.flow-step strong { display: block; font-size: 1.05rem; color: var(--c-ink); margin-bottom: 0.2rem; }
+.flow-step span:not(.flow-num) { color: var(--c-steel); font-size: 0.9rem; line-height: 1.5; }
+.flow-step--opt .flow-num, .flow-step--opt strong { color: var(--c-steel-light); }
+.flow-step:nth-child(-n+2) .flow-num { color: var(--c-navy); }
+
+/* 도면 */
+.fig-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 800px) { .fig-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+.fig-card { margin: 0; border: 1px solid var(--c-line); background: #fff; display: flex; flex-direction: column; }
+.fig-card img { width: 100%; height: auto; display: block; padding: 1.25rem; flex: 1 1 auto; min-height: 0; object-fit: contain; }
+.fig-card figcaption { border-top: 1px solid var(--c-line); padding: 1rem 1.25rem; background: var(--c-mist); }
+.fig-card figcaption strong { display: block; color: var(--c-ink); margin-bottom: 0.25rem; }
+.fig-card figcaption span { font-size: 0.85rem; color: var(--c-steel); line-height: 1.5; }
