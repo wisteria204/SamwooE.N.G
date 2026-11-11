@@ -810,7 +810,7 @@ a.loc-card:hover { background: rgba(255,255,255,0.05); }
 a.loc-card:hover small { color: var(--c-copper); }
 @media (max-width: 700px) { .loc-cards { grid-template-columns: 1fr; } .loc-card { border-left: 0; border-top: 1px solid rgba(255,255,255,0.12); } .loc-card:first-child { border-top: 0; } }
 .loc-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: clamp(2.5rem, 6vw, 4rem); }
-@media (min-width: 900px) { .loc-grid { grid-template-columns: 3fr 2fr; gap: 2rem; align-items: stretch; } }
+@media (min-width: 1024px) { .loc-grid { grid-template-columns: 2fr 3fr; gap: 2rem; align-items: stretch; } }
 .loc-map { position: relative; min-height: 340px; border: 1px solid rgba(255,255,255,0.16); background: #0A0F2E; padding: 10px; }
 .loc-map::before, .loc-map::after { content: ''; position: absolute; width: 22px; height: 22px; border: 2px solid var(--c-copper); z-index: 2; pointer-events: none; }
 .loc-map::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
@@ -834,3 +834,31 @@ a.loc-card:hover small { color: var(--c-copper); }
   .dk-portrait { max-width: 17rem; margin: 0 auto; }
   .dk-portrait-box::before { inset: 10px -10px -10px 10px; }
 }
+
+/* ---- 수정 (가독성·크기·연혁·오시는 길) ---- */
+/* 기업정보: 글자 키움 */
+.dk-label { font-size: 1rem; letter-spacing: 0.04em; }
+.dk-value { font-size: clamp(1.2rem, 2.6vw, 1.65rem); font-weight: 600; line-height: 1.5; }
+.dk-row { grid-template-columns: 10rem minmax(0, 1fr); }
+@media (max-width: 640px) { .dk-row { grid-template-columns: 1fr; } .dk-label { font-size: 0.95rem; } }
+
+/* 인사말: 사진·서명 축소, 본문 확대 */
+.greet-grid { grid-template-columns: 1fr; }
+@media (min-width: 900px) { .greet-grid { grid-template-columns: 5fr 8fr; gap: 4rem; } }
+.dk-portrait { max-width: 20rem; }
+.dk-sign img { width: 7rem; }
+@media (min-width: 640px) { .dk-sign img { width: 9rem; } }
+.dk-letter { max-width: 40rem; }
+.dk-letter p { font-size: clamp(1.1rem, 2.3vw, 1.28rem); line-height: 2; color: #DDE1F0; margin: 0 0 2rem; }
+.dk-letter .lede { font-size: clamp(1.55rem, 4vw, 2.3rem); margin-bottom: 2.4rem; }
+@media (max-width: 640px) { .dk-portrait { max-width: 14rem; } .dk-letter p { line-height: 1.95; } }
+
+/* 연혁: 번호 대신 점, 연월 확대 */
+.hist .story-step { gap: 0; }
+.hist .story-step .ym { display: block; font-family: var(--font-mono); font-weight: 600; font-size: clamp(1.15rem, 2.8vw, 1.5rem); letter-spacing: 0.04em; color: #8E97BA; margin-bottom: 0.45rem; transition: color 0.4s; }
+.hist .story-step.is-active .ym { color: var(--c-copper); }
+.hist .story-step strong { font-size: clamp(1.4rem, 3.4vw, 2.1rem); }
+
+/* 오시는 길: 지도 원래 크기(최소 높이 420) */
+.loc-map { min-height: 420px; }
+.loc-map iframe { min-height: 400px; }
