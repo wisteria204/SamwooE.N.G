@@ -889,3 +889,36 @@ a.loc-card:hover small { color: var(--c-copper); }
 @media (max-width: 767px) {
   #process .process-media::after { background: #0A0F2E; color: #9AA3C4; border-top-color: rgba(255,255,255,0.15); }
 }
+
+/* ---- 인사말 사진: 프레임 정중앙 ---- */
+.dk-portrait-box { padding: 14px; }
+.dk-portrait-box::before { inset: 0; transform: scale(0.96); }
+.dk-portrait.is-in .dk-portrait-box::before { transform: none; }
+.dk-portrait-box img { transform: none !important; }
+@media (max-width: 640px) { .dk-portrait-box::before { inset: 0; } }
+
+/* =====================================================================
+   특허인증 · 보도자료 · 갤러리 — 다크 디자인
+   ===================================================================== */
+#patents .badge { color: #fff; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.28); font-family: var(--font-mono); }
+#patents .badge-row { margin: clamp(2rem, 5vw, 3rem) 0 clamp(1.5rem, 4vw, 2.5rem); }
+.cert-grid { margin-top: 0; }
+#patents .cert-card, #gallery .gallery-card { position: relative; background: rgba(16, 23, 63, 0.55); border: 1px solid rgba(255,255,255,0.16); overflow: hidden; }
+#patents .cert-card::before, #gallery .gallery-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px; background: var(--c-copper); z-index: 3; transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+#patents .cert-card:hover::before, #gallery .gallery-card:hover::before { width: 100%; }
+#patents .cert-card:hover, #gallery .gallery-card:hover { border-color: rgba(217,123,41,0.7); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+#patents .cert-card, #gallery .gallery-card { transition: opacity 0.75s ease, transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.3s, box-shadow 0.3s; }
+#patents .cert-card.is-in:hover { transform: translateY(-6px); }
+#patents .cert-card figcaption, #gallery .gallery-card figcaption { color: #fff; font-size: 0.95rem; font-weight: 600; border-top: 1px solid rgba(255,255,255,0.12); background: transparent; display: flex; justify-content: space-between; align-items: center; }
+#patents .cert-card figcaption::after, #gallery .gallery-card figcaption::after { content: '↗'; color: var(--c-copper); opacity: 0; transform: translate(-6px, 6px); transition: opacity 0.3s, transform 0.3s; }
+#patents .cert-card:hover figcaption::after, #gallery .gallery-card:hover figcaption::after { opacity: 1; transform: none; }
+
+.news-empty { position: relative; max-width: 40rem; padding: clamp(2rem, 5vw, 3rem); border: 1px dashed rgba(217,123,41,0.6); background: rgba(16, 23, 63, 0.55); overflow: hidden; }
+.news-empty h3 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; color: #fff; margin: 0.7rem 0 0.6rem; }
+.news-empty p { color: #C7CCDE; margin: 0; }
+.news-empty-art { display: flex; gap: 0.5rem; margin-bottom: 1.4rem; }
+.news-empty-art i { width: 3.2rem; height: 0.45rem; background: rgba(255,255,255,0.2); transform-origin: left; animation: newsBar 1.8s ease-in-out infinite; }
+.news-empty-art i:nth-child(2) { width: 5rem; animation-delay: 0.2s; }
+.news-empty-art i:nth-child(3) { width: 2rem; background: var(--c-copper); animation-delay: 0.4s; }
+@keyframes newsBar { 0%, 100% { transform: scaleX(0.35); opacity: 0.5; } 50% { transform: scaleX(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .news-empty-art i { animation: none; } }
