@@ -5,10 +5,6 @@ let fixedDropdown = null;
 const closeTimers = new WeakMap();
 let currentSlide = 0;
 let slideInterval;
-let currentProductIndex = 0;
-const totalProducts = 9;
-let currentProcessIndex = 0;
-const totalProcesses = 6;
 
 // =====================================================================
 // [Fix #4, #5] DOMContentLoaded 리스너를 단 하나로 통합
@@ -89,9 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // ----- 슬라이더 초기화 -----
   initSlider();
 
-  // ----- 제품/공정 슬라이더 초기화 -----
-  updateProductSlider();
-  updateProcessSlider();
+  // ----- 제품/공정 스크롤 리스트 -----
+  initScrollLists();
 
   // ----- 모바일 메뉴 버튼 이벤트 -----
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
@@ -154,45 +149,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ----- 제품 슬라이더 버튼 -----
-  const productNextBtn = document.querySelector('.product-next');
-  const productPrevBtn = document.querySelector('.product-prev');
-  if (productNextBtn && productPrevBtn) {
-    productNextBtn.addEventListener('click', nextProduct);
-    productPrevBtn.addEventListener('click', prevProduct);
-  }
-
-  // ----- 공정 슬라이더 버튼 -----
-  const processNextBtn = document.querySelector('.process-next');
-  const processPrevBtn = document.querySelector('.process-prev');
-  if (processNextBtn && processPrevBtn) {
-    processNextBtn.addEventListener('click', nextProcess);
-    processPrevBtn.addEventListener('click', prevProcess);
-  }
-
   // ----- [Fix #7] 키보드 이벤트 단일 핸들러로 통합 -----
   document.addEventListener('keydown', (e) => {
-    const productsSection = document.getElementById('products');
-    const processSection = document.getElementById('process');
-
     // 모달 ESC 닫기
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       modal.classList.add('hidden');
       document.body.style.overflow = '';
       modalImg.src = '';
       return;
-    }
-
-    // 제품 슬라이더 화살표 키
-    if (productsSection && !productsSection.classList.contains('hidden-section')) {
-      if (e.key === 'ArrowRight') nextProduct();
-      else if (e.key === 'ArrowLeft') prevProduct();
-    }
-
-    // 공정 슬라이더 화살표 키
-    if (processSection && !processSection.classList.contains('hidden-section')) {
-      if (e.key === 'ArrowRight') nextProcess();
-      else if (e.key === 'ArrowLeft') prevProcess();
     }
 
     // Tab 키 드롭다운 표시
@@ -420,139 +384,59 @@ function stopAutoSlide() {
 }
 
 // =====================================================================
-// 제품 슬라이더
+// 제품/공정 세로 스크롤 리스트
+// 화면 중앙에 가장 가까운 항목이 '활성' 상태가 되어 선명하게 나타나고,
+// 지나간 항목은 살짝 흐려집니다. (모바일 터치 스크롤도 동일하게 동작)
 // =====================================================================
-function updateProductSlider() {
-  const productSlides = document.querySelectorAll('.product-slide');
-  const productDescriptions = document.querySelectorAll('.product-desc');
-  
-  productSlides.forEach((slide) => {
-    const slideIndex = parseInt(slide.dataset.index);
-    let relativePosition = slideIndex - currentProductIndex;
-    
-    if (relativePosition > totalProducts / 2) relativePosition -= totalProducts;
-    else if (relativePosition < -totalProducts / 2) relativePosition += totalProducts;
-    
-    if (relativePosition === 0) {
-      slide.style.transform = 'translateX(0) scale(1)';
-      slide.style.opacity = '1';
-      slide.style.zIndex = '10';
-      slide.classList.add('active');
-    } else if (relativePosition === -1) {
-      slide.style.transform = 'translateX(-100%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '2';
-      slide.classList.remove('active');
-    } else if (relativePosition === 1) {
-      slide.style.transform = 'translateX(100%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '2';
-      slide.classList.remove('active');
-    } else if (relativePosition === -2) {
-      slide.style.transform = 'translateX(-200%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '1';
-      slide.classList.remove('active');
-    } else if (relativePosition === 2) {
-      slide.style.transform = 'translateX(200%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '1';
-      slide.classList.remove('active');
-    } else {
-      slide.style.transform = 'translateX(300%) scale(0.7)';
-      slide.style.opacity = '0';
-      slide.style.zIndex = '0';
-      slide.classList.remove('active');
+function initScrollLists() {
+  const lists = document.querySelectorAll('.scroll-list');
+  if (!lists.length) return;
+
+  let ticking = false;
+
+  function updateLists() {
+    ticking = false;
+    const vh = window.innerHeight;
+    const center = vh / 2;
+
+    lists.forEach(list => {
+      if (list.offsetParent === null) return; // 숨겨진 섹션은 건너뜀
+      const items = list.querySelectorAll('.scroll-item');
+      const counter = list.querySelector('.scroll-counter-current');
+      let best = null;
+      let bestDist = Infinity;
+
+      items.forEach(item => {
+        const r = item.getBoundingClientRect();
+        if (r.top < vh * 0.92) item.classList.add('is-seen');
+        if (r.bottom > 0 && r.top < vh) {
+          const dist = Math.abs(r.top + r.height / 2 - center);
+          if (dist < bestDist) { bestDist = dist; best = item; }
+        }
+      });
+
+      items.forEach(item => item.classList.toggle('is-active', item === best));
+      if (best && counter) counter.textContent = best.dataset.num;
+    });
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateLists);
     }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  // 섹션이 표시될 때(클래스 변경) 즉시 갱신
+  const mo = new MutationObserver(requestUpdate);
+  document.querySelectorAll('main > section').forEach(sec => {
+    mo.observe(sec, { attributes: true, attributeFilter: ['class'] });
   });
 
-  productDescriptions.forEach((desc, index) => {
-    if (index === currentProductIndex) {
-      desc.classList.remove('hidden');
-      desc.classList.add('block');
-    } else {
-      desc.classList.add('hidden');
-      desc.classList.remove('block');
-    }
-  });
-}
-
-function nextProduct() {
-  currentProductIndex = (currentProductIndex + 1) % totalProducts;
-  updateProductSlider();
-}
-
-function prevProduct() {
-  currentProductIndex = (currentProductIndex - 1 + totalProducts) % totalProducts;
-  updateProductSlider();
-}
-
-// =====================================================================
-// 공정 슬라이더
-// =====================================================================
-function updateProcessSlider() {
-  const processSlides = document.querySelectorAll('.process-slide');
-  const processDescriptions = document.querySelectorAll('.process-desc');
-  
-  processSlides.forEach((slide) => {
-    const slideIndex = parseInt(slide.dataset.index);
-    let relativePosition = slideIndex - currentProcessIndex;
-    
-    if (relativePosition > totalProcesses / 2) relativePosition -= totalProcesses;
-    else if (relativePosition < -totalProcesses / 2) relativePosition += totalProcesses;
-    
-    if (relativePosition === 0) {
-      slide.style.transform = 'translateX(0) scale(1)';
-      slide.style.opacity = '1';
-      slide.style.zIndex = '10';
-      slide.classList.add('active');
-    } else if (relativePosition === -1) {
-      slide.style.transform = 'translateX(-100%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '2';
-      slide.classList.remove('active');
-    } else if (relativePosition === 1) {
-      slide.style.transform = 'translateX(100%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '2';
-      slide.classList.remove('active');
-    } else if (relativePosition === -2) {
-      slide.style.transform = 'translateX(-200%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '1';
-      slide.classList.remove('active');
-    } else if (relativePosition === 2) {
-      slide.style.transform = 'translateX(200%) scale(0.7)';
-      slide.style.opacity = '0.3';
-      slide.style.zIndex = '1';
-      slide.classList.remove('active');
-    } else {
-      slide.style.transform = 'translateX(300%) scale(0.7)';
-      slide.style.opacity = '0';
-      slide.style.zIndex = '0';
-      slide.classList.remove('active');
-    }
-  });
-
-  processDescriptions.forEach((desc, index) => {
-    if (index === currentProcessIndex) {
-      desc.classList.remove('hidden');
-      desc.classList.add('block');
-    } else {
-      desc.classList.add('hidden');
-      desc.classList.remove('block');
-    }
-  });
-}
-
-function nextProcess() {
-  currentProcessIndex = (currentProcessIndex + 1) % totalProcesses;
-  updateProcessSlider();
-}
-
-function prevProcess() {
-  currentProcessIndex = (currentProcessIndex - 1 + totalProcesses) % totalProcesses;
-  updateProcessSlider();
+  requestUpdate();
 }
 
 // =====================================================================

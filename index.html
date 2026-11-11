@@ -489,89 +489,134 @@
     </section>
 
     <section id="products" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" aria-label="제품소개 섹션">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="section-head">
           <span class="kicker">PRODUCTS</span>
           <h2>제품소개</h2>
           <p>삼우E.N.G가 생산하는 9개 제품 라인업을 소개합니다.</p>
         </div>
 
-        <div class="relative max-w-6xl mx-auto">
-          <div class="showcase-frame relative h-[380px] sm:h-[460px] lg:h-[560px] overflow-hidden">
-            <div class="product-slider-track flex items-center justify-center h-full relative" style="transform: translateX(0);">
-              <div class="product-slide absolute transition-all duration-500" data-index="0"><img src="images/product01.png" alt="제품 1: HOLDER, CASE etc" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="1"><img src="images/product02.png" alt="제품 2: HOLE PIPE etc" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="2"><img src="images/product03.png" alt="제품 3: HOLE TUBE ASS'Y" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="3"><img src="images/product04.png" alt="제품 4: CTR RESO ASS'Y" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="4"><img src="images/product05.png" alt="제품 5: PIPE 전시 부품" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="5"><img src="images/product06.png" alt="제품 6: SIZEING TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="6"><img src="images/product07.png" alt="제품 7: OVER TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="7"><img src="images/product08.png" alt="제품 8: SIZ'G&PIERC'G" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="product-slide absolute transition-all duration-500" data-index="8"><img src="images/product09.png" alt="제품 9: BURRING TYPE" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
+        <div class="scroll-list">
+          <div class="scroll-counter" aria-hidden="true"><span class="scroll-counter-current">01</span><span class="scroll-counter-total"> / 09</span></div>
+          <article class="scroll-item product-item" data-num="01">
+            <div class="product-media"><img src="images/product01.png" alt="제품 1: HOLDER, CASE etc" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">01</span>
+              <h3>HOLDER, CASE etc</h3>
             </div>
-          </div>
-
-          <button class="product-prev showcase-nav-btn absolute left-2 sm:-left-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="이전 제품">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-          </button>
-          <button class="product-next showcase-nav-btn absolute right-2 sm:-right-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="다음 제품">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </button>
-
-          <div class="mt-8 text-center max-w-3xl mx-auto">
-            <div class="product-descriptions">
-              <p class="product-desc showcase-caption block" data-index="0">HOLDER, CASE etc</p>
-              <p class="product-desc showcase-caption hidden" data-index="1">HOLE PIPE etc</p>
-              <p class="product-desc showcase-caption hidden" data-index="2">HOLE TUBE ASS'Y</p>
-              <p class="product-desc showcase-caption hidden" data-index="3">CTR RESO ASS'Y</p>
-              <p class="product-desc showcase-caption hidden" data-index="4">PIPE 전시 부품</p>
-              <p class="product-desc showcase-caption hidden" data-index="5">SIZEING TYPE</p>
-              <p class="product-desc showcase-caption hidden" data-index="6">OVER TYPE</p>
-              <p class="product-desc showcase-caption hidden" data-index="7">SIZ'G&PIERC'G</p>
-              <p class="product-desc showcase-caption hidden" data-index="8">BURRING TYPE</p>
+          </article>
+          <article class="scroll-item product-item" data-num="02">
+            <div class="product-media"><img src="images/product02.png" alt="제품 2: HOLE PIPE etc" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">02</span>
+              <h3>HOLE PIPE etc</h3>
             </div>
-          </div>
+          </article>
+          <article class="scroll-item product-item" data-num="03">
+            <div class="product-media"><img src="images/product03.png" alt="제품 3: HOLE TUBE ASS'Y" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">03</span>
+              <h3>HOLE TUBE ASS'Y</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="04">
+            <div class="product-media"><img src="images/product04.png" alt="제품 4: CTR RESO ASS'Y" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">04</span>
+              <h3>CTR RESO ASS'Y</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="05">
+            <div class="product-media"><img src="images/product05.png" alt="제품 5: PIPE 전시 부품" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">05</span>
+              <h3>PIPE 전시 부품</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="06">
+            <div class="product-media"><img src="images/product06.png" alt="제품 6: SIZEING TYPE" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">06</span>
+              <h3>SIZEING TYPE</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="07">
+            <div class="product-media"><img src="images/product07.png" alt="제품 7: OVER TYPE" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">07</span>
+              <h3>OVER TYPE</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="08">
+            <div class="product-media"><img src="images/product08.png" alt="제품 8: SIZ'G&amp;PIERC'G" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">08</span>
+              <h3>SIZ'G&amp;PIERC'G</h3>
+            </div>
+          </article>
+          <article class="scroll-item product-item" data-num="09">
+            <div class="product-media"><img src="images/product09.png" alt="제품 9: BURRING TYPE" width="600" height="800" loading="lazy" /></div>
+            <div class="product-text">
+              <span class="item-num" aria-hidden="true">09</span>
+              <h3>BURRING TYPE</h3>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="process" class="hidden-section px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24" style="background: var(--c-mist);" aria-label="공정소개 섹션">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="section-head">
           <span class="kicker">PROCESS</span>
           <h2>공정소개</h2>
-          <p>재료 준비부터 열처리까지, 삼우E.N.G의 핵심 제조 공정입니다.</p>
+          <p>삼우E.N.G가 보유한 생산 설비와 스마트 팩토리 현황입니다.</p>
         </div>
 
-        <div class="relative max-w-6xl mx-auto">
-          <div class="showcase-frame relative h-[380px] sm:h-[460px] lg:h-[560px] overflow-hidden">
-            <div class="process-slider-track flex items-center justify-center h-full relative" style="transform: translateX(0);">
-              <div class="process-slide absolute transition-all duration-500" data-index="0"><img src="images/process01.png" alt="공정 1: 재료 준비" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="process-slide absolute transition-all duration-500" data-index="1"><img src="images/process02.png" alt="공정 2: 절단 가공" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="process-slide absolute transition-all duration-500" data-index="2"><img src="images/process03.png" alt="공정 3: 성형 가공" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="process-slide absolute transition-all duration-500" data-index="3"><img src="images/process04.png" alt="공정 4: 용접" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="process-slide absolute transition-all duration-500" data-index="4"><img src="images/process05.png" alt="공정 5: 연마" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-              <div class="process-slide absolute transition-all duration-500" data-index="5"><img src="images/process06.png" alt="공정 6: 열처리" class="w-full h-[320px] sm:h-[400px] lg:h-[500px] object-contain p-4" /></div>
-            </div>
-          </div>
-
-          <button class="process-prev showcase-nav-btn absolute left-2 sm:-left-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="이전 공정">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-          </button>
-          <button class="process-next showcase-nav-btn absolute right-2 sm:-right-5 top-1/2 -translate-y-1/2 p-3 z-20" aria-label="다음 공정">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </button>
-
-          <div class="mt-8 text-center max-w-3xl mx-auto">
-            <div class="process-descriptions">
-              <p class="process-desc showcase-caption block" data-index="0"><span class="showcase-index">01</span> · 재료 준비 공정</p>
-              <p class="process-desc showcase-caption hidden" data-index="1"><span class="showcase-index">02</span> · 절단 가공 공정</p>
-              <p class="process-desc showcase-caption hidden" data-index="2"><span class="showcase-index">03</span> · 성형 가공 공정</p>
-              <p class="process-desc showcase-caption hidden" data-index="3"><span class="showcase-index">04</span> · 용접 공정</p>
-              <p class="process-desc showcase-caption hidden" data-index="4"><span class="showcase-index">05</span> · 연마 공정</p>
-              <p class="process-desc showcase-caption hidden" data-index="5"><span class="showcase-index">06</span> · 열처리 공정</p>
-            </div>
-          </div>
+        <div class="scroll-list">
+          <div class="scroll-counter" aria-hidden="true"><span class="scroll-counter-current">01</span><span class="scroll-counter-total"> / 06</span></div>
+          <article class="scroll-item process-item" data-num="01">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">01</span>
+              <div><h3>스피닝 &amp; 레이저 설비</h3><p>레이저 절단기</p></div>
+            </header>
+            <div class="process-media"><img src="images/process01.png" alt="스피닝 &amp; 레이저 설비 - 레이저 절단기" width="3500" height="1600" loading="lazy" /></div>
+          </article>
+          <article class="scroll-item process-item" data-num="02">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">02</span>
+              <div><h3>스피닝 &amp; 레이저 설비</h3><p>스피닝 · I/O 장비 · 압입기 &amp; 레이저 마킹</p></div>
+            </header>
+            <div class="process-media"><img src="images/process02.png" alt="스피닝 &amp; 레이저 설비 - 스피닝 · I/O 장비 · 압입기 &amp; 레이저 마킹" width="3500" height="1600" loading="lazy" /></div>
+          </article>
+          <article class="scroll-item process-item" data-num="03">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">03</span>
+              <div><h3>CAN PIPE 설비</h3><p>BEAD ROLLER · END CUTTING · RESTRIKE ROLLING · IO MACHINE</p></div>
+            </header>
+            <div class="process-media"><img src="images/process03.png" alt="CAN PIPE 설비 - BEAD ROLLER · END CUTTING · RESTRIKE ROLLING · IO MACHINE" width="3500" height="1600" loading="lazy" /></div>
+          </article>
+          <article class="scroll-item process-item" data-num="04">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">04</span>
+              <div><h3>CAN PIPE 설비</h3><p>FORMING ROLLER · TAP WELDING · GTAW MACHINE</p></div>
+            </header>
+            <div class="process-media"><img src="images/process04.png" alt="CAN PIPE 설비 - FORMING ROLLER · TAP WELDING · GTAW MACHINE" width="3500" height="1600" loading="lazy" /></div>
+          </article>
+          <article class="scroll-item process-item" data-num="05">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">05</span>
+              <div><h3>스마트 팩토리 추진 사업</h3><p>메인 서버 · TV · POS · 자동 확축관기</p></div>
+            </header>
+            <div class="process-media"><img src="images/process05.png" alt="스마트 팩토리 추진 사업 - 메인 서버 · TV · POS · 자동 확축관기" width="3500" height="1600" loading="lazy" /></div>
+          </article>
+          <article class="scroll-item process-item" data-num="06">
+            <header class="process-head">
+              <span class="item-num" aria-hidden="true">06</span>
+              <div><h3>TUBE &amp; PIPE 설비</h3><p>유압 프레스 · 조관기 · 절단기 · 유압 확관기</p></div>
+            </header>
+            <div class="process-media"><img src="images/process06.png" alt="TUBE &amp; PIPE 설비 - 유압 프레스 · 조관기 · 절단기 · 유압 확관기" width="3500" height="1600" loading="lazy" /></div>
+          </article>
         </div>
       </div>
     </section>
