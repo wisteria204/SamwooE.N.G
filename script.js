@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ----- 제품/공정 스크롤 리스트 -----
   initScrollLists();
   initRndMotion();
+  initDarkPages();
 
   // ----- 모바일 메뉴 버튼 이벤트 -----
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
@@ -570,6 +571,130 @@ function initRndMotion() {
   mo.observe(sec, { attributes: true, attributeFilter: ['class'] });
 
   if (!sec.classList.contains('hidden-section')) { arm(); requestUpdate(); }
+}
+
+// =====================================================================
+// 회사소개 4개 페이지(다크): 등장 모션 / 카운트업 / 패럴랙스 / 연혁 스토리 / 주소 복사
+// =====================================================================
+function initDarkPages() {
+  const pages = Array.from(document.querySelectorAll('.dk-page'));
+  if (!pages.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktopMQ = window.matchMedia('(min-width: 900px)');
+
+  function countUp(el) {
+    const to = parseInt(el.dataset.to, 10) || 0;
+    if (reduce) { el.textContent = String(to); return; }
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / 1100);
+      el.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  pages.forEach(sec => {
+    const hero = sec.querySelector('.pg-hero');
+    const bg = sec.querySelector('.pg-bgword');
+    const para = sec.querySelector('[data-parallax]');
+    const hist = sec.querySelector('.hist');
+    const steps = hist ? Array.from(hist.querySelectorAll('.story-step')) : [];
+    const stage = hist && hist.querySelector('.story-stage');
+    const yearEl = hist && hist.querySelector('.hist-year');
+    const countEl = hist && hist.querySelector('.stage-count');
+    const ticks = hist ? Array.from(hist.querySelectorAll('.hist-ticks i')) : [];
+    let io = null, armed = false, ticking = false, cur = -1;
+
+    function arm() {
+      if (armed) return;
+      armed = true;
+      sec.querySelectorAll('[data-in]').forEach(el => el.classList.remove('is-in'));
+      sec.querySelectorAll('.countup').forEach(el => { el.textContent = '0'; });
+      if (!('IntersectionObserver' in window)) {
+        sec.querySelectorAll('[data-in]').forEach(el => el.classList.add('is-in'));
+        sec.querySelectorAll('.countup').forEach(el => { el.textContent = el.dataset.to; });
+        return;
+      }
+      io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (!en.isIntersecting) return;
+          en.target.classList.add('is-in');
+          if (en.target.classList.contains('countup')) countUp(en.target);
+          en.target.querySelectorAll('.countup').forEach(countUp);
+          io.unobserve(en.target);
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+      sec.querySelectorAll('[data-in]').forEach(el => io.observe(el));
+    }
+    function disarm() { armed = false; if (io) { io.disconnect(); io = null; } }
+
+    function setStep(i) {
+      cur = i;
+      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      const y = steps[i].dataset.year;
+      if (yearEl && yearEl.textContent !== y) {
+        yearEl.textContent = y;
+        yearEl.classList.remove('roll'); void yearEl.offsetWidth; yearEl.classList.add('roll');
+      }
+      if (countEl) countEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(steps.length).padStart(2, '0');
+      const ti = ticks.findIndex(t => t.dataset.y === y);
+      ticks.forEach((t, k) => { t.classList.toggle('is-on', k === ti); t.classList.toggle('is-past', k < ti); });
+    }
+
+    function update() {
+      ticking = false;
+      if (sec.offsetParent === null) return;
+      const vh = window.innerHeight;
+      if (!reduce && hero) {
+        const r = hero.getBoundingClientRect();
+        const t = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+        if (bg) bg.style.transform = 'translate3d(' + ((0.5 - t) * 150).toFixed(1) + 'px,-50%,0)';
+      }
+      if (!reduce && para) {
+        const r = para.getBoundingClientRect();
+        const t = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+        para.style.setProperty('--fy', ((t - 0.5) * -28).toFixed(1) + 'px');
+      }
+      if (steps.length && stage) {
+        const center = desktopMQ.matches ? vh * 0.5 : (stage.getBoundingClientRect().bottom + vh) / 2;
+        let best = 0, bd = Infinity;
+        steps.forEach((s, i) => {
+          const r = s.getBoundingClientRect();
+          const d = Math.abs(r.top + r.height / 2 - center);
+          if (d < bd) { bd = d; best = i; }
+        });
+        const f = steps[0].getBoundingClientRect(), l = steps[steps.length - 1].getBoundingClientRect();
+        const a = f.top + f.height / 2, z = l.top + l.height / 2;
+        const p = z === a ? 0 : Math.max(0, Math.min(1, (center - a) / (z - a)));
+        hist.style.setProperty('--p', p.toFixed(3));
+        if (best !== cur) setStep(best);
+      }
+    }
+    function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    new MutationObserver(() => {
+      if (sec.classList.contains('hidden-section')) disarm(); else { arm(); req(); }
+    }).observe(sec, { attributes: true, attributeFilter: ['class'] });
+    if (!sec.classList.contains('hidden-section')) { arm(); req(); }
+  });
+
+  // 주소 복사
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    const label = btn.textContent;
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      try { await navigator.clipboard.writeText(text); }
+      catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        ta.remove();
+      }
+      btn.textContent = '복사됨 ✓';
+      setTimeout(() => { btn.textContent = label; }, 1800);
+    });
+  });
 }
 
 // =====================================================================
