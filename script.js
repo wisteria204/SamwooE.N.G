@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateSliderHeight();
   window.addEventListener('resize', updateSliderHeight);
+  // 스타일(Tailwind)이 모두 적용된 뒤 한 번 더 측정해 헤더 높이 오차를 바로잡음
+  window.addEventListener('load', updateSliderHeight);
 
   // ----- 헤더 스크롤 상태 -----
   const siteHeader = document.getElementById('site-header');
@@ -87,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ----- 제품/공정 스크롤 리스트 -----
   initScrollLists();
+  initRndMotion();
 
   // ----- 모바일 메뉴 버튼 이벤트 -----
   const mobileMenuBtn = document.getElementById('mobile-menu-button');
@@ -437,6 +440,136 @@ function initScrollLists() {
   });
 
   requestUpdate();
+}
+
+// =====================================================================
+// 연구개발: 카운트업 / 스크롤 연동 모션 / 공정 스토리
+// =====================================================================
+function initRndMotion() {
+  const sec = document.getElementById('rnd');
+  if (!sec) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktopMQ = window.matchMedia('(min-width: 900px)');
+  const hero = sec.querySelector('.rnd-hero');
+  const bgword = sec.querySelector('.rnd-bgword');
+  const heroFig = sec.querySelector('.rnd-hero-fig');
+  const story = sec.querySelector('.story');
+  const stage = story && story.querySelector('.story-stage');
+  const steps = story ? Array.from(story.querySelectorAll('.story-step')) : [];
+  const stageImgs = story ? Array.from(story.querySelectorAll('.stage-img')) : [];
+  const dots = story ? Array.from(story.querySelectorAll('.stage-dots i')) : [];
+  const badge = story && story.querySelector('.stage-badge');
+  const badgeEn = story && story.querySelector('.stage-en');
+  const badgeKo = story && story.querySelector('.stage-ko');
+  const countEl = story && story.querySelector('.stage-count');
+
+  let io = null;
+  let armed = false;
+  let currentIdx = -1;
+  let ticking = false;
+
+  function countUp(el) {
+    const to = parseInt(el.dataset.to, 10) || 0;
+    if (reduce) { el.textContent = String(to); return; }
+    const dur = 1100;
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(to * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  // 섹션이 보일 때마다 처음부터 다시 재생
+  function arm() {
+    if (armed) return;
+    armed = true;
+    sec.querySelectorAll('[data-in]').forEach(el => el.classList.remove('is-in'));
+    sec.querySelectorAll('.countup').forEach(el => { el.textContent = '0'; });
+    if (!('IntersectionObserver' in window)) {
+      sec.querySelectorAll('[data-in]').forEach(el => el.classList.add('is-in'));
+      sec.querySelectorAll('.countup').forEach(el => { el.textContent = el.dataset.to; });
+      return;
+    }
+    io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('is-in');
+        el.querySelectorAll('.countup').forEach(countUp);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+    sec.querySelectorAll('[data-in]').forEach(el => io.observe(el));
+  }
+
+  function disarm() {
+    if (!armed) return;
+    armed = false;
+    if (io) { io.disconnect(); io = null; }
+  }
+
+  function setActive(i) {
+    currentIdx = i;
+    steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    const st = steps[i];
+    const stageNo = parseInt(st.dataset.stage, 10);
+    stageImgs.forEach(img => img.classList.toggle('is-on', parseInt(img.dataset.stage, 10) === stageNo));
+    dots.forEach((d, k) => d.classList.toggle('is-on', k + 1 === stageNo));
+    if (badgeEn) badgeEn.textContent = st.dataset.en;
+    if (badgeKo) badgeKo.textContent = st.dataset.ko;
+    if (countEl) countEl.textContent = String(stageNo).padStart(2, '0') + ' / ' + String(stageImgs.length).padStart(2, '0');
+    if (badge) { badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop'); }
+  }
+
+  function update() {
+    ticking = false;
+    if (sec.offsetParent === null) return;
+    const vh = window.innerHeight;
+
+    // 히어로 패럴랙스
+    if (!reduce && hero) {
+      const r = hero.getBoundingClientRect();
+      const t = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+      if (bgword) bgword.style.transform = 'translate3d(' + ((0.5 - t) * 150).toFixed(1) + 'px,-50%,0)';
+      if (heroFig) heroFig.style.setProperty('--fy', ((t - 0.5) * 36).toFixed(1) + 'px');
+    }
+
+    // 공정 스토리: 화면 중앙에 가장 가까운 단계를 활성화
+    if (story && steps.length && stage) {
+      const center = desktopMQ.matches ? vh * 0.5 : (stage.getBoundingClientRect().bottom + vh) / 2;
+      let best = 0, bestDist = Infinity;
+      steps.forEach((s, i) => {
+        const r = s.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - center);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      const f = steps[0].getBoundingClientRect();
+      const l = steps[steps.length - 1].getBoundingClientRect();
+      const a = f.top + f.height / 2;
+      const z = l.top + l.height / 2;
+      const p = z === a ? 0 : Math.max(0, Math.min(1, (center - a) / (z - a)));
+      story.style.setProperty('--p', p.toFixed(3));
+      if (best !== currentIdx) setActive(best);
+    }
+  }
+
+  function requestUpdate() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  const mo = new MutationObserver(() => {
+    if (sec.classList.contains('hidden-section')) { disarm(); }
+    else { arm(); requestUpdate(); }
+  });
+  mo.observe(sec, { attributes: true, attributeFilter: ['class'] });
+
+  if (!sec.classList.contains('hidden-section')) { arm(); requestUpdate(); }
 }
 
 // =====================================================================
